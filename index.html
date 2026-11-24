@@ -2458,10 +2458,16 @@
     @media (max-width: 768px) {
       .menu-toggle {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        flex-shrink: 0;
+        min-height: 40px;
+        padding: 8px 12px;
       }
       .site-menu {
         position: fixed;
-        top: 68px;
+        top: 56px;
         left: 12px;
         right: 12px;
         background: #070B22;
@@ -2473,28 +2479,34 @@
         align-items: stretch;
         display: none;
         z-index: 1002;
-        max-height: calc(100dvh - 84px);
+        max-height: calc(100dvh - 72px);
         overflow-y: auto;
       }
       .site-menu.is-open {
         display: flex;
       }
-      .header-inner {
-        padding: 0 16px;
-      }
       .container {
         padding-inline: 16px;
       }
 
-      /* Header: logo + menu only — trial lives in sticky bar */
-      .btn-header-pill {
-        display: none;
+      /* Header: logo left, menu flush right — hide empty trial slot */
+      .btn-header-pill,
+      .header-actions {
+        display: none !important;
       }
       .site-header {
         height: 56px;
       }
       .header-inner {
         height: 56px;
+        padding: 0 16px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .site-nav {
+        margin-left: auto;
+        align-items: center;
       }
 
       /* Hero: content-first, short fold */
