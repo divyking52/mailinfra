@@ -83,3 +83,17 @@
     clip-path: none !important;
   }
 }
+
+/* Mobile: vertical-only reveals so transforms don't create side gaps */
+@media (max-width: 768px) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    transform: translate3d(0, 16px, 0);
+  }
+  .reveal-up.is-visible,
+  .reveal-left.is-visible,
+  .reveal-right.is-visible {
+    transform: none;
+  }
+}

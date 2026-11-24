@@ -22,3 +22,5 @@ mailinfra-website/
 # Local tooling leftovers
 _*.py
 agent-tools/
+
+.vercel
