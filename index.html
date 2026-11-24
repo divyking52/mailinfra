@@ -2430,7 +2430,13 @@
       .console-grid,
       .faq-chat-layout,
       .pricing-command-deck {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .console-shell,
+      .console-grid,
+      .console-panel {
+        min-width: 0;
+        max-width: 100%;
       }
       .trust-stats-grid,
       .guarantee-grid {
@@ -2703,6 +2709,34 @@
       .hiw-status-bar {
         display: none !important;
       }
+      .feature-tile.featured {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+        gap: 12px;
+        align-items: stretch;
+        padding: 16px;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .feature-tile.featured > div {
+        min-width: 0;
+        width: 100%;
+      }
+      .feature-tile.featured h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+      }
+      .feature-tile.featured p {
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      .feature-top-row {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
       .feature-tile[style*="grid-template-columns"] {
         display: block !important;
       }
@@ -2768,13 +2802,92 @@
       }
       .pricing-command-deck {
         border-radius: 18px;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+        overflow: hidden;
       }
       .pricing-left-flagship,
       .pricing-right-specs {
-        padding: 24px 18px;
+        padding: 20px 14px;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .pricing-left-flagship {
+        width: 100%;
+      }
+      .pricing-badge-row {
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .pricing-discount-pill {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+        white-space: normal;
+        line-height: 1.3;
       }
       .pricing-zero {
-        font-size: 3rem;
+        font-size: 2.75rem;
+      }
+      .pricing-price-row {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        align-items: center;
+      }
+      .pricing-ongoing {
+        font-size: 0.92rem;
+        line-height: 1.4;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        margin-bottom: 16px;
+      }
+      .pricing-estimator-card {
+        padding: 14px;
+        margin-bottom: 18px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .pricing-estimator-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 0.78rem;
+      }
+      .pricing-estimator-header span {
+        word-break: break-word;
+      }
+      .pricing-estimator-stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .pricing-est-tile {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        text-align: left;
+        padding: 10px 12px;
+      }
+      .pricing-est-tile strong {
+        font-size: 1rem;
+      }
+      .pricing-est-tile span {
+        font-size: 0.7rem;
+        text-align: right;
+        max-width: 55%;
+      }
+      .pricing-left-flagship .btn {
+        font-size: 0.82rem !important;
+        min-height: 48px !important;
+        padding-inline: 12px;
+        white-space: normal;
+        line-height: 1.25;
+      }
+      .pricing-left-flagship p {
+        word-break: break-word;
+        overflow-wrap: anywhere;
       }
 
       .faq-chat-layout {
@@ -2845,15 +2958,29 @@
         font-size: 0.78rem;
         border-radius: 999px;
       }
+      /* Sticky clearance lives in the dark footer — not white body padding */
+      html {
+        background-color: #01020A;
+      }
       body {
-        padding-bottom: 72px;
+        padding-bottom: 0;
+      }
+      .cf-footer {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+        margin-bottom: 0;
       }
 
       /* Footer wordmark eats huge scroll — shrink hard */
       .cf-wordmark {
-        font-size: clamp(2.4rem, 18vw, 4.5rem);
-        margin-top: 12px;
-        opacity: 0.28;
+        font-size: clamp(2rem, 14vw, 3.25rem);
+        margin-top: 4px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        line-height: 0.7;
+        opacity: 0.22;
+        max-width: 100%;
+        overflow: hidden;
+        transform: none !important;
       }
 
       .console-shell,
@@ -2864,6 +2991,118 @@
         padding: 14px 16px;
         font-size: 0.92rem;
         margin-top: 16px;
+      }
+
+      /* Dashboard console — fit viewport, no side overflow */
+      #dashboard-showcase .container {
+        padding-inline: 16px;
+        max-width: 100%;
+      }
+      .console-shell {
+        padding: 14px;
+        border-radius: 18px;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .console-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+      }
+      .console-dots {
+        flex-wrap: wrap;
+      }
+      .console-dots strong {
+        flex: 1 1 100%;
+        margin-left: 0 !important;
+        margin-top: 6px;
+        font-size: 0.75rem !important;
+        line-height: 1.3;
+        white-space: normal;
+      }
+      .console-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .console-tab {
+        width: 100%;
+        text-align: left;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+      .console-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        width: 100%;
+      }
+      .console-panel {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 14px;
+        overflow: hidden;
+      }
+      .console-panel > div[style*="font-weight:800"],
+      #console-view-title {
+        font-size: 1rem !important;
+        line-height: 1.25;
+        word-break: break-word;
+      }
+      #console-view-desc {
+        font-size: 0.82rem !important;
+        line-height: 1.4;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      .scaler-control {
+        margin-top: 12px;
+        padding: 12px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .scaler-control label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 0.78rem;
+      }
+      .scaler-control label span:last-child {
+        font-size: 0.74rem;
+        word-break: break-word;
+      }
+      .scaler-readout {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .scaler-box {
+        padding: 10px;
+        text-align: left;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .scaler-box strong {
+        font-size: 1.05rem;
+      }
+      .scaler-box span {
+        font-size: 0.7rem;
+        text-align: right;
+        max-width: 55%;
+      }
+      .console-panel [style*="display:flex;justify-content:space-between"] {
+        flex-wrap: wrap;
+        gap: 4px 10px;
+      }
+      .console-panel [style*="display:flex;justify-content:space-between"] span,
+      .console-panel [style*="display:flex;justify-content:space-between"] strong {
+        font-size: 0.8rem !important;
+        word-break: break-word;
       }
     }
 
@@ -3248,7 +3487,11 @@
       .cf-col ul { gap: 8px; }
       .cf-col a { font-size: 0.86rem; }
       .cf-bottom { flex-direction: column; align-items: flex-start; padding-top: 14px; gap: 8px; }
-      .cf-wordmark { margin-top: 8px; line-height: 0.75; }
+      .cf-wordmark {
+        margin-top: 4px;
+        line-height: 0.7;
+        font-size: clamp(2rem, 14vw, 3.25rem);
+      }
     }
 </style>
 </head>
