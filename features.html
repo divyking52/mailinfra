@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — Mailinfra Email Infrastructure Platform</title>
+  <meta name="description" content="Explore Mailinfra's bulletproof cold email infrastructure: 100 free Google Workspace accounts for 30 days, dedicated IPs, full API & SMTP relay, 99.9% deliverability analytics, and safe horizontal scaling.">
+  <meta name="theme-color" content="#0000FF">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/logo/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('assets/fonts/inter-var.woff2') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    :root {
+      --brand-primary: #0000FF;
+      --brand-primary-secondary: #4040FF;
+      --brand-primary-deep: #070A29;
+      --brand-accent: #FFD700;
+      --brand-accent-hover: #FFC700;
+      --brand-purple: #7C3AED;
+      --brand-purple-deep: #5B21B6;
+      --bg-main: #FFFFFF;
+      --bg-secondary: #F5F3FF;
+      --bg-neutral: #F8F9FA;
+      --bg-footer: #0F172A;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-on-dark: #FFFFFF;
+      --border-subtle: #E5E7EB;
+      --status-green: #22C55E;
+      --status-green-dark: #16A34A;
+      --grad-primary: linear-gradient(135deg, #0000FF 0%, #2424FF 52%, #4040FF 100%);
+      --grad-hero-mesh: radial-gradient(circle at 80% 25%, rgba(124, 58, 237, 0.44) 0%, transparent 48%),
+                        radial-gradient(circle at 18% 80%, rgba(255, 215, 0, 0.18) 0%, transparent 42%),
+                        linear-gradient(135deg, #0000D6 0%, #0000FF 48%, #4040FF 100%);
+      --grad-purple: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 30px -6px rgba(15, 23, 42, 0.08);
+      --shadow-xl: 0 24px 48px -12px rgba(0, 0, 255, 0.14);
+      --shadow-2xl: 0 32px 64px -16px rgba(15, 23, 42, 0.28);
+      --shadow-gold: 0 6px 20px rgba(255, 215, 0, 0.42);
+      --shadow-gold-hover: 0 12px 28px rgba(255, 215, 0, 0.58);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --container-max: 1280px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-main);
+      -webkit-font-smoothing: antialiased;
+    }
+    body { overflow-x: hidden; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--brand-accent); outline-offset: 3px; }
+
+    .container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: 24px; }
+
+    /* Header & Announcement */
+    .announcement-bar {
+      background: var(--brand-primary-deep);
+      color: var(--text-on-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    .announcement-pill {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .site-logo svg { color: var(--brand-primary); }
+    .site-menu { list-style: none; display: flex; align-items: center; gap: 6px; }
+    .site-menu a {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      position: relative;
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .site-menu a:hover, .site-menu a[aria-current="page"] {
+      color: var(--brand-primary);
+      background: var(--bg-secondary);
+      font-weight: 700;
+    }
+    .site-menu a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 14px;
+      right: 14px;
+      height: 2.5px;
+      background: var(--brand-primary);
+      border-radius: 2px;
+    }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 0.22s, box-shadow 0.22s, background-color 0.2s;
+    }
+    .btn-gold { background: var(--brand-accent); color: var(--text-primary); box-shadow: var(--shadow-gold); }
+    .btn-gold:hover { background: var(--brand-accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-gold-hover); }
+    .btn-ghost-white { border: 2px solid rgba(255, 255, 255, 0.35); color: #FFF; }
+    .btn-ghost-white:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-2px); }
+
+    /* Hero with 3D Floating Email Infrastructure Cube/Cluster */
+    .features-hero {
+      background: var(--grad-hero-mesh);
+      color: var(--text-on-dark);
+      padding: 76px 0 92px;
+      position: relative;
+      overflow: hidden;
+    }
+    .features-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 1.14rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    /* 3D Infrastructure Stack Visual */
+    .infra-3d-stack {
+      perspective: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+    }
+    .infra-layer {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      padding: 20px 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.32);
+      transform: rotateX(10deg) rotateY(-12deg);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .infra-layer:hover {
+      transform: rotateX(0deg) rotateY(0deg) translateY(-4px) scale(1.02);
+      border-color: var(--brand-accent);
+    }
+    .infra-layer-tag {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Quick Jump Feature Index Bar */
+    .feature-jump-bar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+      overflow-x: auto;
+    }
+    .jump-links {
+      display: flex;
+      gap: 10px;
+      white-space: nowrap;
+      list-style: none;
+    }
+    .jump-links a {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all 0.2s;
+    }
+    .jump-links a:hover {
+      background: var(--brand-primary);
+      color: #FFF;
+      border-color: var(--brand-primary);
+    }
+
+    .section-pad { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sec-h2 {
+      font-size: clamp(1.75rem, 3vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .sec-p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    /* Feature 1: Sticky Split Layout for Google Workspace Account Infrastructure */
+    .f1-split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .f1-sticky {
+      position: sticky;
+      top: 104px;
+    }
+    .inbox-pool-cluster {
+      background: var(--bg-secondary);
+      border: 2px solid var(--brand-purple);
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+      box-shadow: var(--shadow-xl);
+    }
+    .inbox-node-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .inbox-node {
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    /* Feature 2: Dark Dedicated IP Blueprint */
+    .f2-dark {
+      background: var(--bg-footer);
+      color: var(--text-on-dark);
+    }
+    .f2-dark .eyebrow { color: var(--brand-accent); }
+    .f2-dark .sec-p { color: rgba(255, 255, 255, 0.78); }
+    .ip-diagram {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .ip-node {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      position: relative;
+    }
+
+    /* Feature 3 & 4: Dual Interactive Technical Workbench (SMTP Relay + API Integration) */
+    .f34-workbench {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .terminal-card {
+      background: #0B1026;
+      color: #E2E8F0;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      border: 1.5px solid #2D3748;
+      box-shadow: var(--shadow-2xl);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.86rem;
+    }
+    .code-line {
+      padding: 4px 0;
+      display: block;
+    }
+    .code-key { color: #93C5FD; }
+    .code-str { color: #FDE047; }
+    .code-ok { color: #4ADE80; }
+
+    /* Feature 5 & 6: Deliverability Analytics + Email Sending Management */
+    .f56-band {
+      background: var(--bg-secondary);
+    }
+    .analytics-showcase {
+      background: var(--bg-main);
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+    .meter-row {
+      margin-bottom: 16px;
+    }
+    .meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    .meter-track {
+      height: 12px;
+      background: var(--bg-neutral);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .meter-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--grad-primary);
+    }
+
+    /* Feature 7 & 8: Domain Pool Expansion + Real-Time Monitoring & Alerts */
+    .dns-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-main);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    .dns-table th, .dns-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .dns-table th {
+      background: var(--bg-neutral);
+      font-weight: 800;
+    }
+
+    /* Feature 9 & 10: A/B Testing & Segmentation + Safe Volume Scaling */
+    .scaling-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .scale-panel {
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 2px solid var(--border-subtle);
+    }
+    .scale-panel.bad {
+      background: #FEF2F2;
+      border-color: #FCA5A5;
+    }
+    .scale-panel.good {
+      background: #F0FDF4;
+      border-color: #22C55E;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-footer);
+      color: var(--text-on-dark);
+      padding: 68px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-col h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-accent);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: grid; gap: 10px; }
+    .footer-col a { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
+    .footer-col a:hover { color: var(--brand-accent); }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    @media (max-width: 1024px) {
+      .features-hero-grid,
+      .f1-split,
+      .ip-diagram,
+      .f34-workbench,
+      .analytics-showcase,
+      .scaling-comparison {
+        grid-template-columns: 1fr;
+      }
+      .f1-sticky { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: inline-flex; }
+      .site-menu {
+        position: fixed;
+        top: 108px;
+        left: 16px;
+        right: 16px;
+        background: var(--bg-main);
+        border: 1.5px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-2xl);
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+      }
+      .site-menu.is-open { display: flex; }
+      .inbox-node-grid, .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ===== CINEMATIC FOOTER (shared across all pages) ===== */
+    /* 13. FOOTER — infrastructure status-bar close */
+    /* 13. FOOTER — infrastructure status-bar close */
+    .cf-footer {
+      position: relative;
+      background: #01020A;
+      color: #FFFFFF;
+      overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid rgba(0, 0, 255, 0.35);
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .cf-footer *, .cf-footer *::before, .cf-footer *::after { box-sizing: border-box; }
+    .cf-aurora {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(ellipse 48% 42% at 8% 0%, rgba(0, 0, 255, 0.38) 0%, transparent 68%),
+        radial-gradient(ellipse 40% 36% at 92% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 40% at 50% 110%, rgba(0, 0, 255, 0.45) 0%, transparent 72%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-aurora { animation: cf-aurora-shift 16s ease-in-out infinite alternate; }
+    }
+    @keyframes cf-aurora-shift {
+      from { transform: translate3d(-1%, 0, 0) scale(1); }
+      to { transform: translate3d(1%, -0.8%, 0) scale(1.04); }
+    }
+    .cf-grid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      opacity: 0.7;
+    }
+    .cf-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent 0%, #0000FF 28%, #38BDF8 50%, #FFD700 72%, transparent 100%);
+      opacity: 0.85;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-beam { background-size: 220% 100%; animation: cf-beam-run 8s linear infinite; }
+    }
+    @keyframes cf-beam-run {
+      from { background-position: 0% 0; }
+      to { background-position: 220% 0; }
+    }
+    .cf-inner {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 28px 20px;
+    }
+
+    /* Flush CTA strip — no glass card */
+    .cf-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) auto;
+      gap: 28px 48px;
+      align-items: end;
+      padding: 0 0 40px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      border-radius: 0;
+    }
+    .cf-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 0;
+      border: none;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 14px;
+    }
+    .cf-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-dot { animation: cf-dot-pulse 2.2s ease-out infinite; }
+    }
+    @keyframes cf-dot-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .cf-cta h2 {
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      color: #FFFFFF;
+      text-wrap: balance;
+    }
+    .cf-grad-text {
+      color: #38BDF8;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .cf-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 440px;
+      text-wrap: pretty;
+    }
+    .cf-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .cf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .cf-btn-primary {
+      background: #FFD700;
+      color: #050814;
+      box-shadow: 0 8px 28px rgba(255, 215, 0, 0.32);
+    }
+    .cf-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #FFE34D;
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.45);
+    }
+    .cf-btn-ghost {
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+    }
+    .cf-btn-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.7);
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    /* Brand + nav — wider, denser */
+    .cf-cols {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(0, 1fr));
+      gap: 40px 56px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      align-items: start;
+    }
+    .cf-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .cf-logo svg {
+      color: #0000FF;
+      filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.55));
+    }
+    .cf-brand p {
+      margin: 14px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 280px;
+    }
+    .cf-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
+    }
+    .cf-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .cf-trust-item img {
+      height: 14px;
+      width: auto;
+      display: block;
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .cf-trust-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .cf-col h4 {
+      margin: 0 0 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.38);
+    }
+    .cf-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 11px;
+    }
+    .cf-col a {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.94rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .cf-col a:hover { color: #38BDF8; }
+
+    .cf-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    .cf-bottom-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+    }
+    .cf-legal {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .cf-legal a {
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .cf-legal a:hover { color: #FFFFFF; }
+    .cf-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+    .cf-top-btn:hover { color: #FFD700; }
+
+    /* Giant scroll-linked wordmark */
+    .cf-wordmark {
+      position: relative;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 16vw, 15rem);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      margin-top: 28px;
+      padding-bottom: 0.04em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(0, 0, 255, 0.38) 42%, rgba(1, 2, 10, 0) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+      opacity: var(--cf-op, 0.35);
+      transform: translate3d(0, var(--cf-ty, 40px), 0);
+      will-change: transform, opacity;
+    }
+
+    @media (max-width: 1024px) {
+      .cf-cta {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .cf-cta-actions { justify-content: flex-start; }
+      .cf-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px 28px;
+      }
+      .cf-brand { grid-column: 1 / -1; max-width: 520px; }
+    }
+    @media (max-width: 640px) {
+      .cf-inner { padding: 44px 20px 16px; }
+      .cf-cta { padding-bottom: 28px; margin-bottom: 36px; }
+      .cf-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .cf-brand { max-width: none; }
+      .cf-bottom { flex-direction: column; align-items: flex-start; }
+      .cf-wordmark { margin-top: 20px; }
+    }
+</style>
+  <link rel="stylesheet" href="assets/css/scroll-motion.css">
+</head>
+<body>
+  <div class="announcement-bar">
+    <span class="announcement-pill">30-Day Free Trial</span>
+    <span>100 Google Workspace Accounts Free for 30 Days — No Credit Card Required</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        </svg>
+        <span>Mailinfra</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <ul class="site-menu" id="primary-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html" aria-current="page">Features</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">Company</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" target="_blank" rel="noopener">Start Free Trial →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="features-hero">
+      <div class="container features-hero-grid">
+        <div>
+          <div class="hero-badge">🚀 BULLETPROOF COLD EMAIL INFRASTRUCTURE</div>
+          <h1 class="hero-title">Performance-First Email Infrastructure Built to Protect Your Reputation &amp; Cash Flow</h1>
+          <p class="hero-sub">
+            Get 100 Google Workspace accounts free for 30 days with dedicated IPs, full API &amp; SMTP relay, automatic warm-up protocols, and real-time deliverability analytics. Prove ROI first—then pay just $3/account/month.
+          </p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" target="_blank" rel="noopener">CLAIM YOUR 100 FREE ACCOUNTS</a>
+            <a href="how-it-works.html" class="btn btn-ghost-white">See 5-Minute Setup →</a>
+          </div>
+        </div>
+
+        <div class="infra-3d-stack" aria-label="3D Email Infrastructure Layers">
+          <div class="infra-layer">
+            <div>
+              <strong style="display:block;font-size:1.05rem;">Layer 01 • Google Workspace Pool</strong>
+              <span style="font-size:0.84rem;color:rgba(255,255,255,0.75);">100 Free Accounts (Days 1–30) • Add on-demand at $3/each</span>
+            </div>
+            <span class="infra-layer-tag">No Phone Verification</span>
+          </div>
+          <div class="infra-layer">
+            <div>
+              <strong style="display:block;font-size:1.05rem;">Layer 02 • Dedicated IP &amp; Custom DNS</strong>
+              <span style="font-size:0.84rem;color:rgba(255,255,255,0.75);">Free Dedicated IPs • 2-Minute DNS Authentication</span>
+            </div>
+            <span class="infra-layer-tag">99.9% SLA</span>
+          </div>
+          <div class="infra-layer">
+            <div>
+              <strong style="display:block;font-size:1.05rem;">Layer 03 • Horizontal Safe Volume Engine</strong>
+              <span style="font-size:0.84rem;color:rgba(255,255,255,0.75);">40–120 emails/day per inbox • Auto warm-up &amp; alerts</span>
+            </div>
+            <span class="infra-layer-tag">95%+ Inbox Placement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK JUMP INDEX -->
+    <nav class="feature-jump-bar" aria-label="Feature Sections">
+      <div class="container">
+        <ul class="jump-links">
+          <li><a href="#gw-infrastructure">1. Google Workspace Pool</a></li>
+          <li><a href="#dedicated-ips">2. Dedicated IPs</a></li>
+          <li><a href="#api-smtp">3. SMTP Relay &amp; 4. API</a></li>
+          <li><a href="#deliverability-analytics">5. Analytics &amp; 6. Sending</a></li>
+          <li><a href="#domain-pool">7. Domain Pool &amp; 8. Monitoring</a></li>
+          <li><a href="#ab-scaling">9. A/B Testing &amp; 10. Safe Scaling</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- FEATURE 1: GOOGLE WORKSPACE ACCOUNT INFRASTRUCTURE (STICKY SPLIT LAYOUT) -->
+    <section class="section-pad" id="gw-infrastructure">
+      <div class="container f1-split">
+        <div class="f1-sticky">
+          <span class="eyebrow">01 • AUTHENTIC INBOX INFRASTRUCTURE</span>
+          <h2 class="sec-h2">Google Workspace Account Infrastructure</h2>
+          <p class="sec-p">
+            Start with 100 Google Workspace accounts free for 30 days—with zero setup fees, no credit card, and no phone verification required. After day 30, continue or add accounts on-demand at just $3/account/month.
+          </p>
+          <ul style="list-style:none;display:grid;gap:12px;margin-bottom:24px;font-weight:600;">
+            <li>✓ 100 Google Workspace accounts free for Days 1–30</li>
+            <li>✓ Add Google Workspace accounts on-demand at $3/each</li>
+            <li>✓ Fully warmed accounts with automatic warm-up protocols</li>
+            <li>✓ No phone verification required to provision inboxes</li>
+          </ul>
+          <img src="assets/logo/google-workspace.svg" alt="Google Workspace" style="height:28px;">
+        </div>
+
+        <div class="inbox-pool-cluster">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <div>
+              <strong style="font-size:1.1rem;color:var(--brand-primary);">Active Google Workspace Pool</strong>
+              <p style="font-size:0.84rem;color:var(--text-secondary);">Distributed Horizontal Sending Architecture</p>
+            </div>
+            <span style="background:var(--brand-accent);padding:5px 12px;border-radius:999px;font-weight:800;font-size:0.78rem;">$3 / account after Day 30</span>
+          </div>
+          <div class="inbox-node-grid">
+            <div class="inbox-node"><span>gw-node-01@agency-outreach.co</span><span style="color:var(--status-green-dark);">72/day • 99.9%</span></div>
+            <div class="inbox-node"><span>gw-node-02@agency-outreach.co</span><span style="color:var(--status-green-dark);">68/day • 99.8%</span></div>
+            <div class="inbox-node"><span>gw-node-03@gtm-scale.io</span><span style="color:var(--status-green-dark);">80/day • 99.9%</span></div>
+            <div class="inbox-node"><span>gw-node-04@gtm-scale.io</span><span style="color:var(--status-green-dark);">74/day • 99.9%</span></div>
+            <div class="inbox-node"><span>gw-node-05@pipeline-mail.co</span><span style="color:var(--status-green-dark);">65/day • 99.7%</span></div>
+            <div class="inbox-node"><span>+ 95 More Warmed Inboxes</span><span style="color:var(--brand-purple);">Free for 30 Days</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE 2: DEDICATED IP INFRASTRUCTURE (DARK TELEMETRY LAYOUT) -->
+    <section class="section-pad f2-dark" id="dedicated-ips">
+      <div class="container">
+        <span class="eyebrow">02 • REPUTATION ISOLATION</span>
+        <h2 class="sec-h2">Dedicated IP Infrastructure — Included Free</h2>
+        <p class="sec-p" style="max-width:740px;">
+          Shared IP pools expose your campaigns to other senders' bad behavior. Mailinfra includes dedicated IP addresses free with a 99.9% deliverability SLA guarantee.
+        </p>
+        <div class="ip-diagram">
+          <div class="ip-node">
+            <div style="color:var(--brand-accent);font-weight:800;font-size:0.82rem;margin-bottom:8px;">FREE INCLUSION</div>
+            <h3 style="font-size:1.25rem;margin-bottom:8px;">Dedicated IP Addresses</h3>
+            <p style="font-size:0.93rem;color:rgba(255,255,255,0.75);">Dedicated IP addresses are included free on every account pool so your sender reputation stays 100% under your control.</p>
+          </div>
+          <div class="ip-node">
+            <div style="color:#4ADE80;font-weight:800;font-size:0.82rem;margin-bottom:8px;">99.9% SLA</div>
+            <h3 style="font-size:1.25rem;margin-bottom:8px;">99.9% Deliverability Rate</h3>
+            <p style="font-size:0.93rem;color:rgba(255,255,255,0.75);">Backed by our 99.9% deliverability SLA guarantee and reputation-first warm-up protocols that maintain 95%+ inbox placement across 300+ agencies.</p>
+          </div>
+          <div class="ip-node">
+            <div style="color:#A78BFA;font-weight:800;font-size:0.82rem;margin-bottom:8px;">30-DAY PROOF</div>
+            <h3 style="font-size:1.25rem;margin-bottom:8px;">Validate Before Paying</h3>
+            <p style="font-size:0.93rem;color:rgba(255,255,255,0.75);">Test dedicated IPs for a full 30 days during your trial and verify inbox placement jump (e.g., 96% to 99.9%) before any commitment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES 3 & 4: SMTP RELAY & API INTEGRATION (DUAL TECHNICAL WORKBENCH) -->
+    <section class="section-pad" id="api-smtp">
+      <div class="container">
+        <div style="max-width:760px;margin-bottom:44px;">
+          <span class="eyebrow">03 &amp; 04 • DEVELOPER &amp; GTM INTEGRATION</span>
+          <h2 class="sec-h2">Full API Integration &amp; High-Throughput SMTP Relay</h2>
+          <p class="sec-p">
+            Begin sending emails in 5 minutes with full API access and SMTP relay. Connect your existing outbound sequencers or build custom GTM workflows with phenomenal API docs and one-click integrations.
+          </p>
+        </div>
+
+        <div class="f34-workbench">
+          <div class="terminal-card">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid #2D3748;padding-bottom:12px;margin-bottom:14px;">
+              <strong style="color:#FFF;">03 • SMTP Relay Configuration (2 Minutes)</strong>
+              <span class="code-ok">● TLS Connected</span>
+            </div>
+            <span class="code-line"><span class="code-key">HOST:</span> <span class="code-str">smtp.mailinfra.co</span></span>
+            <span class="code-line"><span class="code-key">PORT:</span> <span class="code-str">587 (STARTTLS) / 465 (TLS)</span></span>
+            <span class="code-line"><span class="code-key">AUTH:</span> <span class="code-str">Google Workspace Pool Credential</span></span>
+            <span class="code-line"><span class="code-key">SAFE_LIMIT:</span> <span class="code-str">40-120 emails/day per inbox</span></span>
+            <span class="code-line"><span class="code-key">DEDICATED_IP:</span> <span class="code-ok">Active (Included Free)</span></span>
+            <p style="margin-top:16px;font-family:'Inter',sans-serif;color:#94A3B8;font-size:0.9rem;">
+              Plug directly into your favorite cold email platform or CRM in under 2 minutes with automatic inbox rotation and safe volume limits.
+            </p>
+          </div>
+
+          <div class="terminal-card">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid #2D3748;padding-bottom:12px;margin-bottom:14px;">
+              <strong style="color:#FFF;">04 • REST API Integration (3-Min Setup)</strong>
+              <span class="code-str">POST /v1/send</span>
+            </div>
+            <span class="code-line">{</span>
+            <span class="code-line">  <span class="code-key">"pool"</span>: <span class="code-str">"100-gw-trial-pool"</span>,</span>
+            <span class="code-line">  <span class="code-key">"routing"</span>: <span class="code-str">"horizontal_safe_scale"</span>,</span>
+            <span class="code-line">  <span class="code-key">"daily_cap_per_inbox"</span>: <span class="code-str">80</span>,</span>
+            <span class="code-line">  <span class="code-key">"status"</span>: <span class="code-ok">"200 OK • 99.9% Deliverability SLA"</span></span>
+            <span class="code-line">}</span>
+            <p style="margin-top:16px;font-family:'Inter',sans-serif;color:#94A3B8;font-size:0.9rem;">
+              "Started sending in 3 minutes, scaled to 500K emails/month. The API docs are phenomenal and support is instant." — Michael Chen, CTO
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES 5 & 6: DELIVERABILITY ANALYTICS & EMAIL SENDING MANAGEMENT -->
+    <section class="section-pad f56-band" id="deliverability-analytics">
+      <div class="container">
+        <div class="analytics-showcase">
+          <div>
+            <span class="eyebrow">05 &amp; 06 • TELEMETRY &amp; SENDING SAFEGUARDS</span>
+            <h2 class="sec-h2">Deliverability Analytics &amp; Email Sending Management</h2>
+            <p class="sec-p">
+              Track your exact deliverability on your dashboard in real time. We enforce safe volume limits (40–120 emails/day per inbox depending on reputation) and automatic warm-up protocols so your domains stay healthy.
+            </p>
+            <p class="sec-p">
+              Before paying your Day 31 invoice, review your complete analytics dashboard showing deliverability rates, inbox placement, and campaign ROI.
+            </p>
+          </div>
+
+          <div>
+            <div class="meter-row">
+              <div class="meter-label"><span>Primary Inbox Placement SLA</span><span style="color:var(--status-green-dark);">99.9%</span></div>
+              <div class="meter-track"><div class="meter-fill" style="width:99.9%;background:linear-gradient(90deg,#16A34A,#22C55E);"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-label"><span>Verified Agency Benchmark (300+ Agencies)</span><span style="color:var(--brand-primary);">95%+ Sustained</span></div>
+              <div class="meter-track"><div class="meter-fill" style="width:96%;"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-label"><span>Per-Inbox Safe Daily Send Window</span><span style="color:var(--brand-purple);">40–120 emails/day</span></div>
+              <div class="meter-track"><div class="meter-fill" style="width:75%;background:var(--grad-purple);"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES 7 & 8: DOMAIN POOL EXPANSION & REAL-TIME MONITORING AND ALERTS -->
+    <section class="section-pad" id="domain-pool">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+          <div>
+            <span class="eyebrow">07 • 2-MINUTE DNS &amp; DOMAIN POOL</span>
+            <h2 class="sec-h2">Domain Pool Expansion &amp; Custom Authentication</h2>
+            <p class="sec-p">
+              Verify your domain via DNS records in 2 minutes. Custom domain setup &amp; authentication is included, with seamless domain pool expansion as your outbound volume grows.
+            </p>
+            <table class="dns-table" aria-label="Automated DNS Authentication Records">
+              <thead>
+                <tr><th>Record</th><th>Purpose</th><th>Verification Time</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>SPF / DKIM</strong></td><td>Cryptographic Google Workspace signing</td><td style="color:var(--status-green-dark);font-weight:700;">✓ ~2 Minutes</td></tr>
+                <tr><td><strong>DMARC</strong></td><td>Domain reputation policy protection</td><td style="color:var(--status-green-dark);font-weight:700;">✓ Automated</td></tr>
+                <tr><td><strong>Domain Pool</strong></td><td>On-demand multi-domain expansion</td><td style="color:var(--brand-primary);font-weight:700;">✓ Included</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <span class="eyebrow">08 • 24/7 GUARDRAILS</span>
+            <h2 class="sec-h2">Real-Time Monitoring, Alerts &amp; 24/7 Priority Support</h2>
+            <p class="sec-p">
+              Continuous real-time reputation monitoring and automated alerts protect every inbox in your pool, backed by 24/7 priority support via chat, email, and phone.
+            </p>
+            <div style="display:grid;gap:14px;margin-top:20px;">
+              <div style="padding:18px;border-radius:16px;background:var(--bg-neutral);border-left:4px solid var(--status-green);font-weight:600;">
+                <strong>Real-Time Reputation Shield:</strong> Automatic daily volume calibration (40–120 emails/day) based on live inbox health.
+              </div>
+              <div style="padding:18px;border-radius:16px;background:var(--bg-neutral);border-left:4px solid var(--brand-primary);font-weight:600;">
+                <strong>Instant Health Alerts:</strong> Proactive DNS, bounce, and deliverability notifications before reputation is impacted.
+              </div>
+              <div style="padding:18px;border-radius:16px;background:var(--bg-neutral);border-left:4px solid var(--brand-purple);font-weight:600;">
+                <strong>24/7 Priority Support:</strong> Direct access to infrastructure engineers via chat, email, and phone.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES 9 & 10: A/B TESTING, SEGMENTATION & SAFE VOLUME SCALING -->
+    <section class="section-pad" id="ab-scaling" style="background:var(--bg-neutral);">
+      <div class="container">
+        <div style="text-align:center;max-width:780px;margin:0 auto;">
+          <span class="eyebrow">09 &amp; 10 • EXPERIMENTATION &amp; HORIZONTAL ARCHITECTURE</span>
+          <h2 class="sec-h2">A/B Testing, Segmentation &amp; Safe Volume Scaling</h2>
+          <p class="sec-p">
+            Test everything for 30 days with full access to A/B testing and segmentation using verified prospect lists from Apollo, ZoomInfo, Clay, or your CRM—and scale horizontally across inboxes instead of burning domains vertically.
+          </p>
+        </div>
+
+        <div class="scaling-comparison">
+          <div class="scale-panel bad">
+            <strong style="color:#DC2626;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;">❌ Risky Vertical Volume Plays ("Unlimited Sending")</strong>
+            <h3 style="font-size:1.35rem;margin:10px 0;">1 Inbox Sending 500+ Emails/Day</h3>
+            <p style="color:#7F1D1D;font-size:0.95rem;">
+              "Unlimited" sending is how domains get burned. Blasting hundreds of cold emails from a single inbox triggers ESP spam filters and destroys domain reputation.
+            </p>
+          </div>
+
+          <div class="scale-panel good">
+            <strong style="color:#16A34A;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;">✓ Mailinfra Horizontal Safe Scaling</strong>
+            <h3 style="font-size:1.35rem;margin:10px 0;">6–8 Inboxes Sending 60–80 Emails/Day Each</h3>
+            <p style="color:#14532D;font-size:0.95rem;">
+              Need 500 emails/day? We provision 6–8 Google Workspace inboxes ($3/account) sending 60–80 each. Need 500K–1M+ emails/month? Scale horizontally with automatic volume discounts at 1M+.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="features-hero" style="text-align:center;padding:80px 0;">
+      <div class="container" style="max-width:780px;">
+        <div class="hero-badge">🚀 FULL FEATURES UNLOCKED FOR 30 DAYS</div>
+        <h2 class="sec-h2" style="color:#FFF;">Test All 10 Infrastructure Capabilities Free for 30 Days</h2>
+        <p class="hero-sub" style="margin:0 auto 28px;">
+          Claim 100 Google Workspace accounts today. No credit card required. Pay just $3/account/month after 30 days only if you're satisfied.
+        </p>
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="min-height:54px;padding:14px 32px;font-size:1.02rem;" target="_blank" rel="noopener">
+          CLAIM YOUR 100 FREE ACCOUNTS
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. FOOTER -->
+  <!-- 13. FOOTER -->
+  <footer class="cf-footer" id="site-footer">
+    <div class="cf-aurora" aria-hidden="true"></div>
+    <div class="cf-grid-bg" aria-hidden="true"></div>
+    <div class="cf-beam" aria-hidden="true"></div>
+
+    <div class="cf-inner">
+      <div class="cf-cta">
+        <div class="cf-cta-copy">
+          <span class="cf-eyebrow"><span class="cf-dot" aria-hidden="true"></span> Trial live · 100 free accounts · 30 days</span>
+          <h2>Send first. <span class="cf-grad-text">Pay later.</span></h2>
+          <p>Test 100 Google Workspace accounts with dedicated IPs for a full 30 days. No credit card required.</p>
+        </div>
+        <div class="cf-cta-actions">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="cf-btn cf-btn-primary" target="_blank" rel="noopener">
+            Claim 100 Free Accounts <span aria-hidden="true">→</span>
+          </a>
+          <a href="contact.html" class="cf-btn cf-btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+
+      <div class="cf-cols">
+        <div class="cf-brand">
+          <a href="index.html" class="cf-logo" aria-label="Mailinfra Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+            <span>Mailinfra</span>
+          </a>
+          <p>Email infrastructure for agencies that send first and pay after proof.</p>
+          <div class="cf-trust" aria-label="Compliance and partners">
+            <span class="cf-trust-item"><img src="assets/logo/google-workspace.svg" alt=""> Google Workspace</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">SOC 2 Certified</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">GDPR Compliant</span>
+          </div>
+        </div>
+
+        <nav class="cf-col" aria-label="Product">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="features.html#api-smtp">API &amp; SMTP Relay</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">The Mailinfra Blog</a></li>
+            <li><a href="resources.html#categories">Email Deliverability</a></li>
+            <li><a href="resources.html#categories">Cold Email Guides</a></li>
+            <li><a href="index.html#faq">Trial FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Company">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://calendly.com/10x-cold-email-infrastructure/15min" target="_blank" rel="noopener">Book a Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cf-bottom">
+        <div class="cf-bottom-meta">
+          <span>© 2026 Mailinfra. All rights reserved.</span>
+          <nav class="cf-legal" aria-label="Legal">
+            <a href="contact.html">Privacy</a>
+            <a href="contact.html">Terms</a>
+          </nav>
+        </div>
+        <button type="button" class="cf-top-btn" id="cf-back-top" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></button>
+      </div>
+    </div>
+
+    <div class="cf-wordmark" id="cf-wordmark" aria-hidden="true">MAILINFRA</div>
+  </footer>
+
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      if (menuToggle && primaryMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = primaryMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      const footer = document.getElementById('site-footer');
+      const wordmark = document.getElementById('cf-wordmark');
+      const topBtn = document.getElementById('cf-back-top');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (topBtn) {
+        topBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
+      }
+      if (!footer || !wordmark || reduce) {
+        if (wordmark) wordmark.style.setProperty('--cf-ty', '0px');
+        return;
+      }
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const r = footer.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        const p = Math.max(0, Math.min(1, (vh - r.top) / Math.max(1, r.height)));
+        wordmark.style.setProperty('--cf-ty', ((1 - p) * 70).toFixed(1) + 'px');
+        wordmark.style.setProperty('--cf-op', (0.22 + p * 0.78).toFixed(2));
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="assets/js/scroll-motion.js" defer></script>
+</body>
+</html>

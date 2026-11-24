@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Performance First, Payment Later | Mailinfra</title>
+  <meta name="description" content="Mailinfra is email infrastructure built for modern businesses, outbound agencies, lead gen teams, and GTM engineers. Send now, pay later after 30 days.">
+  <meta name="theme-color" content="#0000FF">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/logo/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('assets/fonts/inter-var.woff2') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    :root {
+      --brand-primary: #0000FF;
+      --brand-primary-secondary: #4040FF;
+      --brand-primary-deep: #070A29;
+      --brand-accent: #FFD700;
+      --brand-accent-hover: #FFC700;
+      --brand-purple: #7C3AED;
+      --bg-main: #FFFFFF;
+      --bg-secondary: #F5F3FF;
+      --bg-neutral: #F8F9FA;
+      --bg-footer: #0F172A;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-on-dark: #FFFFFF;
+      --border-subtle: #E5E7EB;
+      --status-green: #22C55E;
+      --status-green-dark: #16A34A;
+      --grad-primary: linear-gradient(135deg, #0000FF 0%, #4040FF 100%);
+      --grad-hero-mesh: radial-gradient(circle at 80% 25%, rgba(124, 58, 237, 0.44) 0%, transparent 48%),
+                        linear-gradient(135deg, #0000D6 0%, #0000FF 48%, #4040FF 100%);
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 30px -6px rgba(15, 23, 42, 0.08);
+      --shadow-xl: 0 24px 48px -12px rgba(0, 0, 255, 0.14);
+      --shadow-gold: 0 6px 20px rgba(255, 215, 0, 0.42);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --container-max: 1280px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-main);
+    }
+    body { overflow-x: hidden; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--brand-accent); outline-offset: 3px; }
+    .container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: 24px; }
+
+    .announcement-bar {
+      background: var(--brand-primary-deep);
+      color: #FFF;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    .announcement-pill {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-logo { display: inline-flex; align-items: center; gap: 10px; font-size: 1.45rem; font-weight: 800; }
+    .site-logo svg { color: var(--brand-primary); }
+    .site-menu { list-style: none; display: flex; align-items: center; gap: 6px; }
+    .site-menu a {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      position: relative;
+    }
+    .site-menu a:hover, .site-menu a[aria-current="page"] {
+      color: var(--brand-primary);
+      background: var(--bg-secondary);
+      font-weight: 700;
+    }
+    .site-menu a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 14px;
+      right: 14px;
+      height: 2.5px;
+      background: var(--brand-primary);
+      border-radius: 2px;
+    }
+    .menu-toggle {
+      display: none;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .btn-gold { background: var(--brand-accent); color: var(--text-primary); box-shadow: var(--shadow-gold); }
+    .btn-gold:hover { background: var(--brand-accent-hover); transform: translateY(-2px); }
+
+    /* Editorial Hero */
+    .about-hero {
+      background: var(--grad-hero-mesh);
+      color: #FFF;
+      padding: 84px 0 96px;
+    }
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 4.4vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .section-pad { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sec-h2 {
+      font-size: clamp(1.85rem, 3.2vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    /* Editorial Manifesto Block */
+    .manifesto-quote {
+      background: var(--bg-secondary);
+      border-left: 6px solid var(--brand-primary);
+      border-radius: 0 var(--radius-2xl) var(--radius-2xl) 0;
+      padding: 44px 48px;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--text-primary);
+      margin: 40px 0;
+    }
+
+    .stats-mosaic {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    .stat-tile {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-tile strong {
+      display: block;
+      font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+      font-weight: 800;
+      color: var(--brand-primary);
+      margin-bottom: 6px;
+    }
+    .stat-tile span {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .pillar-card {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      margin-bottom: 10px;
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 40px;
+    }
+    .voice-card {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .voice-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .voice-author img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid var(--brand-accent);
+      object-fit: cover;
+    }
+
+    .site-footer { background: var(--bg-footer); color: #FFF; padding: 68px 0 36px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; padding-bottom: 44px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 800; color: var(--brand-accent); text-transform: uppercase; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: grid; gap: 10px; }
+    .footer-col a { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 0.86rem; color: rgba(255, 255, 255, 0.68); }
+
+    @media (max-width: 1024px) {
+      .about-hero-grid, .voices-grid { grid-template-columns: 1fr; }
+      .stats-mosaic { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: inline-flex; }
+      .site-menu {
+        position: fixed;
+        top: 108px;
+        left: 16px;
+        right: 16px;
+        background: var(--bg-main);
+        border: 1.5px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        flex-direction: column;
+        display: none;
+      }
+      .site-menu.is-open { display: flex; }
+      .pillars-grid, .stats-mosaic, .footer-grid { grid-template-columns: 1fr; }
+      .manifesto-quote { padding: 28px 24px; }
+    }
+  
+    /* ===== CINEMATIC FOOTER (shared across all pages) ===== */
+    /* 13. FOOTER — infrastructure status-bar close */
+    /* 13. FOOTER — infrastructure status-bar close */
+    .cf-footer {
+      position: relative;
+      background: #01020A;
+      color: #FFFFFF;
+      overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid rgba(0, 0, 255, 0.35);
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .cf-footer *, .cf-footer *::before, .cf-footer *::after { box-sizing: border-box; }
+    .cf-aurora {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(ellipse 48% 42% at 8% 0%, rgba(0, 0, 255, 0.38) 0%, transparent 68%),
+        radial-gradient(ellipse 40% 36% at 92% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 40% at 50% 110%, rgba(0, 0, 255, 0.45) 0%, transparent 72%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-aurora { animation: cf-aurora-shift 16s ease-in-out infinite alternate; }
+    }
+    @keyframes cf-aurora-shift {
+      from { transform: translate3d(-1%, 0, 0) scale(1); }
+      to { transform: translate3d(1%, -0.8%, 0) scale(1.04); }
+    }
+    .cf-grid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      opacity: 0.7;
+    }
+    .cf-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent 0%, #0000FF 28%, #38BDF8 50%, #FFD700 72%, transparent 100%);
+      opacity: 0.85;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-beam { background-size: 220% 100%; animation: cf-beam-run 8s linear infinite; }
+    }
+    @keyframes cf-beam-run {
+      from { background-position: 0% 0; }
+      to { background-position: 220% 0; }
+    }
+    .cf-inner {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 28px 20px;
+    }
+
+    /* Flush CTA strip — no glass card */
+    .cf-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) auto;
+      gap: 28px 48px;
+      align-items: end;
+      padding: 0 0 40px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      border-radius: 0;
+    }
+    .cf-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 0;
+      border: none;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 14px;
+    }
+    .cf-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-dot { animation: cf-dot-pulse 2.2s ease-out infinite; }
+    }
+    @keyframes cf-dot-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .cf-cta h2 {
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      color: #FFFFFF;
+      text-wrap: balance;
+    }
+    .cf-grad-text {
+      color: #38BDF8;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .cf-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 440px;
+      text-wrap: pretty;
+    }
+    .cf-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .cf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .cf-btn-primary {
+      background: #FFD700;
+      color: #050814;
+      box-shadow: 0 8px 28px rgba(255, 215, 0, 0.32);
+    }
+    .cf-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #FFE34D;
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.45);
+    }
+    .cf-btn-ghost {
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+    }
+    .cf-btn-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.7);
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    /* Brand + nav — wider, denser */
+    .cf-cols {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(0, 1fr));
+      gap: 40px 56px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      align-items: start;
+    }
+    .cf-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .cf-logo svg {
+      color: #0000FF;
+      filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.55));
+    }
+    .cf-brand p {
+      margin: 14px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 280px;
+    }
+    .cf-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
+    }
+    .cf-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .cf-trust-item img {
+      height: 14px;
+      width: auto;
+      display: block;
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .cf-trust-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .cf-col h4 {
+      margin: 0 0 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.38);
+    }
+    .cf-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 11px;
+    }
+    .cf-col a {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.94rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .cf-col a:hover { color: #38BDF8; }
+
+    .cf-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    .cf-bottom-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+    }
+    .cf-legal {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .cf-legal a {
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .cf-legal a:hover { color: #FFFFFF; }
+    .cf-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+    .cf-top-btn:hover { color: #FFD700; }
+
+    /* Giant scroll-linked wordmark */
+    .cf-wordmark {
+      position: relative;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 16vw, 15rem);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      margin-top: 28px;
+      padding-bottom: 0.04em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(0, 0, 255, 0.38) 42%, rgba(1, 2, 10, 0) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+      opacity: var(--cf-op, 0.35);
+      transform: translate3d(0, var(--cf-ty, 40px), 0);
+      will-change: transform, opacity;
+    }
+
+    @media (max-width: 1024px) {
+      .cf-cta {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .cf-cta-actions { justify-content: flex-start; }
+      .cf-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px 28px;
+      }
+      .cf-brand { grid-column: 1 / -1; max-width: 520px; }
+    }
+    @media (max-width: 640px) {
+      .cf-inner { padding: 44px 20px 16px; }
+      .cf-cta { padding-bottom: 28px; margin-bottom: 36px; }
+      .cf-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .cf-brand { max-width: none; }
+      .cf-bottom { flex-direction: column; align-items: flex-start; }
+      .cf-wordmark { margin-top: 20px; }
+    }
+</style>
+  <link rel="stylesheet" href="assets/css/scroll-motion.css">
+</head>
+<body>
+  <div class="announcement-bar">
+    <span class="announcement-pill">About Mailinfra</span>
+    <span>Email Infrastructure Built for Modern Businesses — Send Now, Pay Later</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        </svg>
+        <span>Mailinfra</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <ul class="site-menu" id="primary-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html" aria-current="page">Company</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" target="_blank" rel="noopener">Start Free Trial →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. COMPANY INTRODUCTION & POSITIONING -->
+    <section class="about-hero">
+      <div class="container about-hero-grid">
+        <div>
+          <div class="hero-badge">🚀 TRUSTED BY 300+ OUTBOUND &amp; LEAD GEN AGENCIES</div>
+          <h1 class="hero-title">Email Infrastructure Built for Modern Businesses. Send Now, Pay Later.</h1>
+          <p style="font-size:1.16rem;color:rgba(255,255,255,0.92);margin-bottom:24px;">
+            Mailinfra is built for outbound agencies, lead gen teams, and GTM engineers who need bulletproof cold email infrastructure—not risky volume plays.
+          </p>
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" target="_blank" rel="noopener">CLAIM YOUR 100 FREE ACCOUNTS</a>
+        </div>
+        <div style="background:rgba(15,23,42,0.82);border:2px solid rgba(255,215,0,0.6);border-radius:28px;padding:32px;text-align:center;">
+          <img src="assets/mascot/mailinfra-mascot.svg" alt="Mailinfra Infrastructure Companion" style="width:170px;margin:0 auto 16px;">
+          <div style="font-weight:800;font-size:1.15rem;color:var(--brand-accent);">Performance First, Payment Later</div>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);margin-top:6px;">
+            100 Google Workspace accounts free for 30 days • $3/account/month after you see results
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. VERIFIED BUSINESS STATISTICS -->
+    <section class="section-pad" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div style="text-align:center;max-width:740px;margin:0 auto 40px;">
+          <span class="eyebrow">VERIFIED PLATFORM IMPACT</span>
+          <h2 class="sec-h2">Proven Across 300+ Agencies &amp; 10,000+ Active Customers</h2>
+        </div>
+        <div class="stats-mosaic">
+          <div class="stat-tile">
+            <strong>300+</strong>
+            <span>Outbound &amp; lead gen agencies</span>
+          </div>
+          <div class="stat-tile">
+            <strong>4.9/5</strong>
+            <span>Rating (12,458 reviews)</span>
+          </div>
+          <div class="stat-tile">
+            <strong>$45M+</strong>
+            <span>In cash flow preserved</span>
+          </div>
+          <div class="stat-tile">
+            <strong>500M+</strong>
+            <span>Emails delivered monthly</span>
+          </div>
+          <div class="stat-tile">
+            <strong>10,000+</strong>
+            <span>Active customers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EXISTING BRAND PHILOSOPHY & PURPOSE -->
+    <section class="section-pad">
+      <div class="container" style="max-width:980px;">
+        <span class="eyebrow">OUR PHILOSOPHY</span>
+        <h2 class="sec-h2">Why Mailinfra Exists: Eliminating Upfront Cash Flow Drain</h2>
+        <p style="font-size:1.08rem;color:var(--text-secondary);">
+          Most email services demand payment before you send a single email—straining your working capital and forcing you to pay without knowing if deliverability rates, inbox placement, or ROI will meet your needs. Every dollar tied up in email infrastructure is a dollar not invested in growth, hiring, or inventory.
+        </p>
+
+        <blockquote class="manifesto-quote">
+          "We believe in proving value first. If we're as good as we say, you'll want to pay. If not, you walk away free. It's simple trust-based business. We've maintained 95%+ inbox placement for 300+ agencies - we're confident you'll love the service."
+        </blockquote>
+
+        <!-- 4. WHAT MAKES MAILINFRA DIFFERENT -->
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <h3>Start Sending Instantly</h3>
+            <p style="color:var(--text-secondary);">No credit card. No setup fees. No phone verification required. Begin sending emails in 5 minutes with full API access and SMTP relay.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>Test Everything for 30 Days</h3>
+            <p style="color:var(--text-secondary);">Full access to 100 Google Workspace accounts, deliverability analytics, A/B testing, segmentation, and dedicated IPs. Prove ROI first.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>Pay After You're Satisfied</h3>
+            <p style="color:var(--text-secondary);">Invoice arrives on day 31 at $3/account/month with NET 15 terms (day 45). If you're not satisfied, don't pay. No penalties, no questions asked.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>Reputation-First Horizontal Scaling</h3>
+            <p style="color:var(--text-secondary);">We enforce safe volume limits (40–120 emails/day per inbox depending on reputation) and scale you horizontally across multiple inboxes, not vertically into spam territory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. VERIFIED CUSTOMER VOICES & IMAGERY -->
+    <section class="section-pad" style="background:var(--bg-neutral);">
+      <div class="container">
+        <div style="text-align:center;max-width:740px;margin:0 auto;">
+          <span class="eyebrow">CUSTOMER LEADERS</span>
+          <h2 class="sec-h2">Trusted by Founders, CMOs &amp; CTOs</h2>
+        </div>
+
+        <div class="voices-grid">
+          <article class="voice-card">
+            <p style="font-style:italic;color:var(--text-primary);">"Mailinfra saved our startup $15K in upfront email costs. We tested everything for 30 days, saw 99.8% deliverability, and only then committed. This model is a game changer for cash flow management."</p>
+            <div class="voice-author">
+              <img src="assets/images/testimonial-sarah.jpg" alt="Sarah Mitchell" width="52" height="52">
+              <div>
+                <strong style="display:block;">Sarah Mitchell</strong>
+                <span style="font-size:0.84rem;color:var(--text-secondary);">Founder &amp; CEO, TechStart Solutions</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="voice-card">
+            <p style="font-style:italic;color:var(--text-primary);">"We switched from SendGrid and saved 40% while improving deliverability by 3%. The 30-day trial let us prove ROI to our CFO before any commitment. Our inbox rate jumped from 96% to 99.9%."</p>
+            <div class="voice-author">
+              <img src="assets/images/testimonial-james.jpg" alt="James Rodriguez" width="52" height="52">
+              <div>
+                <strong style="display:block;">James Rodriguez</strong>
+                <span style="font-size:0.84rem;color:var(--text-secondary);">Chief Marketing Officer, GrowthMetrics Inc.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="voice-card">
+            <p style="font-style:italic;color:var(--text-primary);">"As a developer, I needed reliable infrastructure without finance approval delays. Started sending in 3 minutes, scaled to 500K emails/month. The API docs are phenomenal and support is instant."</p>
+            <div class="voice-author">
+              <img src="assets/images/testimonial-michael.jpg" alt="Michael Chen" width="52" height="52">
+              <div>
+                <strong style="display:block;">Michael Chen</strong>
+                <span style="font-size:0.84rem;color:var(--text-secondary);">CTO &amp; Co-Founder, DataFlow Analytics</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="about-hero" style="text-align:center;padding:76px 0;">
+      <div class="container" style="max-width:760px;">
+        <h2 class="sec-h2" style="color:#FFF;">Take the First Step Towards Better Cash Flow &amp; Email Performance</h2>
+        <p style="color:rgba(255,255,255,0.88);margin-bottom:28px;font-size:1.1rem;">
+          Join 300+ agencies scaling cold email infrastructure — claim your 100 free accounts today
+        </p>
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="min-height:54px;padding:14px 32px;font-size:1.02rem;" target="_blank" rel="noopener">
+          CLAIM YOUR 100 FREE ACCOUNTS
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. FOOTER -->
+  <!-- 13. FOOTER -->
+  <footer class="cf-footer" id="site-footer">
+    <div class="cf-aurora" aria-hidden="true"></div>
+    <div class="cf-grid-bg" aria-hidden="true"></div>
+    <div class="cf-beam" aria-hidden="true"></div>
+
+    <div class="cf-inner">
+      <div class="cf-cta">
+        <div class="cf-cta-copy">
+          <span class="cf-eyebrow"><span class="cf-dot" aria-hidden="true"></span> Trial live · 100 free accounts · 30 days</span>
+          <h2>Send first. <span class="cf-grad-text">Pay later.</span></h2>
+          <p>Test 100 Google Workspace accounts with dedicated IPs for a full 30 days. No credit card required.</p>
+        </div>
+        <div class="cf-cta-actions">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="cf-btn cf-btn-primary" target="_blank" rel="noopener">
+            Claim 100 Free Accounts <span aria-hidden="true">→</span>
+          </a>
+          <a href="contact.html" class="cf-btn cf-btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+
+      <div class="cf-cols">
+        <div class="cf-brand">
+          <a href="index.html" class="cf-logo" aria-label="Mailinfra Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+            <span>Mailinfra</span>
+          </a>
+          <p>Email infrastructure for agencies that send first and pay after proof.</p>
+          <div class="cf-trust" aria-label="Compliance and partners">
+            <span class="cf-trust-item"><img src="assets/logo/google-workspace.svg" alt=""> Google Workspace</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">SOC 2 Certified</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">GDPR Compliant</span>
+          </div>
+        </div>
+
+        <nav class="cf-col" aria-label="Product">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="features.html#api-smtp">API &amp; SMTP Relay</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">The Mailinfra Blog</a></li>
+            <li><a href="resources.html#categories">Email Deliverability</a></li>
+            <li><a href="resources.html#categories">Cold Email Guides</a></li>
+            <li><a href="index.html#faq">Trial FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Company">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://calendly.com/10x-cold-email-infrastructure/15min" target="_blank" rel="noopener">Book a Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cf-bottom">
+        <div class="cf-bottom-meta">
+          <span>© 2026 Mailinfra. All rights reserved.</span>
+          <nav class="cf-legal" aria-label="Legal">
+            <a href="contact.html">Privacy</a>
+            <a href="contact.html">Terms</a>
+          </nav>
+        </div>
+        <button type="button" class="cf-top-btn" id="cf-back-top" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></button>
+      </div>
+    </div>
+
+    <div class="cf-wordmark" id="cf-wordmark" aria-hidden="true">MAILINFRA</div>
+  </footer>
+
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      if (menuToggle && primaryMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = primaryMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      const footer = document.getElementById('site-footer');
+      const wordmark = document.getElementById('cf-wordmark');
+      const topBtn = document.getElementById('cf-back-top');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (topBtn) {
+        topBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
+      }
+      if (!footer || !wordmark || reduce) {
+        if (wordmark) wordmark.style.setProperty('--cf-ty', '0px');
+        return;
+      }
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const r = footer.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        const p = Math.max(0, Math.min(1, (vh - r.top) / Math.max(1, r.height)));
+        wordmark.style.setProperty('--cf-ty', ((1 - p) * 70).toFixed(1) + 'px');
+        wordmark.style.setProperty('--cf-op', (0.22 + p * 0.78).toFixed(2));
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="assets/js/scroll-motion.js" defer></script>
+</body>
+</html>

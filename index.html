@@ -1,0 +1,4967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mailinfra — Claim Your 100 Free Google Workspace Accounts, Pay After 30 Days</title>
+  <meta name="description" content="Get 100 Google Workspace accounts free for 30 days. No credit card required. No hidden fees. Only $3/account/month after you see results. 99.9% deliverability rate with dedicated IPs.">
+  <meta name="theme-color" content="#0000FF">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/logo/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/scroll-motion.css">
+  <style>
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('assets/fonts/inter-var.woff2') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      /* Original Mailinfra Brand Palette */
+      --brand-primary: #0000FF;
+      --brand-primary-secondary: #4040FF;
+      --brand-primary-deep: #070A29;
+      --brand-accent: #FFD700;
+      --brand-accent-hover: #FFC700;
+      --brand-purple: #7C3AED;
+      --brand-purple-deep: #5B21B6;
+      --bg-main: #FFFFFF;
+      --bg-secondary: #F5F3FF;
+      --bg-neutral: #F8F9FA;
+      --bg-footer: #0F172A;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-on-dark: #FFFFFF;
+      --text-muted-dark: rgba(255, 255, 255, 0.78);
+      --border-subtle: #E5E7EB;
+      --border-purple: #7C3AED;
+      --status-green: #22C55E;
+      --status-green-dark: #16A34A;
+      --status-green-bg: #DCFCE7;
+
+      /* Original Gradients */
+      --grad-primary: linear-gradient(135deg, #0000FF 0%, #2424FF 52%, #4040FF 100%);
+      --grad-hero-mesh: radial-gradient(circle at 82% 28%, rgba(124, 58, 237, 0.42) 0%, transparent 48%),
+                        radial-gradient(circle at 18% 80%, rgba(255, 215, 0, 0.18) 0%, transparent 42%),
+                        linear-gradient(135deg, #0000D6 0%, #0000FF 48%, #4040FF 100%);
+      --grad-purple: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+      --grad-gold: linear-gradient(135deg, #FFE34D 0%, #FFD700 60%, #FFC700 100%);
+
+      /* Shadows & Radii */
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 30px -6px rgba(15, 23, 42, 0.08);
+      --shadow-xl: 0 24px 48px -12px rgba(0, 0, 255, 0.14);
+      --shadow-2xl: 0 32px 64px -16px rgba(15, 23, 42, 0.28);
+      --shadow-gold: 0 6px 20px rgba(255, 215, 0, 0.42);
+      --shadow-gold-hover: 0 12px 28px rgba(255, 215, 0, 0.58);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --container-max: 1280px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition {
+        navigation: auto;
+      }
+      ::view-transition-old(root) {
+        animation: 0.28s cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
+      }
+      ::view-transition-new(root) {
+        animation: 0.34s cubic-bezier(0.16, 1, 0.3, 1) both vt-fade-in;
+      }
+    }
+
+    @keyframes vt-fade-out {
+      to { opacity: 0; transform: translateY(-8px); }
+    }
+    @keyframes vt-fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-primary);
+      background-color: var(--bg-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-color: var(--bg-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Accessibility Focus States */
+    :focus-visible {
+      outline: 3px solid var(--brand-accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-accent), var(--brand-purple), var(--brand-primary));
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 2000;
+      pointer-events: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    /* 1. SEAMLESS DARK WALRUS-STYLE NAVIGATION (FLUSH AT TOP OF VIEWPORT) */
+    .announcement-bar {
+      display: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 60px;
+      background: rgba(2, 3, 10, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background-color 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .site-header.is-scrolled {
+      background: rgba(2, 4, 12, 0.96);
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.65);
+    }
+    .header-inner {
+      max-width: var(--container-max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+    .site-logo svg {
+      width: 28px;
+      height: 28px;
+      color: var(--brand-primary);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .site-logo:hover svg {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .site-menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .site-menu a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.78);
+      position: relative;
+      transition: color 0.2s, background-color 0.2s;
+    }
+    .site-menu a .nav-arrow {
+      font-size: 0.74rem;
+      opacity: 0.6;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .site-menu a:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .site-menu a:hover .nav-arrow {
+      transform: translateY(2px);
+      opacity: 1;
+    }
+    .site-menu a[aria-current="page"] {
+      color: #FFFFFF;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .site-menu a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: 3px;
+      left: 14px;
+      right: 14px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--brand-accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Rim-Lit Dark Pill Button (Walrus Header Style) */
+    .btn-header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #FFFFFF;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.55), 0 0 18px rgba(0, 0, 255, 0.25);
+      transition: all 0.22s ease;
+    }
+    .btn-header-pill:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--brand-accent);
+      box-shadow: inset 0 1px 2px var(--brand-accent), 0 0 24px rgba(255, 215, 0, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s, background-color 0.2s, border-color 0.2s;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-gold {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-gold);
+    }
+    .btn-gold:hover {
+      background: var(--brand-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold-hover);
+    }
+    .btn-ghost-white {
+      border: 1.5px solid rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-on-dark);
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost-white:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.65);
+      transform: translateY(-2px);
+    }
+    .btn-blue {
+      background: var(--grad-primary);
+      color: var(--text-on-dark);
+      box-shadow: 0 10px 24px rgba(0, 0, 255, 0.28);
+    }
+    .btn-blue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0, 0, 255, 0.38);
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    /* 2. SINGLE-SCREEN (100DVH) WALRUS-STYLE HERO WITH BOTTOM-PEEKING 3D VISOR MASCOT */
+    .hero-section {
+      position: relative;
+      background-color: #02030A;
+      background-image:
+        radial-gradient(ellipse 45% 42% at 32% 86%, rgba(0, 0, 255, 0.64) 0%, transparent 70%),
+        radial-gradient(ellipse 44% 42% at 68% 88%, rgba(14, 165, 233, 0.48) 0%, transparent 70%),
+        radial-gradient(ellipse 36% 34% at 50% 74%, rgba(124, 58, 237, 0.44) 0%, transparent 68%);
+      color: var(--text-on-dark);
+      height: calc(100vh - 60px);
+      height: calc(100dvh - 60px);
+      min-height: 520px;
+      max-height: 960px;
+      padding: clamp(10px, 2.2vh, 26px) 0 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(ellipse at 50% 65%, black 15%, transparent 72%);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .hero-center-stack {
+      position: relative;
+      z-index: 5;
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: clamp(8px, 1.4vh, 14px);
+    }
+    .hero-title {
+      font-size: clamp(1.85rem, min(4.1vw, 5.5vh), 3.65rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.036em;
+      color: #FFFFFF;
+      margin-bottom: clamp(8px, 1.4vh, 14px);
+      max-width: 880px;
+    }
+    .hero-highlight {
+      color: var(--brand-accent);
+      text-shadow: 0 0 36px rgba(255, 215, 0, 0.35);
+    }
+    .hero-sub-1 {
+      font-size: clamp(0.88rem, min(1.15vw, 1.95vh), 1.08rem);
+      color: rgba(255, 255, 255, 0.64);
+      font-weight: 400;
+      line-height: 1.45;
+      margin-bottom: clamp(10px, 2vh, 18px);
+      max-width: 680px;
+    }
+    .hero-sub-1 strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: clamp(6px, 1vh, 10px);
+    }
+    /* High-Contrast Pill Primary CTA matching Walrus "Start building ->" */
+    .btn-walrus-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: clamp(40px, 5.6vh, 48px);
+      padding: 8px 26px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      color: #050814;
+      font-weight: 700;
+      font-size: 0.94rem;
+      letter-spacing: -0.01em;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 12px 32px rgba(0, 0, 255, 0.42);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s, box-shadow 0.22s;
+    }
+    .btn-walrus-pill:hover {
+      background: var(--brand-accent);
+      color: #050814;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(255, 215, 0, 0.48);
+    }
+    .btn-walrus-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: clamp(40px, 5.6vh, 48px);
+      padding: 8px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.22s ease;
+    }
+    .btn-walrus-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+    .hero-checks {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 20px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .hero-checks li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .check-circle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.18);
+      color: var(--brand-accent);
+      border: 1px solid rgba(255, 215, 0, 0.5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.62rem;
+      flex-shrink: 0;
+    }
+
+    /* BOTTOM CENTER STAGE: 3D VISOR MASCOT + ANIMATING EMAIL DASHBOARD */
+    .hero-visual-stage {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      flex: 1;
+      min-height: 0;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      perspective: 1400px;
+    }
+
+    /* Animating Email Dashboard Card in Hero Section */
+    .hero-dashboard-card {
+      position: absolute;
+      left: 24px;
+      bottom: 18px;
+      width: 318px;
+      background: rgba(9, 14, 34, 0.86);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow:
+        0 24px 52px rgba(0, 0, 0, 0.68),
+        0 0 32px rgba(0, 0, 255, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      z-index: 6;
+      transform-style: preserve-3d;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-dashboard-card {
+        animation: dash-float 4.8s ease-in-out infinite;
+      }
+    }
+    @keyframes dash-float {
+      0%, 100% { transform: translateY(0px) rotateY(7deg) rotateX(2deg); }
+      50% { transform: translateY(-7px) rotateY(4deg) rotateX(1deg); }
+    }
+    .hero-dashboard-card:hover {
+      border-color: var(--brand-accent);
+      box-shadow:
+        0 28px 60px rgba(0, 0, 0, 0.78),
+        0 0 40px rgba(255, 215, 0, 0.28);
+    }
+    .dash-floating-pill {
+      position: absolute;
+      top: -11px;
+      right: 16px;
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.68rem;
+      padding: 3px 11px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-gold);
+      letter-spacing: 0.02em;
+    }
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 11px;
+    }
+    .dash-title {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+    .dash-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #4ADE80;
+      background: rgba(34, 197, 94, 0.16);
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+    .live-ping {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .live-ping::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 1.5px solid #4ADE80;
+        animation: sonar-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+    }
+    @keyframes sonar-ping {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    .dash-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .dash-kpi {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 11px;
+      padding: 8px 9px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dash-kpi-val {
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+    .dash-kpi-val.blue { color: #60A5FA; }
+    .dash-kpi-val.green { color: #4ADE80; }
+    .dash-kpi-val.purple { color: var(--brand-accent); }
+    .dash-kpi-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.92);
+      margin-top: 2px;
+    }
+    .dash-kpi-sub {
+      font-size: 0.61rem;
+      color: rgba(255, 255, 255, 0.56);
+    }
+    .dash-bars {
+      position: relative;
+      height: 50px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      align-items: end;
+      gap: 6px;
+      padding: 7px 9px;
+      background: rgba(2, 4, 14, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 11px;
+      margin-bottom: 9px;
+      overflow: hidden;
+    }
+    .dash-bar {
+      width: 100%;
+      height: var(--bar-h, 60%);
+      background: linear-gradient(to top, #0000FF, #38BDF8);
+      border-radius: 4px 4px 2px 2px;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.32);
+      transform-origin: bottom;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .dash-bar {
+        animation: bar-pulse 2.6s ease-in-out infinite;
+        animation-delay: var(--bar-delay, 0s);
+      }
+      .dash-bars::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 44px;
+        background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.25), transparent);
+        animation: chart-scan 3.2s linear infinite;
+        pointer-events: none;
+      }
+    }
+    @keyframes bar-pulse {
+      0%, 100% { transform: scaleY(0.88); filter: brightness(0.95); }
+      50% { transform: scaleY(1.08); filter: brightness(1.3); }
+    }
+    @keyframes chart-scan {
+      0% { left: -50px; }
+      100% { left: 105%; }
+    }
+    .dash-live-ticker {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0, 0, 255, 0.22);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 8px;
+      padding: 5px 9px;
+      margin-bottom: 9px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #BAE6FD;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .dash-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+    .dash-footer .trend { color: #4ADE80; }
+    .dash-footer .spent {
+      background: rgba(255, 215, 0, 0.2);
+      color: var(--brand-accent);
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+
+    /* Giant Peeking 3D Mascot Stage */
+    .mascot-stage {
+      position: relative;
+      width: min(640px, 90vw);
+      height: 100%;
+      max-height: clamp(220px, 46vh, 390px);
+      transform-style: preserve-3d;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 4;
+      cursor: pointer;
+      user-select: none;
+    }
+    .mascot-aura {
+      position: absolute;
+      bottom: -60px;
+      width: 640px;
+      height: 340px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 28% 55%, rgba(0, 20, 255, 0.75) 0%, transparent 58%),
+        radial-gradient(circle at 72% 58%, rgba(20, 184, 166, 0.55) 0%, transparent 58%),
+        radial-gradient(circle at 50% 38%, rgba(99, 102, 241, 0.42) 0%, transparent 62%);
+      filter: blur(42px);
+      transform: translateZ(-60px) scale(var(--aura-scale, 1));
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+    .mascot-rig {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform: rotateX(var(--head-rx, 0deg)) rotateY(var(--head-ry, 0deg));
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .mascot-canvas {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      display: block;
+      filter: drop-shadow(0 -10px 36px rgba(0, 40, 255, 0.28));
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--status-green);
+      box-shadow: 0 0 10px var(--status-green);
+      display: inline-block;
+    }
+
+    /* 3. TRUST & SOCIAL PROOF — FUTURISTIC DARK TELEMETRY COMMAND HUB */
+    .trust-section {
+      position: relative;
+      background: linear-gradient(180deg, #02030A 0%, #070C26 52%, #0B1338 100%);
+      color: #FFFFFF;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 64px 0 58px;
+      overflow: hidden;
+    }
+    .trust-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 50% at 20% 20%, rgba(0, 0, 255, 0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .trust-header-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+       flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 34px;
+    }
+    .trust-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-accent);
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .trust-stats-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .trust-stat-card {
+      position: relative;
+      background: rgba(13, 20, 48, 0.76);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 22px;
+      padding: 24px 22px 20px;
+      text-align: left;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .trust-stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, linear-gradient(90deg, #0000FF, #38BDF8));
+      opacity: 0.85;
+    }
+    .trust-stat-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 28px 56px rgba(0, 0, 0, 0.6), 0 0 32px rgba(0, 40, 255, 0.28);
+    }
+    .trust-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .trust-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .trust-stat-number {
+      font-size: clamp(2.1rem, 3vw, 2.85rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .trust-stat-number .accent-unit {
+      color: var(--brand-accent);
+      font-size: 0.65em;
+    }
+    .trust-stat-label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 16px;
+    }
+    .trust-micro-viz {
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .trust-compliance-bar {
+      position: relative;
+      z-index: 2;
+      margin-top: 28px;
+      padding: 14px 24px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .trust-compliance-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* SHARED SECTION HEADINGS */
+    .section-pad {
+      padding: 96px 0;
+      position: relative;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 56px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.3vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+      color: var(--text-secondary);
+    }
+
+    /* 4. THE PROBLEM SECTION */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 42px;
+    }
+    .problem-card {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 34px 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+    }
+    .problem-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #EF4444, #F97316);
+    }
+    .problem-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: #FCA5A5;
+    }
+    .problem-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #FEF2F2;
+      color: #DC2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .problem-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+    .problem-card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+    .problem-transition-banner {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg-secondary);
+      border: 2px solid var(--brand-purple);
+      border-radius: var(--radius-xl);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: clamp(1.12rem, 1.6vw, 1.38rem);
+      font-weight: 800;
+      color: var(--brand-primary);
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.12);
+    }
+
+    /* 5. THE MAILINFRA DIFFERENCE */
+    .difference-section {
+      background: var(--bg-secondary);
+    }
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .diff-card {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+    }
+    .diff-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--brand-primary);
+    }
+    .diff-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--grad-primary);
+      color: var(--brand-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 10px 20px rgba(0, 0, 255, 0.22);
+    }
+    .diff-card h3 {
+      font-size: 1.28rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .diff-card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+
+    /* 6. PRODUCT DASHBOARD SHOWCASE (INTERACTIVE CONSOLE) */
+    .showcase-section {
+      background: var(--bg-footer);
+      color: var(--text-on-dark);
+    }
+    .showcase-section .section-title {
+      color: var(--text-on-dark);
+    }
+    .showcase-section .section-subtitle {
+      color: var(--text-muted-dark);
+    }
+    .showcase-section .eyebrow {
+      color: var(--brand-accent);
+    }
+    .console-shell {
+      background: #162038;
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+      box-shadow: 0 32px 72px rgba(0, 0, 0, 0.45);
+    }
+    .console-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 24px;
+    }
+    .console-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .console-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .console-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .console-tab {
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s;
+    }
+    .console-tab.active, .console-tab:hover {
+      background: var(--brand-primary);
+      color: var(--text-on-dark);
+      border-color: var(--brand-accent);
+    }
+    .console-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+    }
+    .console-panel {
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+    }
+    .scaler-control {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(0, 0, 255, 0.18);
+      border: 1px solid rgba(64, 64, 255, 0.45);
+    }
+    .scaler-control label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .scaler-range {
+      width: 100%;
+      accent-color: var(--brand-accent);
+      cursor: pointer;
+    }
+    .scaler-readout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .scaler-box {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .scaler-box strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--brand-accent);
+    }
+    .scaler-box span {
+      font-size: 0.76rem;
+      color: var(--text-muted-dark);
+    }
+
+    /* 7. FEATURES OVERVIEW — ARCHITECTURAL BENTO GRID WITH LIVE UI SCHEMATICS */
+    .features-overview-section {
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 0, 255, 0.06) 0%, transparent 70%),
+                  linear-gradient(180deg, #FFFFFF 0%, #F4F6FF 100%);
+      position: relative;
+    }
+    .features-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-tile {
+      position: relative;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 28px 26px;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s, border-color 0.28s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+    .feature-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--tile-accent, linear-gradient(90deg, #0000FF, #38BDF8));
+      opacity: 0.9;
+    }
+    .feature-tile:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 26px 52px -14px rgba(0, 0, 255, 0.16);
+      border-color: var(--brand-primary);
+    }
+    .feature-tile.featured {
+      grid-column: span 2;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(124, 58, 237, 0.45) 0%, transparent 52%),
+        linear-gradient(135deg, #040824 0%, #0000B8 52%, #0000FF 100%);
+      color: var(--text-on-dark);
+      border-color: rgba(56, 189, 248, 0.35);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 26px;
+      align-items: center;
+      box-shadow: 0 28px 60px -16px rgba(0, 0, 255, 0.35);
+    }
+    .feature-tile.featured::before {
+      background: linear-gradient(90deg, #FFD700, #38BDF8, #7C3AED);
+    }
+    .feature-tile.featured p {
+      color: rgba(255, 255, 255, 0.86);
+    }
+    .feature-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .feature-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--bg-secondary);
+      color: var(--brand-primary);
+      border: 1px solid rgba(0, 0, 255, 0.12);
+      width: fit-content;
+    }
+    .feature-tile.featured .feature-tag {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      border-color: transparent;
+    }
+    .feature-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      color: var(--brand-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feature-tile h3 {
+      font-size: 1.24rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .feature-tile.featured h3 {
+      font-size: 1.5rem;
+    }
+    .feature-tile p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    /* Mini Technical UI Schematics inside each Feature Card */
+    .feature-schematic {
+      background: #0A0F24;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.78rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .gw-pool-stack {
+      display: grid;
+      gap: 9px;
+    }
+    .gw-pool-row {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 11px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .gw-pool-bar {
+      width: 54px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .gw-pool-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #4ADE80);
+      border-radius: 999px;
+    }
+    .dns-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .dns-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      border-radius: 9px;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.74rem;
+    }
+
+    /* 8. HOW IT WORKS — SCROLL-LINKED SVG PIPELINE & INTERACTIVE SCHEMATICS */
+    .steps-section {
+      background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 55%, #F8FAFC 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hiw-telemetry-bar {
+      max-width: 520px;
+      margin: -22px auto 28px;
+      background: #0B1026;
+      color: #FFFFFF;
+      border: 1.5px solid rgba(64, 64, 255, 0.45);
+      border-radius: 999px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(0, 0, 255, 0.14);
+    }
+    .hiw-telemetry-pct {
+      background: var(--brand-accent);
+      color: #050814;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-variant-numeric: tabular-nums;
+    }
+    .hiw-svg-pipeline-wrap {
+      position: relative;
+      max-width: 1160px;
+      margin: 0 auto 12px;
+      padding: 0 12px;
+    }
+    .hiw-pipeline-svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      display: block;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      margin-bottom: 44px;
+    }
+    .step-card {
+      background: var(--bg-main);
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px 26px 30px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.35s;
+      overflow: hidden;
+    }
+    .step-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-purple), var(--brand-accent));
+      transform: scaleX(var(--step-fill, 0));
+      transform-origin: 0 50%;
+      transition: transform 0.15s linear;
+    }
+    .step-card.is-energized,
+    .step-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--brand-primary);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 255, 0.18);
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--grad-primary);
+      color: var(--text-on-dark);
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(0, 0, 255, 0.25);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .step-card.is-energized .step-num {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 4px rgba(0, 0, 255, 0.14), 0 10px 22px rgba(0, 0, 255, 0.35);
+    }
+    .step-time {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 5px 13px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
+    }
+    .step-svg-visual {
+      background: #0A0F24;
+      border: 1px solid rgba(64, 64, 255, 0.28);
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .step-svg-visual svg {
+      width: 100%;
+      height: 98px;
+      display: block;
+    }
+    .step-draw-path {
+      stroke-dasharray: 260;
+      stroke-dashoffset: calc(260 - (260 * var(--step-fill, 0)));
+      transition: stroke-dashoffset 0.12s linear;
+    }
+    .step-card h3 {
+      font-size: 1.32rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .step-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .steps-cta-wrap {
+      text-align: center;
+    }
+    .steps-micro {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* 9. TESTIMONIALS — Stage + Avatar Switcher */
+    .testimonials-section {
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 0%, rgba(0, 0, 255, 0.05) 0%, transparent 70%),
+        var(--bg-main);
+    }
+    .testimonials-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+    .testimonials-header .section-subtitle {
+      margin-inline: auto;
+    }
+    .proof-switcher {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      margin-bottom: 32px;
+    }
+    .proof-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px 8px 8px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border-subtle);
+      background: #FFFFFF;
+      cursor: pointer;
+      text-align: left;
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        background-color 0.25s ease;
+      max-width: 280px;
+    }
+    .proof-chip:hover {
+      border-color: rgba(0, 0, 255, 0.35);
+      transform: translateY(-2px);
+    }
+    .proof-chip.is-active {
+      border-color: var(--brand-primary);
+      background: rgba(0, 0, 255, 0.03);
+      box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.12), 0 10px 28px -12px rgba(0, 0, 255, 0.28);
+    }
+    .proof-chip-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2.5px solid transparent;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .proof-chip.is-active .proof-chip-avatar {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.2);
+    }
+    .proof-chip-meta {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .proof-chip-name {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .proof-chip-metric {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 190px;
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(4px);
+      transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.28s ease;
+    }
+    .proof-chip.is-active .proof-chip-metric {
+      opacity: 1;
+      max-height: 24px;
+      transform: none;
+      color: var(--brand-primary);
+    }
+    .proof-stage {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto 40px;
+      padding: 40px 44px 36px;
+      border-top: 1px solid rgba(0, 0, 255, 0.12);
+      border-bottom: 1px solid rgba(0, 0, 255, 0.12);
+      overflow: hidden;
+    }
+    .proof-stage-outcome {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .proof-stage-metric {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--brand-primary);
+      text-wrap: balance;
+    }
+    .proof-stage-metric-label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .proof-stage-stars {
+      color: #F59E0B;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .proof-stage-quote {
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      font-weight: 600;
+      font-style: normal;
+      line-height: 1.45;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      text-wrap: pretty;
+      margin: 0 0 28px;
+      max-width: 42ch;
+    }
+    .proof-stage-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .proof-stage-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--brand-primary);
+      flex-shrink: 0;
+    }
+    .proof-stage-name {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+    .proof-stage-role {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .proof-stage-panel {
+      transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .proof-stage-panel.is-exiting {
+      opacity: 0;
+      transform: translateX(-18px);
+    }
+    .proof-stage-panel.is-entering {
+      opacity: 0;
+      transform: translateX(22px);
+    }
+    .proof-stage-cta {
+      text-align: center;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .proof-stage-panel,
+      .proof-chip,
+      .proof-chip-metric,
+      .proof-chip-avatar {
+        transition: none !important;
+      }
+      .proof-stage-panel.is-exiting,
+      .proof-stage-panel.is-entering {
+        transform: none;
+      }
+    }
+    @media (max-width: 720px) {
+      .proof-stage {
+        padding: 28px 8px 24px;
+      }
+      .proof-chip {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+      .proof-chip-metric {
+        max-width: none;
+      }
+      .proof-stage-quote {
+        max-width: none;
+      }
+    }
+
+    /* 10. PRICING PREVIEW — INTERACTIVE DUAL-ZONE PRICING COMMAND CONSOLE */
+    .pricing-section {
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 10%, rgba(124, 58, 237, 0.09) 0%, transparent 70%),
+        linear-gradient(180deg, #F5F3FF 0%, #EEF2FF 100%);
+      position: relative;
+    }
+    .pricing-command-deck {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 2px solid rgba(124, 58, 237, 0.28);
+      border-radius: 30px;
+      box-shadow: 0 32px 72px -16px rgba(15, 23, 42, 0.14);
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      overflow: hidden;
+    }
+    .pricing-left-flagship {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.48) 0%, transparent 55%),
+        linear-gradient(155deg, #04071D 0%, #091242 52%, #0000B8 100%);
+      color: #FFFFFF;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .pricing-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .popular-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-gold);
+      letter-spacing: 0.04em;
+    }
+    .pricing-discount-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: #E9D5FF;
+      border: 1px solid rgba(192, 132, 252, 0.38);
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .pricing-tier-label {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #38BDF8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .pricing-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin: 6px 0 8px;
+    }
+    .pricing-zero {
+      font-size: clamp(3.6rem, 5.5vw, 4.9rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .pricing-zero-sub {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brand-accent);
+      background: rgba(255, 215, 0, 0.14);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .pricing-ongoing {
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 24px;
+    }
+    .pricing-ongoing strong {
+      color: #FFFFFF;
+      font-weight: 800;
+    }
+    .pricing-estimator-card {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 26px;
+    }
+    .pricing-estimator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .pricing-range-input {
+      width: 100%;
+      accent-color: var(--brand-accent);
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+    .pricing-estimator-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .pricing-est-tile {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 8px;
+    }
+    .pricing-est-tile strong {
+      display: block;
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--brand-accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .pricing-est-tile span {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    /* Right Column: 10 Inclusions & 4-Stage Payment Timeline */
+    .pricing-right-specs {
+      padding: 40px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FFFFFF;
+    }
+    .pricing-specs-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pricing-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px 18px;
+      list-style: none;
+      margin-bottom: 26px;
+    }
+    .pricing-features-grid li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 9px 12px;
+      border-radius: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .pricing-features-grid li:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+    }
+    .payment-timeline-box {
+      background: linear-gradient(135deg, #0B1026 0%, #151C3D 100%);
+      color: #FFFFFF;
+      border: 1px solid rgba(64, 64, 255, 0.35);
+      border-radius: 22px;
+      padding: 22px 24px;
+    }
+    .payment-timeline-box h3 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--brand-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .timeline-rows {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .timeline-item {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 11px 13px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.86);
+      line-height: 1.4;
+    }
+    .timeline-item strong {
+      color: #38BDF8;
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+    }
+    .guarantee-line {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: #4ADE80;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.28);
+      padding: 7px 12px;
+      border-radius: 10px;
+    }
+
+    /* 11. FAQ SECTION — INTERACTIVE CHAT BOX THEME WITH LIVE TYPING ANIMATION */
+    .faq-section {
+      background: #0B1026;
+      color: #FFFFFF;
+    }
+    .faq-section .section-title {
+      color: #FFFFFF;
+    }
+    .faq-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.74);
+    }
+    .faq-section .eyebrow {
+      color: var(--brand-accent);
+    }
+    .faq-chat-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .faq-prompts-panel {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .faq-prompts-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .faq-prompts-list {
+      display: grid;
+      gap: 8px;
+      max-height: 470px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .faq-prompt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .faq-prompt-btn:hover,
+    .faq-prompt-btn.is-active {
+      background: linear-gradient(135deg, rgba(0, 0, 255, 0.55), rgba(124, 58, 237, 0.55));
+      border-color: var(--brand-accent);
+      color: #FFFFFF;
+      transform: translateX(3px);
+    }
+    .faq-prompt-btn .prompt-idx {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--brand-accent);
+      font-size: 0.74rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .faq-chat-window {
+      background: #060919;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-xl);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.5);
+      min-height: 560px;
+    }
+    .chat-window-header {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .chat-agent-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chat-agent-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0000FF, #38BDF8);
+      border: 2px solid var(--brand-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .chat-stream {
+      flex: 1;
+      padding: 24px 22px;
+      overflow-y: auto;
+      max-height: 490px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .chat-msg {
+      display: flex;
+      gap: 10px;
+      max-width: 88%;
+      animation: chat-pop 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes chat-pop {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-msg.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-msg.agent {
+      align-self: flex-start;
+    }
+    .chat-bubble {
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .chat-msg.user .chat-bubble {
+      background: linear-gradient(135deg, #0000FF, #4040FF);
+      color: #FFFFFF;
+      font-weight: 600;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 10px 24px rgba(0, 0, 255, 0.3);
+    }
+    .chat-msg.agent .chat-bubble {
+      background: #131B36;
+      color: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom-left-radius: 4px;
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 15px;
+      background: var(--brand-accent);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: cursor-blink 0.7s steps(2) infinite;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .typing-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 2px;
+    }
+    .typing-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-accent);
+      animation: dot-bounce 1.2s infinite ease-in-out;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes dot-bounce {
+      0%, 80%, 100% { transform: scale(0.65); opacity: 0.45; }
+      40% { transform: scale(1.1); opacity: 1; }
+    }
+    .chat-input-bar {
+      padding: 14px 16px;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      gap: 10px;
+    }
+    .chat-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    .chat-input::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+    .chat-send-btn {
+      background: var(--brand-accent);
+      color: #050814;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: 12px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .chat-send-btn:hover {
+      background: var(--brand-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* RISK-REVERSAL GUARANTEE STRIP */
+    .guarantee-strip {
+      padding: 56px 0;
+      background: var(--bg-main);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .guarantee-pillar {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      text-align: center;
+    }
+    .guarantee-pillar h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      margin-bottom: 4px;
+    }
+    .guarantee-pillar p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* 12. FINAL CTA WITH MINI MASCOT ENCORE */
+    .final-cta-section {
+      background-color: #02030A;
+      background-image:
+        radial-gradient(ellipse 58% 60% at 50% 95%, rgba(0, 0, 255, 0.78) 0%, rgba(15, 45, 255, 0.36) 48%, transparent 78%),
+        radial-gradient(ellipse 42% 45% at 20% 25%, rgba(0, 40, 255, 0.35) 0%, transparent 65%),
+        linear-gradient(180deg, #02030A 0%, #050B2E 52%, #0000A8 100%);
+      color: var(--text-on-dark);
+      padding: 88px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .final-cta-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .mini-mascot-badge {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid var(--brand-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+    }
+    .final-checks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px 24px;
+      margin-top: 26px;
+      list-style: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .final-checks li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .final-checks span {
+      color: var(--brand-accent);
+      font-weight: 900;
+    }
+
+    /* 13. FOOTER */
+    .site-footer {
+      background: var(--bg-footer);
+      color: var(--text-on-dark);
+      padding: 68px 0 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.95rem;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-accent);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.93rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--brand-accent);
+    }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.68);
+    }
+    .footer-badges {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .footer-badge-item img {
+      height: 18px;
+      width: auto;
+    }
+
+    /* Section Reveal Animations — extended in assets/css/scroll-motion.css */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-up,
+      .reveal-left,
+      .reveal-right,
+      .reveal-scale,
+      .reveal-clip {
+        opacity: 0;
+        will-change: transform, opacity;
+        transition:
+          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+      .reveal-up { transform: translate3d(0, 32px, 0); }
+      .reveal-left { transform: translate3d(-48px, 0, 0); }
+      .reveal-right { transform: translate3d(48px, 0, 0); }
+      .reveal-scale { transform: scale(0.94); }
+      .reveal-clip {
+        transform: none;
+        clip-path: inset(12% 4% 12% 4% round 24px);
+      }
+      .reveal-up.is-visible,
+      .reveal-left.is-visible,
+      .reveal-right.is-visible,
+      .reveal-scale.is-visible,
+      .is-visible {
+        opacity: 1;
+        transform: none;
+        clip-path: inset(0% 0% 0% 0% round 0px);
+      }
+      .reveal-clip.is-visible {
+        opacity: 1;
+        clip-path: inset(0% 0% 0% 0% round 0px);
+      }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1140px) {
+      .hero-visual-stage {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+        padding-top: 12px;
+      }
+      .orbit-badge.mid-right {
+        position: static;
+        margin-bottom: 12px;
+      }
+      .hero-dashboard-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        max-width: 440px;
+        margin: 16px auto 28px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .console-grid,
+      .faq-chat-layout,
+      .pricing-command-deck {
+        grid-template-columns: 1fr;
+      }
+      .trust-stats-grid,
+      .guarantee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .problem-grid,
+      .steps-grid,
+      .features-bento {
+        grid-template-columns: 1fr;
+      }
+      .feature-tile.featured {
+        grid-column: span 1;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: inline-flex;
+      }
+      .site-menu {
+        position: fixed;
+        top: 108px;
+        left: 16px;
+        right: 16px;
+        background: #070B22;
+        border: 1.5px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-2xl);
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+        z-index: 1002;
+      }
+      .site-menu.is-open {
+        display: flex;
+      }
+      .mascot-stage {
+        height: 290px;
+      }
+      .mascot-rig {
+        width: 100%;
+        height: 280px;
+      }
+      .mascot-speech {
+        top: -8px;
+        right: 12px;
+      }
+      .difference-grid,
+      .pricing-features-grid,
+      .timeline-rows,
+      .trust-stats-grid,
+      .guarantee-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card-main {
+        padding: 36px 22px;
+      }
+      .section-pad {
+        padding: 64px 0;
+      }
+    }
+  
+    /* ===== CINEMATIC FOOTER (shared across all pages) ===== */
+    /* 13. FOOTER — infrastructure status-bar close */
+    .cf-footer {
+      position: relative;
+      background: #01020A;
+      color: #FFFFFF;
+      overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid rgba(0, 0, 255, 0.35);
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .cf-footer *, .cf-footer *::before, .cf-footer *::after { box-sizing: border-box; }
+    .cf-aurora {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(ellipse 48% 42% at 8% 0%, rgba(0, 0, 255, 0.38) 0%, transparent 68%),
+        radial-gradient(ellipse 40% 36% at 92% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 40% at 50% 110%, rgba(0, 0, 255, 0.45) 0%, transparent 72%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-aurora { animation: cf-aurora-shift 16s ease-in-out infinite alternate; }
+    }
+    @keyframes cf-aurora-shift {
+      from { transform: translate3d(-1%, 0, 0) scale(1); }
+      to { transform: translate3d(1%, -0.8%, 0) scale(1.04); }
+    }
+    .cf-grid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      opacity: 0.7;
+    }
+    .cf-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent 0%, #0000FF 28%, #38BDF8 50%, #FFD700 72%, transparent 100%);
+      opacity: 0.85;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-beam { background-size: 220% 100%; animation: cf-beam-run 8s linear infinite; }
+    }
+    @keyframes cf-beam-run {
+      from { background-position: 0% 0; }
+      to { background-position: 220% 0; }
+    }
+    .cf-inner {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 28px 20px;
+    }
+
+    /* Flush CTA strip — no glass card */
+    .cf-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) auto;
+      gap: 28px 48px;
+      align-items: end;
+      padding: 0 0 40px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      border-radius: 0;
+    }
+    .cf-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 0;
+      border: none;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 14px;
+    }
+    .cf-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-dot { animation: cf-dot-pulse 2.2s ease-out infinite; }
+    }
+    @keyframes cf-dot-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .cf-cta h2 {
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      color: #FFFFFF;
+      text-wrap: balance;
+    }
+    .cf-grad-text {
+      color: #38BDF8;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .cf-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 440px;
+      text-wrap: pretty;
+    }
+    .cf-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .cf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .cf-btn-primary {
+      background: #FFD700;
+      color: #050814;
+      box-shadow: 0 8px 28px rgba(255, 215, 0, 0.32);
+    }
+    .cf-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #FFE34D;
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.45);
+    }
+    .cf-btn-ghost {
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+    }
+    .cf-btn-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.7);
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    /* Brand + nav — wider, denser */
+    .cf-cols {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(0, 1fr));
+      gap: 40px 56px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      align-items: start;
+    }
+    .cf-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .cf-logo svg {
+      color: #0000FF;
+      filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.55));
+    }
+    .cf-brand p {
+      margin: 14px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 280px;
+    }
+    .cf-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
+    }
+    .cf-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .cf-trust-item img {
+      height: 14px;
+      width: auto;
+      display: block;
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .cf-trust-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .cf-col h4 {
+      margin: 0 0 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.38);
+    }
+    .cf-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 11px;
+    }
+    .cf-col a {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.94rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .cf-col a:hover { color: #38BDF8; }
+
+    .cf-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    .cf-bottom-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+    }
+    .cf-legal {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .cf-legal a {
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .cf-legal a:hover { color: #FFFFFF; }
+    .cf-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+    .cf-top-btn:hover { color: #FFD700; }
+
+    /* Giant scroll-linked wordmark */
+    .cf-wordmark {
+      position: relative;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 16vw, 15rem);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      margin-top: 28px;
+      padding-bottom: 0.04em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(0, 0, 255, 0.38) 42%, rgba(1, 2, 10, 0) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+      opacity: var(--cf-op, 0.35);
+      transform: translate3d(0, var(--cf-ty, 40px), 0);
+      will-change: transform, opacity;
+    }
+
+    @media (max-width: 1024px) {
+      .cf-cta {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .cf-cta-actions { justify-content: flex-start; }
+      .cf-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px 28px;
+      }
+      .cf-brand { grid-column: 1 / -1; max-width: 520px; }
+    }
+    @media (max-width: 640px) {
+      .cf-inner { padding: 44px 20px 16px; }
+      .cf-cta { padding-bottom: 28px; margin-bottom: 36px; }
+      .cf-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .cf-brand { max-width: none; }
+      .cf-bottom { flex-direction: column; align-items: flex-start; }
+      .cf-wordmark { margin-top: 20px; }
+    }
+</style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- 1. ANNOUNCEMENT BAR & NAVIGATION -->
+  <div class="announcement-bar" role="region" aria-label="Special Offer Announcement">
+    <div class="announcement-inner">
+      <span class="announcement-pill">30-Day Free Trial</span>
+      <span>Claim Your 100 Free Google Workspace Accounts — Pay After 30 Days ($3/Account)</span>
+      <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="announcement-link" target="_blank" rel="noopener">Start Free Trial →</a>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Mailinfra Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        </svg>
+        <span>Mailinfra</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span>Menu</span>
+        </button>
+        <ul class="site-menu" id="primary-menu">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="features.html">Features <span class="nav-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a href="how-it-works.html">How It Works <span class="nav-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a href="pricing.html">Pricing <span class="nav-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a href="resources.html">Resources <span class="nav-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a href="about.html">Company <span class="nav-arrow" aria-hidden="true">↓</span></a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn-header-pill" data-mascot-trigger="excited" target="_blank" rel="noopener">
+          <span>Start Free Trial</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 2. WALRUS-STYLE CENTERED HERO WITH GIANT BOTTOM-PEEKING 3D VISOR MASCOT -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-center-stack">
+        <div class="hero-badge">
+          <span aria-hidden="true">🚀</span>
+          <span>TRUSTED BY 300+ OUTBOUND &amp; LEAD GEN AGENCIES</span>
+        </div>
+        <h1 id="hero-heading" class="hero-title">
+          Claim Your 100 Free Google Workspace Accounts, <span class="hero-highlight">Pay After 30 Days</span>—Just $3/Account
+        </h1>
+        <p class="hero-sub-1">
+          Get 100 Google Workspace accounts free for 30 days — <strong>no credit card required</strong>, <strong>no hidden fees</strong>, and <strong>only $3/account/month</strong> after you see results for outbound agencies, lead gen teams, and GTM engineers.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn-walrus-pill cta-primary" data-mascot-trigger="excited" target="_blank" rel="noopener">
+            <span>Claim Your 100 Free Accounts</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="contact.html" class="btn-walrus-secondary">
+            <span>Book a Demo</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <ul class="hero-checks">
+          <li>
+            <span class="check-circle" aria-hidden="true">✓</span>
+            <span>No credit card required - Start immediately</span>
+          </li>
+          <li>
+            <span class="check-circle" aria-hidden="true">✓</span>
+            <span>99.9% deliverability rate with dedicated IPs</span>
+          </li>
+          <li>
+            <span class="check-circle" aria-hidden="true">✓</span>
+            <span>Full 30 days to test - Pay only if satisfied</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM CENTER: 3D IRIDESCENT-VISOR MASCOT + ANIMATING EMAIL DASHBOARD -->
+      <div class="hero-visual-stage">
+        <!-- Animating Live Email Dashboard Card (Positioned Cleanly on Left) -->
+        <div class="hero-dashboard-card" aria-label="Mailinfra Live Animating Email Dashboard">
+          <span class="dash-floating-pill">Pay After 30 Days ✨</span>
+          <div class="dash-header">
+            <span class="dash-title">Email Dashboard</span>
+            <span class="dash-live"><span class="live-ping" aria-hidden="true"></span> Live</span>
+          </div>
+          <div class="dash-kpis">
+            <div class="dash-kpi">
+              <div class="dash-kpi-val blue" id="hero-kpi-sent">2.5M</div>
+              <div class="dash-kpi-label">Emails Sent</div>
+              <div class="dash-kpi-sub">This month</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-val green" id="hero-kpi-deliv">99.9%</div>
+              <div class="dash-kpi-label">Deliverability</div>
+              <div class="dash-kpi-sub">Inbox rate</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="dash-kpi-val purple">Day 31</div>
+              <div class="dash-kpi-label">Payment Due</div>
+              <div class="dash-kpi-sub">Try risk-free</div>
+            </div>
+          </div>
+          <div class="dash-bars" role="img" aria-label="Live animating weekly sending volume bar chart showing 23% growth">
+            <div class="dash-bar" style="--bar-h: 40%; --bar-delay: 0s;"></div>
+            <div class="dash-bar" style="--bar-h: 65%; --bar-delay: 0.2s;"></div>
+            <div class="dash-bar" style="--bar-h: 45%; --bar-delay: 0.4s;"></div>
+            <div class="dash-bar" style="--bar-h: 80%; --bar-delay: 0.6s;"></div>
+            <div class="dash-bar" style="--bar-h: 55%; --bar-delay: 0.8s;"></div>
+            <div class="dash-bar" style="--bar-h: 92%; --bar-delay: 1.0s;"></div>
+            <div class="dash-bar" style="--bar-h: 72%; --bar-delay: 1.2s;"></div>
+          </div>
+          <div class="dash-live-ticker" aria-live="off">
+            <span style="color:#4ADE80;">⚡</span>
+            <span id="hero-dash-ticker">100 GW Inboxes Active • 99.9% Primary Inbox</span>
+          </div>
+          <div class="dash-footer">
+            <span class="trend">↑ 23% vs last month</span>
+            <span class="spent">$0 spent yet</span>
+          </div>
+        </div>
+
+        <div class="mascot-stage" id="mascot-stage" role="img" aria-label="Interactive 3D Mailinfra Mascot with wrap-around iridescent visor rising from the bottom edge of the screen">
+          <div class="mascot-aura" aria-hidden="true"></div>
+          <div class="mascot-rig" id="mascot-rig">
+            <canvas id="mascot-canvas" class="mascot-canvas" width="900" height="540"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TRUST AND SOCIAL PROOF — FUTURISTIC TELEMETRY HUB -->
+    <section class="trust-section" id="trust-section" aria-label="Customer Statistics and Social Proof">
+      <div class="container">
+        <div class="trust-header-wrap">
+          <p class="trust-eyebrow">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>TRUSTED BY 300+ OUTBOUND &amp; LEAD GEN AGENCIES</span>
+          </p>
+        </div>
+
+        <div class="trust-stats-grid">
+          <!-- Card 1: 4.9/5 Rating -->
+          <div class="trust-stat-card reveal-up" style="--card-accent: linear-gradient(90deg, #FFD700, #F59E0B);">
+            <div>
+              <div class="trust-card-top">
+                <span class="trust-tag" style="color:#FDE047;border-color:rgba(255,215,0,0.3);">★ Verified Reviews</span>
+                <span style="color:#FFD700;font-size:0.88rem;letter-spacing:1px;">★★★★★</span>
+              </div>
+              <div class="trust-stat-number">
+                <span data-trust-counter="4.9" data-trust-decimals="1" data-trust-suffix="/5">4.9/5</span>
+              </div>
+              <div class="trust-stat-label">rating (12,458 reviews)</div>
+            </div>
+            <div class="trust-micro-viz" aria-hidden="true">
+              <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                <rect x="0" y="8" width="120" height="8" rx="4" fill="rgba(255,255,255,0.1)"/>
+                <rect x="0" y="8" width="116" height="8" rx="4" fill="#FFD700"/>
+              </svg>
+              <span style="font-size:0.74rem;font-weight:800;color:#FDE047;">98% 5-Star</span>
+            </div>
+          </div>
+
+          <!-- Card 2: $45M+ Cash Flow Preserved -->
+          <div class="trust-stat-card reveal-up" style="--card-accent: linear-gradient(90deg, #22C55E, #4ADE80);">
+            <div>
+              <div class="trust-card-top">
+                <span class="trust-tag" style="color:#86EFAC;border-color:rgba(74,222,128,0.3);">💰 Working Capital</span>
+                <span style="color:#4ADE80;font-size:0.78rem;font-weight:800;">↑ NET 15</span>
+              </div>
+              <div class="trust-stat-number">
+                <span data-trust-counter="45" data-trust-prefix="$" data-trust-suffix="M+">$45M+</span>
+              </div>
+              <div class="trust-stat-label">in cash flow preserved</div>
+            </div>
+            <div class="trust-micro-viz" aria-hidden="true">
+              <svg width="124" height="28" viewBox="0 0 124 28" fill="none">
+                <path d="M2 24 C 28 22, 44 16, 68 13 C 88 10, 104 5, 120 3" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="120" cy="3" r="3.5" fill="#FFD700"/>
+              </svg>
+              <span style="font-size:0.74rem;font-weight:800;color:#4ADE80;">$0 Day 1–30</span>
+            </div>
+          </div>
+
+          <!-- Card 3: 500M+ Emails Delivered Monthly -->
+          <div class="trust-stat-card reveal-up" style="--card-accent: linear-gradient(90deg, #0000FF, #38BDF8);">
+            <div>
+              <div class="trust-card-top">
+                <span class="trust-tag" style="color:#BAE6FD;border-color:rgba(56,189,248,0.3);">⚡ Monthly Volume</span>
+                <span style="color:#38BDF8;font-size:0.78rem;font-weight:800;">99.9% SLA</span>
+              </div>
+              <div class="trust-stat-number">
+                <span data-trust-counter="500" data-trust-suffix="M+">500M+</span>
+              </div>
+              <div class="trust-stat-label">emails delivered monthly</div>
+            </div>
+            <div class="trust-micro-viz" aria-hidden="true">
+              <svg width="124" height="26" viewBox="0 0 124 26" fill="none">
+                <rect x="2" y="14" width="8" height="10" rx="2" fill="#1D4ED8"/>
+                <rect x="16" y="10" width="8" height="14" rx="2" fill="#2563EB"/>
+                <rect x="30" y="12" width="8" height="12" rx="2" fill="#3B82F6"/>
+                <rect x="44" y="7" width="8" height="17" rx="2" fill="#38BDF8"/>
+                <rect x="58" y="9" width="8" height="15" rx="2" fill="#2563EB"/>
+                <rect x="72" y="5" width="8" height="19" rx="2" fill="#38BDF8"/>
+                <rect x="86" y="8" width="8" height="16" rx="2" fill="#60A5FA"/>
+                <rect x="100" y="3" width="8" height="21" rx="2" fill="#FFD700"/>
+              </svg>
+              <span style="font-size:0.74rem;font-weight:800;color:#38BDF8;">Dedicated IPs</span>
+            </div>
+          </div>
+
+          <!-- Card 4: 10,000+ Active Customers -->
+          <div class="trust-stat-card reveal-up" style="--card-accent: linear-gradient(90deg, #7C3AED, #C084FC);">
+            <div>
+              <div class="trust-card-top">
+                <span class="trust-tag" style="color:#E9D5FF;border-color:rgba(192,132,252,0.3);">🌐 Global GTM Teams</span>
+                <span style="color:#C084FC;font-size:0.78rem;font-weight:800;">300+ Agencies</span>
+              </div>
+              <div class="trust-stat-number">
+                <span data-trust-counter="10000" data-trust-comma="true" data-trust-suffix="+">10,000+</span>
+              </div>
+              <div class="trust-stat-label">active customers</div>
+            </div>
+            <div class="trust-micro-viz">
+              <div style="display:flex;align-items:center;">
+                <img src="assets/images/testimonial-sarah.jpg" alt="" width="24" height="24" style="border-radius:50%;border:1.5px solid #FFD700;object-fit:cover;">
+                <img src="assets/images/testimonial-james.jpg" alt="" width="24" height="24" style="border-radius:50%;border:1.5px solid #38BDF8;object-fit:cover;margin-left:-7px;">
+                <img src="assets/images/testimonial-michael.jpg" alt="" width="24" height="24" style="border-radius:50%;border:1.5px solid #C084FC;object-fit:cover;margin-left:-7px;">
+              </div>
+              <span style="font-size:0.74rem;font-weight:800;color:#E9D5FF;">5-Min Onboarding</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Verified Infrastructure & Compliance Strip -->
+        <div class="trust-compliance-bar">
+          <span class="trust-compliance-item">
+            <img src="assets/logo/google-workspace.svg" alt="Google Workspace" style="height:17px;background:#FFFFFF;padding:2px 7px;border-radius:5px;">
+            <span>Authentic Google Workspace Pools</span>
+          </span>
+          <span class="trust-compliance-item"><span style="color:#4ADE80;">✓</span> 100 Free Accounts (Days 1–30)</span>
+          <span class="trust-compliance-item"><span style="color:#FFD700;">✓</span> 40–120/Day Safe Volume Limits</span>
+          <span class="trust-compliance-item">🛡️ SOC 2 Certified &amp; GDPR Compliant</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM -->
+    <section class="section-pad" id="problem" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">THE CASH FLOW BOTTLENECK</span>
+          <h2 id="problem-heading" class="section-title">Tired of Email Services Draining Your Cash Flow Before You See Results?</h2>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal-up">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <h3>Upfront Payment Pressure</h3>
+            <p>Most email services demand payment before you send a single email. This strains your working capital and limits growth.</p>
+          </article>
+          <article class="problem-card reveal-up">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3>No Proof of Performance</h3>
+            <p>You're forced to pay without knowing if deliverability rates, inbox placement, or ROI will meet your needs.</p>
+          </article>
+          <article class="problem-card reveal-up">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Cash Flow Struggles</h3>
+            <p>Every dollar tied up in email infrastructure is a dollar not invested in growth, hiring, or inventory.</p>
+          </article>
+        </div>
+        <div class="problem-transition-banner reveal-scale">
+          What if you could send first, validate performance, THEN pay?
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. THE MAILINFRA DIFFERENCE -->
+    <section class="section-pad difference-section" id="difference" aria-labelledby="difference-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">THE MAILINFRA DIFFERENCE</span>
+          <h2 id="difference-heading" class="section-title">Mailinfra Changes the Game: Performance First, Payment Later</h2>
+          <p class="section-subtitle">The only email infrastructure built for modern businesses that need flexibility and proof before payment</p>
+        </div>
+        <div class="difference-grid">
+          <article class="diff-card reveal-up">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <h3>Start Sending Instantly</h3>
+              <p>No credit card. No setup fees. Begin sending emails in 5 minutes with full API access and SMTP relay.</p>
+            </div>
+          </article>
+          <article class="diff-card reveal-up">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <h3>Test Everything for 30 Days</h3>
+              <p>Full access to deliverability analytics, A/B testing, segmentation, and dedicated IPs. Prove ROI first.</p>
+            </div>
+          </article>
+          <article class="diff-card reveal-up">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h3>Pay After You're Satisfied</h3>
+              <p>Invoice arrives on day 31. If you're not satisfied, don't pay. Simple as that.</p>
+            </div>
+          </article>
+          <article class="diff-card reveal-up">
+            <div class="diff-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Safe Volume Scaling</h3>
+              <p>Built-in safeguards that protect your domain reputation while growing send capacity. Scale horizontally across inboxes, not vertically to dangerous limits.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRODUCT DASHBOARD SHOWCASE -->
+    <section class="section-pad showcase-section" id="dashboard-showcase" aria-labelledby="showcase-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">LIVE INFRASTRUCTURE TELEMETRY</span>
+          <h2 id="showcase-heading" class="section-title">Complete Visibility Into Deliverability, Reputation &amp; Cash Flow</h2>
+          <p class="section-subtitle">Track exact inbox placement, horizontal Google Workspace scaling (40–120 emails/day per inbox), and your 30-day risk-free trial status in real time.</p>
+        </div>
+
+        <div class="console-shell reveal-clip">
+          <div class="console-toolbar">
+            <div class="console-dots" aria-hidden="true">
+              <span style="background:#EF4444"></span>
+              <span style="background:#F59E0B"></span>
+              <span style="background:#22C55E"></span>
+              <strong style="margin-left:8px;font-size:0.9rem;">Mailinfra Control Plane • 100 Google Workspace Accounts Active</strong>
+            </div>
+            <div class="console-tabs" role="tablist" aria-label="Dashboard Views">
+              <button type="button" class="console-tab active" data-view="delivery">Deliverability &amp; Volume</button>
+              <button type="button" class="console-tab" data-view="pool">Horizontal Inbox Pool</button>
+              <button type="button" class="console-tab" data-view="billing">Day 31 NET-15 Status</button>
+            </div>
+          </div>
+
+          <div class="console-grid">
+            <div class="console-panel">
+              <div id="console-view-title" style="font-weight:800;font-size:1.15rem;margin-bottom:6px;">Real-Time Sending &amp; Reputation Safeguards</div>
+              <p id="console-view-desc" style="color:var(--text-muted-dark);font-size:0.9rem;margin-bottom:18px;">
+                We enforce safe volume limits (40–120 emails/day per inbox depending on reputation) to protect your domain health and maintain 95%+ to 99.9% inbox placement.
+              </p>
+
+              <!-- Interactive Horizontal Scaling Calculator -->
+              <div class="scaler-control">
+                <label for="inbox-slider">
+                  <span>Interactive Horizontal Pool Simulator</span>
+                  <span id="slider-inboxes-Badge" style="color:var(--brand-accent);">100 Google Workspace Accounts</span>
+                </label>
+                <input type="range" id="inbox-slider" class="scaler-range" min="10" max="300" step="10" value="100">
+                <div class="scaler-readout">
+                  <div class="scaler-box">
+                    <strong id="calc-daily">7,000 / day</strong>
+                    <span>Safe Daily Volume (70 avg/inbox)</span>
+                  </div>
+                  <div class="scaler-box">
+                    <strong id="calc-day1">$0</strong>
+                    <span>Upfront Cost (Days 1–30)</span>
+                  </div>
+                  <div class="scaler-box">
+                    <strong id="calc-day31">$300/mo</strong>
+                    <span>After Day 30 ($3/account)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="console-panel" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+              <div>
+                <div style="font-size:0.78rem;font-weight:800;color:var(--brand-accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">VERIFIED INFRASTRUCTURE SPECS</div>
+                <div style="display:grid;gap:10px;">
+                  <div style="background:rgba(255,255,255,0.05);padding:12px 14px;border-radius:12px;display:flex;justify-content:space-between;">
+                    <span style="color:var(--text-muted-dark);font-size:0.88rem;">Setup Time to First Send</span>
+                    <strong style="color:#22C55E;">~5 Minutes Total</strong>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);padding:12px 14px;border-radius:12px;display:flex;justify-content:space-between;">
+                    <span style="color:var(--text-muted-dark);font-size:0.88rem;">Dedicated IP Addresses</span>
+                    <strong style="color:var(--brand-accent);">Included Free</strong>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);padding:12px 14px;border-radius:12px;display:flex;justify-content:space-between;">
+                    <span style="color:var(--text-muted-dark);font-size:0.88rem;">Phone Verification</span>
+                    <strong style="color:#FFFFFF;">None Required</strong>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);padding:12px 14px;border-radius:12px;display:flex;justify-content:space-between;">
+                    <span style="color:var(--text-muted-dark);font-size:0.88rem;">Invoice Terms</span>
+                    <strong style="color:#A78BFA;">Day 31 • NET 15 (Day 45)</strong>
+                  </div>
+                </div>
+              </div>
+              <a href="features.html" class="btn btn-gold" style="width:100%;">Explore Full Infrastructure Architecture →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FEATURES OVERVIEW — INTERACTIVE ARCHITECTURAL BENTO GRID -->
+    <section class="section-pad features-overview-section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">BUILT FOR GTM ENGINEERS &amp; AGENCIES</span>
+          <h2 id="features-heading" class="section-title">Everything You Need for Bulletproof Cold Email Infrastructure</h2>
+          <p class="section-subtitle">Full features unlocked during your 30-day free trial—no phone verification, no setup fees, and no credit card required.</p>
+        </div>
+
+        <div class="features-bento">
+          <!-- Module 1: Flagship Google Workspace Account Infrastructure -->
+          <article class="feature-tile featured reveal-up">
+            <div>
+              <div class="feature-top-row">
+                <span class="feature-tag">⚡ Core Infrastructure</span>
+                <span style="font-size:0.76rem;font-weight:800;color:#4ADE80;background:rgba(34,197,94,0.16);padding:4px 10px;border-radius:999px;border:1px solid rgba(74,222,128,0.35);">
+                  100 Free for 30 Days
+                </span>
+              </div>
+              <h3>Google Workspace Account Infrastructure ($3/each)</h3>
+              <p>Claim 100 free Google Workspace accounts for 30 days and add more on-demand at $3/each. Fully warmed accounts with automatic warm-up protocols and no phone verification required.</p>
+              <div style="margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+                <img src="assets/logo/google-workspace.svg" alt="Google Workspace" style="height:26px;background:#fff;padding:4px 10px;border-radius:6px;">
+                <span style="font-size:0.84rem;font-weight:700;color:var(--brand-accent);">✓ 99.9% Deliverability SLA Guarantee</span>
+              </div>
+            </div>
+
+            <!-- Live Google Workspace Inbox Pool Schematic -->
+            <div class="feature-schematic" aria-hidden="true">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:0.74rem;color:#94A3B8;">
+                <strong style="color:#FFFFFF;">ACTIVE GOOGLE WORKSPACE POOL</strong>
+                <span style="color:var(--brand-accent);font-weight:800;">No Phone Verify</span>
+              </div>
+              <div class="gw-pool-stack">
+                <div class="gw-pool-row">
+                  <span style="color:#E2E8F0;">gw-01@agency-outreach.co</span>
+                  <div class="gw-pool-bar"><span style="width:82%"></span></div>
+                  <span style="color:#4ADE80;">99.9%</span>
+                </div>
+                <div class="gw-pool-row">
+                  <span style="color:#E2E8F0;">gw-02@gtm-pipeline.io</span>
+                  <div class="gw-pool-bar"><span style="width:74%"></span></div>
+                  <span style="color:#4ADE80;">99.9%</span>
+                </div>
+                <div class="gw-pool-row">
+                  <span style="color:#E2E8F0;">gw-03@revenue-team.co</span>
+                  <div class="gw-pool-bar"><span style="width:88%"></span></div>
+                  <span style="color:#4ADE80;">99.8%</span>
+                </div>
+              </div>
+              <div style="margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:0.73rem;font-weight:700;">
+                <span style="color:#38BDF8;">+ 97 Warmed Inboxes Active</span>
+                <span style="color:var(--brand-accent);">$0 Days 1–30</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Module 2: Dedicated IP Addresses -->
+          <article class="feature-tile reveal-up" style="--tile-accent: linear-gradient(90deg, #7C3AED, #38BDF8);">
+            <div>
+              <div class="feature-top-row">
+                <span class="feature-tag">🛡️ Reputation Control</span>
+                <span class="feature-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+              </div>
+              <h3>Dedicated IP Addresses</h3>
+              <p>Dedicated IP addresses included free to isolate and protect your sender reputation across outbound campaigns.</p>
+            </div>
+            <div class="feature-schematic" aria-hidden="true">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-family:monospace;color:#38BDF8;font-weight:700;">IP: 198.51.100.42</span>
+                <span style="background:rgba(34,197,94,0.18);color:#4ADE80;padding:2px 8px;border-radius:999px;font-weight:800;font-size:0.68rem;">INCLUDED FREE</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#94A3B8;">
+                <span>Shared Neighbor Risk: <strong style="color:#4ADE80;">0.0%</strong></span>
+                <span>Reputation: <strong style="color:#FFD700;">Isolated</strong></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Module 3: Full API & SMTP Relay Access -->
+          <article class="feature-tile reveal-up" style="--tile-accent: linear-gradient(90deg, #0000FF, #7C3AED);">
+            <div>
+              <div class="feature-top-row">
+                <span class="feature-tag">⚡ 5-Minute Integration</span>
+                <span class="feature-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </span>
+              </div>
+              <h3>Full API &amp; SMTP Relay Access</h3>
+              <p>Connect via API or SMTP in 2 minutes. One-click integrations for popular sending platforms and phenomenal API docs.</p>
+            </div>
+            <div class="feature-schematic" style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:0.72rem;" aria-hidden="true">
+              <div style="color:#93C5FD;">POST <span style="color:#FDE047;">/v1/send</span> • <span style="color:#4ADE80;">200 OK</span></div>
+              <div style="color:#CBD5E1;margin-top:4px;">HOST: <span style="color:#38BDF8;">smtp.mailinfra.co:587</span></div>
+              <div style="color:#A78BFA;margin-top:3px;">limit: "40-120/day safe scale"</div>
+            </div>
+          </article>
+
+          <!-- Module 4: Deliverability Analytics Dashboard -->
+          <article class="feature-tile reveal-up" style="--tile-accent: linear-gradient(90deg, #16A34A, #4ADE80);">
+            <div>
+              <div class="feature-top-row">
+                <span class="feature-tag">📊 Real-Time Telemetry</span>
+                <span class="feature-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                </span>
+              </div>
+              <h3>Deliverability Analytics Dashboard</h3>
+              <p>Track your exact inbox placement, deliverability rates, and performance metrics in real time before paying a cent.</p>
+            </div>
+            <div class="feature-schematic" aria-hidden="true">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span style="font-weight:700;color:#E2E8F0;">Primary Inbox Rate</span>
+                <strong style="color:#4ADE80;font-size:0.95rem;">99.9%</strong>
+              </div>
+              <svg viewBox="0 0 220 32" fill="none" style="width:100%;height:30px;">
+                <path d="M2 26 C 45 24, 75 14, 115 11 C 155 8, 185 5, 218 4" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="218" cy="4" r="3.5" fill="#FFD700"/>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Module 5: Domain Pool Expansion & Custom DNS -->
+          <article class="feature-tile reveal-up" style="--tile-accent: linear-gradient(90deg, #F59E0B, #FFD700);">
+            <div>
+              <div class="feature-top-row">
+                <span class="feature-tag">🌐 Horizontal Growth</span>
+                <span class="feature-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+              </div>
+              <h3>Domain Pool Expansion &amp; Custom DNS</h3>
+              <p>Custom domain setup &amp; authentication in 2 minutes via DNS records, with seamless domain pool expansion as you grow.</p>
+            </div>
+            <div class="feature-schematic" aria-hidden="true">
+              <div class="dns-pill-grid">
+                <div class="dns-pill"><span>SPF Record</span><span style="color:#4ADE80;">✓ 2m</span></div>
+                <div class="dns-pill"><span>DKIM 2048</span><span style="color:#4ADE80;">✓ 2m</span></div>
+                <div class="dns-pill"><span>DMARC</span><span style="color:#4ADE80;">✓ Active</span></div>
+                <div class="dns-pill"><span>Domain Pool</span><span style="color:#FFD700;">+Auto</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Module 6: Real-Time Monitoring, Alerts & Support (Full-Width 3-Col Architectural Bar) -->
+          <article class="feature-tile reveal-up" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 28px; background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%); --tile-accent: linear-gradient(90deg, #0000FF, #7C3AED, #FFD700);">
+            <div>
+              <div class="feature-top-row" style="justify-content:flex-start;gap:12px;">
+                <span class="feature-tag">🛡️ 24/7 Protection &amp; Safe Scaling</span>
+                <span style="font-size:0.76rem;font-weight:800;color:var(--brand-purple);">A/B Testing + Segmentation Included</span>
+              </div>
+              <h3>Real-Time Monitoring, Alerts, Safe Volume Scaling &amp; 24/7 Priority Support</h3>
+              <p>Automated reputation monitoring, safe horizontal volume limits (40–120 emails/day per inbox), A/B testing, segmentation, and 24/7 priority support via chat, email, and phone.</p>
+            </div>
+            <div class="feature-schematic" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+              <div>
+                <div style="font-weight:800;color:var(--brand-accent);font-size:0.76rem;text-transform:uppercase;">24/7 Engineering Desk</div>
+                <div style="color:#E2E8F0;font-weight:700;font-size:0.88rem;margin-top:3px;">Chat • Email • Phone Support</div>
+                <div style="color:#4ADE80;font-size:0.74rem;margin-top:2px;">● Instant response • 95%+ to 99.9% Inbox Rate</div>
+              </div>
+              <a href="features.html" class="btn btn-gold" style="min-height:42px;padding:10px 18px;font-size:0.84rem;">
+                Explore All 10 Features →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. HOW IT WORKS — SCROLL-LINKED SVG PIPELINE -->
+    <section class="section-pad steps-section" id="how-it-works" aria-labelledby="steps-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">FAST ONBOARDING</span>
+          <h2 id="steps-heading" class="section-title">From Zero to Sending in 3 Simple Steps</h2>
+          <p class="section-subtitle">Get started in minutes, not days. No credit card, no commitments.</p>
+        </div>
+
+        <!-- Live Scroll-Linked Telemetry Bar -->
+        <div class="hiw-telemetry-bar" aria-live="off">
+          <span style="display:inline-flex;align-items:center;gap:8px;">
+            <span class="pulse-dot"></span>
+            <span id="hiw-stage-status">Scroll-Linked Onboarding Pipeline: Step 1 Active</span>
+          </span>
+          <span class="hiw-telemetry-pct" id="hiw-progress-pct">33%</span>
+        </div>
+
+        <!-- Master Scroll-Linked SVG Circuit Connecting the 3 Steps -->
+        <div class="hiw-svg-pipeline-wrap" aria-hidden="true">
+          <svg class="hiw-pipeline-svg svg-scroll-draw" id="hiw-pipeline-svg" data-svg-draw viewBox="0 0 1140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hiwBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0000FF"/>
+                <stop offset="50%" stop-color="#7C3AED"/>
+                <stop offset="100%" stop-color="#FFD700"/>
+              </linearGradient>
+              <filter id="hiwGlow" x="-20%" y="-40%" width="140%" height="180%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Base Circuit Track -->
+            <path d="M 90 65 C 210 65, 260 22, 380 65 C 500 108, 640 22, 760 65 C 880 108, 930 65, 1050 65"
+                  stroke="#CBD5E1" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 90 65 C 210 65, 260 22, 380 65 C 500 108, 640 22, 760 65 C 880 108, 930 65, 1050 65"
+                  stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round"/>
+
+            <!-- Scroll-Driven Energized Laser Path -->
+            <path id="hiw-scroll-path"
+                  d="M 90 65 C 210 65, 260 22, 380 65 C 500 108, 640 22, 760 65 C 880 108, 930 65, 1050 65"
+                  stroke="url(#hiwBeamGrad)" stroke-width="7" stroke-linecap="round" filter="url(#hiwGlow)"/>
+
+            <!-- 3 Step Junction Nodes on the SVG Circuit -->
+            <g id="hiw-node-1" transform="translate(185, 48)">
+              <circle cx="0" cy="0" r="22" fill="#0B1026" stroke="#0000FF" stroke-width="4"/>
+              <circle cx="0" cy="0" r="9" fill="#FFD700"/>
+              <text x="0" y="39" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="#0000FF">01 • 2 MIN</text>
+            </g>
+
+            <g id="hiw-node-2" transform="translate(570, 65)">
+              <circle cx="0" cy="0" r="22" fill="#0B1026" stroke="#7C3AED" stroke-width="4"/>
+              <circle cx="0" cy="0" r="9" fill="#38BDF8"/>
+              <text x="0" y="39" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="#7C3AED">02 • 5 MIN</text>
+            </g>
+
+            <g id="hiw-node-3" transform="translate(955, 82)">
+              <circle cx="0" cy="0" r="22" fill="#0B1026" stroke="#16A34A" stroke-width="4"/>
+              <circle cx="0" cy="0" r="9" fill="#22C55E"/>
+              <text x="0" y="39" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="#16A34A">03 • DAY 31</text>
+            </g>
+
+            <!-- Traveling Scroll-Linked Data Packet Shuttle -->
+            <g id="hiw-packet-shuttle" transform="translate(185, 48)">
+              <circle cx="0" cy="0" r="18" fill="rgba(255, 215, 0, 0.28)" filter="url(#hiwGlow)"/>
+              <rect x="-14" y="-10" width="28" height="20" rx="5" fill="#FFD700" stroke="#0B1026" stroke-width="2"/>
+              <path d="M -10 -6 L 0 2 L 10 -6" stroke="#0B1026" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="steps-grid" id="hiw-steps-grid">
+          <!-- STEP 1 -->
+          <article class="step-card is-energized" data-step-index="0" style="--step-fill: 1;">
+            <div class="step-top">
+              <span class="step-num">1</span>
+              <span class="step-time">2 Minutes</span>
+            </div>
+            <!-- Step 1 Scroll-Driven SVG Schematic: Prospect Lists -> Mailinfra Hub -->
+            <div class="step-svg-visual" aria-hidden="true">
+              <svg viewBox="0 0 320 98" fill="none">
+                <rect x="12" y="12" width="76" height="22" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+                <text x="50" y="27" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#BAE6FD">Apollo / Clay</text>
+                <rect x="12" y="40" width="76" height="22" rx="6" fill="#1E293B" stroke="#818CF8" stroke-width="1.5"/>
+                <text x="50" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#C7D2FE">ZoomInfo</text>
+                <rect x="12" y="68" width="76" height="22" rx="6" fill="#1E293B" stroke="#4ADE80" stroke-width="1.5"/>
+                <text x="50" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#BBF7D0">CRM Sync</text>
+
+                <!-- Scroll-linked converging SVG paths -->
+                <path class="step-draw-path" d="M 88 23 C 145 23, 155 49, 208 49" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="step-draw-path" d="M 88 51 L 208 51" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="step-draw-path" d="M 88 79 C 145 79, 155 53, 208 53" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+
+                <rect x="208" y="25" width="98" height="50" rx="12" fill="#0000FF" stroke="#FFD700" stroke-width="2"/>
+                <text x="257" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">TARGET POOL</text>
+                <text x="257" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#FFD700">Verified Ready</text>
+              </svg>
+            </div>
+            <h3>Connect Your Lists</h3>
+            <p>Import your verified prospect data or integrate with your CRM. We handle infrastructure—you bring the targets.</p>
+          </article>
+
+          <!-- STEP 2 -->
+          <article class="step-card" data-step-index="1" style="--step-fill: 0;">
+            <div class="step-top">
+              <span class="step-num">2</span>
+              <span class="step-time">5 Minutes</span>
+            </div>
+            <!-- Step 2 Scroll-Driven SVG Schematic: API/SMTP -> 100 Google Workspace Inboxes -->
+            <div class="step-svg-visual" aria-hidden="true">
+              <svg viewBox="0 0 320 98" fill="none">
+                <rect x="12" y="27" width="82" height="44" rx="10" fill="#1E293B" stroke="#7C3AED" stroke-width="2"/>
+                <text x="53" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">API / SMTP</text>
+                <text x="53" y="60" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#A78BFA">2-Min DNS</text>
+
+                <!-- Scroll-linked horizontal scaling fan-out paths -->
+                <path class="step-draw-path" d="M 94 49 C 140 49, 145 20, 196 20" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="step-draw-path" d="M 94 49 L 196 49" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="step-draw-path" d="M 94 49 C 140 49, 145 78, 196 78" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+
+                <rect x="196" y="9" width="112" height="22" rx="6" fill="#0000FF" stroke="#38BDF8" stroke-width="1.5"/>
+                <text x="252" y="23" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF">GW Pool • 40-120/d</text>
+                <rect x="196" y="38" width="112" height="22" rx="6" fill="#0000FF" stroke="#FFD700" stroke-width="1.5"/>
+                <text x="252" y="52" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#FFD700">100 Free Inboxes</text>
+                <rect x="196" y="67" width="112" height="22" rx="6" fill="#0000FF" stroke="#4ADE80" stroke-width="1.5"/>
+                <text x="252" y="81" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#4ADE80">Dedicated IPs Free</text>
+              </svg>
+            </div>
+            <h3>Configure &amp; Send</h3>
+            <p>Connect via API or SMTP. Set up your sending infrastructure. Start campaigns with safe volume limits.</p>
+          </article>
+
+          <!-- STEP 3 -->
+          <article class="step-card" data-step-index="2" style="--step-fill: 0;">
+            <div class="step-top">
+              <span class="step-num">3</span>
+              <span class="step-time">Day 31</span>
+            </div>
+            <!-- Step 3 Scroll-Driven SVG Schematic: 30-Day ROI Curve -> Day 31 Pay Only If Happy -->
+            <div class="step-svg-visual" aria-hidden="true">
+              <svg viewBox="0 0 320 98" fill="none">
+                <!-- Grid baselines -->
+                <line x1="18" y1="78" x2="215" y2="78" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <line x1="18" y1="48" x2="215" y2="48" stroke="rgba(255,255,255,0.1)" stroke-dasharray="3 3" stroke-width="1"/>
+                <text x="20" y="91" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#94A3B8">Day 1 ($0)</text>
+                <text x="165" y="91" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#FFD700">Day 31 ($3/acct)</text>
+
+                <!-- Scroll-linked 99.9% deliverability curve -->
+                <path class="step-draw-path" d="M 22 72 C 65 68, 95 34, 145 28 C 175 24, 195 18, 212 16" stroke="#4ADE80" stroke-width="3.5" stroke-linecap="round"/>
+
+                <!-- Verified ROI Seal on Right -->
+                <circle cx="266" cy="49" r="32" fill="rgba(34, 197, 94, 0.16)" stroke="#22C55E" stroke-width="2"/>
+                <path class="step-draw-path" d="M 253 49 L 262 58 L 281 39" stroke="#FFD700" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="266" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" fill="#4ADE80">99.9% ROI</text>
+              </svg>
+            </div>
+            <h3>Pay Only if Happy</h3>
+            <p>Review your performance dashboard. Pay only for what you used. Cancel anytime, no questions.</p>
+          </article>
+        </div>
+
+        <div class="steps-cta-wrap reveal-up">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" data-mascot-trigger="excited" target="_blank" rel="noopener">
+            GET STARTED - NO PAYMENT NEEDED
+          </a>
+          <p class="steps-micro">✓ No credit card • ✓ Setup in 5 minutes • ✓ Full features unlocked</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS — Stage + Avatar Switcher -->
+    <section class="section-pad testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="testimonials-header reveal-left">
+          <span class="eyebrow">CUSTOMER PROOF</span>
+          <h2 id="testimonials-heading" class="section-title">Real Businesses, Real Results, Zero Upfront Risk</h2>
+          <p class="section-subtitle">Join 300+ agencies who've preserved cash flow while scaling email infrastructure</p>
+        </div>
+
+        <div class="proof-switcher reveal-right" role="tablist" aria-label="Customer stories">
+          <button type="button" class="proof-chip is-active" role="tab" id="proof-tab-0" aria-selected="true" aria-controls="proof-stage-panel" data-proof-index="0">
+            <img class="proof-chip-avatar" src="assets/images/testimonial-sarah.jpg" alt="" width="44" height="44" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%230000FF%22/%3E%3Ctext x=%2250%22 y=%2263%22 font-family=%22Inter,sans-serif%22 font-size=%2238%22 font-weight=%22800%22 fill=%22%23FFD700%22 text-anchor=%22middle%22%3ESM%3C/text%3E%3C/svg%3E';">
+            <span class="proof-chip-meta">
+              <span class="proof-chip-name">Sarah Mitchell</span>
+              <span class="proof-chip-metric">$15K Cash Flow Preserved</span>
+            </span>
+          </button>
+          <button type="button" class="proof-chip" role="tab" id="proof-tab-1" aria-selected="false" aria-controls="proof-stage-panel" data-proof-index="1">
+            <img class="proof-chip-avatar" src="assets/images/testimonial-james.jpg" alt="" width="44" height="44" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%230000FF%22/%3E%3Ctext x=%2250%22 y=%2263%22 font-family=%22Inter,sans-serif%22 font-size=%2238%22 font-weight=%22800%22 fill=%22%23FFD700%22 text-anchor=%22middle%22%3EJR%3C/text%3E%3C/svg%3E';">
+            <span class="proof-chip-meta">
+              <span class="proof-chip-name">James Rodriguez</span>
+              <span class="proof-chip-metric">40% Cost Savings</span>
+            </span>
+          </button>
+          <button type="button" class="proof-chip" role="tab" id="proof-tab-2" aria-selected="false" aria-controls="proof-stage-panel" data-proof-index="2">
+            <img class="proof-chip-avatar" src="assets/images/testimonial-michael.jpg" alt="" width="44" height="44" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%230F172A%22/%3E%3Ctext x=%2250%22 y=%2263%22 font-family=%22Inter,sans-serif%22 font-size=%2238%22 font-weight=%22800%22 fill=%22%23FFD700%22 text-anchor=%22middle%22%3EMC%3C/text%3E%3C/svg%3E';">
+            <span class="proof-chip-meta">
+              <span class="proof-chip-name">Michael Chen</span>
+              <span class="proof-chip-metric">3-Minute Setup</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="proof-stage reveal-left" aria-live="polite">
+          <div class="proof-stage-panel" id="proof-stage-panel" role="tabpanel" aria-labelledby="proof-tab-0">
+            <div class="proof-stage-outcome">
+              <span class="proof-stage-metric" id="proof-metric">$15K</span>
+              <span class="proof-stage-metric-label" id="proof-metric-label">Cash Flow Preserved</span>
+            </div>
+            <div class="proof-stage-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="proof-stage-quote" id="proof-quote">"Mailinfra saved our startup $15K in upfront email costs. We tested everything for 30 days, saw 99.8% deliverability, and only then committed. This model is a game changer for cash flow management."</p>
+            <div class="proof-stage-author">
+              <img class="proof-stage-avatar" id="proof-avatar" src="assets/images/testimonial-sarah.jpg" alt="Sarah Mitchell" width="56" height="56" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%230000FF%22/%3E%3Ctext x=%2250%22 y=%2263%22 font-family=%22Inter,sans-serif%22 font-size=%2238%22 font-weight=%22800%22 fill=%22%23FFD700%22 text-anchor=%22middle%22%3ESM%3C/text%3E%3C/svg%3E';">
+              <div>
+                <div class="proof-stage-name" id="proof-name">Sarah Mitchell</div>
+                <div class="proof-stage-role" id="proof-role">Founder &amp; CEO, TechStart Solutions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-stage-cta reveal-right">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" data-mascot-trigger="excited" target="_blank" rel="noopener">
+            CLAIM YOUR 100 FREE ACCOUNTS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PRICING PREVIEW — INTERACTIVE DUAL-ZONE PRICING COMMAND CONSOLE -->
+    <section class="section-pad pricing-section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">TRANSPARENT PRICING</span>
+          <h2 id="pricing-heading" class="section-title">Simple, Transparent Pricing — Pay Only After You're Convinced</h2>
+          <p class="section-subtitle">No tricks. No hidden fees. Just honest pricing you can trust.</p>
+        </div>
+
+        <div class="pricing-command-deck reveal-up">
+          <!-- Left Flagship Pricing & Interactive Estimator Module -->
+          <div class="pricing-left-flagship">
+            <div>
+              <div class="pricing-badge-row">
+                <span class="popular-badge">🔥 MOST POPULAR</span>
+                <span class="pricing-discount-pill">Volume discounts automatically applied at 1M+</span>
+              </div>
+
+              <div class="pricing-tier-label">First 30 Days</div>
+              <div class="pricing-price-row">
+                <div class="pricing-zero">$0</div>
+                <span class="pricing-zero-sub">100 Accounts Free</span>
+              </div>
+              <p class="pricing-ongoing">
+                Then just <strong>$3/account/month</strong> — pay for what you use
+              </p>
+
+              <!-- Interactive Live Account Pool Estimator -->
+              <div class="pricing-estimator-card">
+                <div class="pricing-estimator-header">
+                  <label for="home-pricing-slider">Interactive Pool Size Estimator</label>
+                  <span id="home-pricing-inboxes" style="color:var(--brand-accent);">100 Google Workspace Accounts</span>
+                </div>
+                <input type="range" id="home-pricing-slider" class="pricing-range-input" min="10" max="400" step="10" value="100">
+                <div class="pricing-estimator-stats">
+                  <div class="pricing-est-tile">
+                    <strong style="color:#4ADE80;">$0</strong>
+                    <span>Days 1–30 Trial</span>
+                  </div>
+                  <div class="pricing-est-tile">
+                    <strong id="home-pricing-daily">7,000/d</strong>
+                    <span>Safe Daily Sends</span>
+                  </div>
+                  <div class="pricing-est-tile">
+                    <strong id="home-pricing-day31">$300/mo</strong>
+                    <span>After Day 30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="width:100%;min-height:54px;font-size:1rem;" data-mascot-trigger="excited" target="_blank" rel="noopener">
+                CLAIM YOUR 100 FREE ACCOUNTS NOW →
+              </a>
+              <p style="margin-top:12px;font-size:0.82rem;color:rgba(255,255,255,0.78);text-align:center;font-weight:600;">
+                ✓ No credit card required • ✓ Cancel anytime • ✓ 30-day money-back guarantee
+              </p>
+              <p style="margin-top:6px;font-size:0.8rem;color:#38BDF8;text-align:center;font-weight:700;">
+                Join 300+ agencies already scaling with Mailinfra • <a href="pricing.html" style="text-decoration:underline;color:var(--brand-accent);">Full Pricing Page →</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Inclusions & 45-Day Payment Timeline Module -->
+          <div class="pricing-right-specs">
+            <div>
+              <div class="pricing-specs-title">
+                <span>All 10 Enterprise Features Unlocked Free for 30 Days</span>
+                <span style="font-size:0.76rem;color:var(--brand-primary);background:var(--bg-secondary);padding:4px 10px;border-radius:999px;">100% Included</span>
+              </div>
+
+              <ul class="pricing-features-grid">
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Add Google Workspace accounts on-demand at $3/each</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Domain pool expansion as you grow</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>No phone verification required</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Dedicated IP addresses included free</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Advanced analytics &amp; deliverability dashboard</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>24/7 priority support via chat, email, phone</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>99.9% deliverability SLA guarantee</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Custom domain setup &amp; authentication</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Full API &amp; SMTP relay access</span></li>
+                <li><span class="check-circle" aria-hidden="true">✓</span> <span>Real-time monitoring &amp; alerts</span></li>
+              </ul>
+            </div>
+
+            <div class="payment-timeline-box">
+              <h3>
+                <span>How Payment Works</span>
+                <span style="font-size:0.72rem;color:#4ADE80;font-weight:700;">NET 15 Deferred Terms</span>
+              </h3>
+              <div class="timeline-rows">
+                <div class="timeline-item"><strong>Day 1-30</strong>100 accounts free — full features, safe volume limits</div>
+                <div class="timeline-item"><strong>Day 31</strong>Invoice at $3/account/month for continued usage</div>
+                <div class="timeline-item"><strong>Day 45</strong>Payment due (NET 15 terms)</div>
+                <div class="timeline-item"><strong style="color:#4ADE80;">Not satisfied?</strong>Don't pay, no penalties</div>
+              </div>
+              <p class="guarantee-line">💚 Your satisfaction is guaranteed - we earn your payment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ SECTION — INTERACTIVE CHAT BOX THEME WITH LIVE TYPING ANIMATION -->
+    <section class="section-pad faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="eyebrow">INTERACTIVE TRIAL CONCIERGE</span>
+          <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about the 30-day free trial</p>
+        </div>
+
+        <div class="faq-chat-layout">
+          <!-- Left: All 10 Verbatim FAQ Prompts -->
+          <div class="faq-prompts-panel">
+            <div>
+              <div class="faq-prompts-header">
+                <strong style="font-size:0.92rem;color:var(--brand-accent);">10 Verified Trial Questions</strong>
+                <button type="button" id="faq-ask-all-btn" style="font-size:0.78rem;font-weight:700;color:#38BDF8;text-decoration:underline;">
+                  Ask Next Question →
+                </button>
+              </div>
+              <div class="faq-prompts-list" id="faq-prompts-list" role="list">
+                <button type="button" class="faq-prompt-btn is-active" data-faq-idx="0">
+                  <span>Do you really offer unlimited sending?</span>
+                  <span class="prompt-idx">01</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="1">
+                  <span>What if I need to send more than your limits?</span>
+                  <span class="prompt-idx">02</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="2">
+                  <span>Do you build prospect lists for us?</span>
+                  <span class="prompt-idx">03</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="3">
+                  <span>Why don't you require a credit card?</span>
+                  <span class="prompt-idx">04</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="4">
+                  <span>What happens on day 31?</span>
+                  <span class="prompt-idx">05</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="5">
+                  <span>Is there a catch? Any hidden fees?</span>
+                  <span class="prompt-idx">06</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="6">
+                  <span>What if I'm not satisfied with the service?</span>
+                  <span class="prompt-idx">07</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="7">
+                  <span>How fast can I start sending emails?</span>
+                  <span class="prompt-idx">08</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="8">
+                  <span>What's your actual deliverability rate?</span>
+                  <span class="prompt-idx">09</span>
+                </button>
+                <button type="button" class="faq-prompt-btn" data-faq-idx="9">
+                  <span>Can I cancel anytime without penalty?</span>
+                  <span class="prompt-idx">10</span>
+                </button>
+              </div>
+            </div>
+            <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.65);">
+              <span>⚡ Live typing animation enabled</span>
+              <button type="button" id="faq-instant-toggle" style="color:var(--brand-accent);font-weight:700;">Show All 10 Instantly</button>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Chat Box Window with Typing Animation -->
+          <div class="faq-chat-window" aria-label="Mailinfra FAQ Support Chat Box">
+            <div class="chat-window-header">
+              <div class="chat-agent-meta">
+                <div class="chat-agent-avatar" aria-hidden="true">🥽</div>
+                <div>
+                  <strong style="display:block;font-size:0.95rem;">Mailinfra Infrastructure AI</strong>
+                  <span style="font-size:0.76rem;color:#4ADE80;display:inline-flex;align-items:center;gap:6px;">
+                    <span class="pulse-dot"></span> Online • Instant Trial &amp; Deliverability Answers
+                  </span>
+                </div>
+              </div>
+              <button type="button" id="faq-chat-reset" style="font-size:0.78rem;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.16);padding:5px 10px;border-radius:8px;">
+                Clear Chat
+              </button>
+            </div>
+
+            <div class="chat-stream" id="faq-chat-stream" role="log" aria-live="polite">
+              <!-- Initial populated exchange + dynamic typing messages injected here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FINAL CTA -->
+    <section class="final-cta-section" aria-labelledby="final-cta-heading">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <div class="mini-mascot-badge" aria-hidden="true">
+          <img src="assets/mascot/mailinfra-mascot.svg" alt="" width="56" height="56">
+        </div>
+        <div class="hero-badge">
+          <span aria-hidden="true">🚀</span>
+          <span>READY TO SCALE YOUR EMAIL INFRASTRUCTURE?</span>
+        </div>
+        <h2 id="final-cta-heading" class="section-title" style="color:#FFFFFF;">
+          Take the First Step Towards Better Cash Flow &amp; Email Performance
+        </h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.88);margin-bottom:30px;">
+          Join 300+ agencies scaling cold email infrastructure — claim your 100 free accounts today
+        </p>
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="min-height:56px;padding:16px 34px;font-size:1.05rem;" data-mascot-trigger="excited" target="_blank" rel="noopener">
+          CLAIM YOUR 100 FREE ACCOUNTS
+        </a>
+        <ul class="final-checks">
+          <li><span>✓</span> No credit card required</li>
+          <li><span>✓</span> Setup in 5 minutes</li>
+          <li><span>✓</span> Cancel anytime</li>
+          <li><span>✓</span> 24/7 support included</li>
+          <li><span>✓</span> Pay only after 30 days</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. FOOTER -->
+  <footer class="cf-footer" id="site-footer">
+    <div class="cf-aurora" aria-hidden="true"></div>
+    <div class="cf-grid-bg" aria-hidden="true"></div>
+    <div class="cf-beam" aria-hidden="true"></div>
+
+    <div class="cf-inner">
+      <div class="cf-cta">
+        <div class="cf-cta-copy">
+          <span class="cf-eyebrow"><span class="cf-dot" aria-hidden="true"></span> Trial live · 100 free accounts · 30 days</span>
+          <h2>Send first. <span class="cf-grad-text">Pay later.</span></h2>
+          <p>Test 100 Google Workspace accounts with dedicated IPs for a full 30 days. No credit card required.</p>
+        </div>
+        <div class="cf-cta-actions">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="cf-btn cf-btn-primary" target="_blank" rel="noopener">
+            Claim 100 Free Accounts <span aria-hidden="true">→</span>
+          </a>
+          <a href="contact.html" class="cf-btn cf-btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+
+      <div class="cf-cols">
+        <div class="cf-brand">
+          <a href="index.html" class="cf-logo" aria-label="Mailinfra Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+            <span>Mailinfra</span>
+          </a>
+          <p>Email infrastructure for agencies that send first and pay after proof.</p>
+          <div class="cf-trust" aria-label="Compliance and partners">
+            <span class="cf-trust-item"><img src="assets/logo/google-workspace.svg" alt=""> Google Workspace</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">SOC 2 Certified</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">GDPR Compliant</span>
+          </div>
+        </div>
+
+        <nav class="cf-col" aria-label="Product">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="features.html#api-smtp">API &amp; SMTP Relay</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">The Mailinfra Blog</a></li>
+            <li><a href="resources.html#categories">Email Deliverability</a></li>
+            <li><a href="resources.html#categories">Cold Email Guides</a></li>
+            <li><a href="index.html#faq">Trial FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Company">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://calendly.com/10x-cold-email-infrastructure/15min" target="_blank" rel="noopener">Book a Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cf-bottom">
+        <div class="cf-bottom-meta">
+          <span>© 2026 Mailinfra. All rights reserved.</span>
+          <nav class="cf-legal" aria-label="Legal">
+            <a href="contact.html">Privacy</a>
+            <a href="contact.html">Terms</a>
+          </nav>
+        </div>
+        <button type="button" class="cf-top-btn" id="cf-back-top" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></button>
+      </div>
+    </div>
+
+    <div class="cf-wordmark" id="cf-wordmark" aria-hidden="true">MAILINFRA</div>
+  </footer>
+
+
+  <script>
+    (() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1. Sticky Header & Scroll Progress Bar
+      const header = document.getElementById('site-header');
+      const progressBar = document.getElementById('scroll-progress');
+      const onScroll = () => {
+        const scrollY = window.scrollY;
+        header.classList.toggle('is-scrolled', scrollY > 16);
+        if (progressBar) {
+          const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const ratio = Math.min(1, Math.max(0, scrollY / maxScroll));
+          progressBar.style.transform = `scaleX(${ratio})`;
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // 2. Responsive Mobile Navigation Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      if (menuToggle && primaryMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = primaryMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+
+      // 3. Signature 3D Walrus-Style Visor Mascot High-DPI Volumetric Canvas Renderer
+      const mascotStage = document.getElementById('mascot-stage');
+      const canvas = document.getElementById('mascot-canvas');
+      let isExcited = false;
+
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width;   // 900
+        const H = canvas.height;  // 540
+        const CX = W / 2;         // 450
+
+        let targetX = 0, targetY = 0;
+        let curX = 0, curY = 0;
+        let auraScale = 1;
+        let startTime = performance.now();
+        let blinkAmount = 1; // 1 = open, 0.08 = closed
+
+        const handleCursorMove = (clientX, clientY) => {
+          const rect = canvas.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height * 0.42;
+          const dx = clientX - centerX;
+          const dy = clientY - centerY;
+          const dist = Math.hypot(dx, dy);
+
+          targetX = Math.max(-1, Math.min(1, dx / (window.innerWidth * 0.36)));
+          targetY = Math.max(-1, Math.min(1, dy / (window.innerHeight * 0.36)));
+
+          const proximity = Math.max(0, 1 - dist / 520);
+          auraScale = 1 + proximity * 0.25;
+        };
+
+        window.addEventListener('pointermove', (e) => {
+          handleCursorMove(e.clientX, e.clientY);
+        }, { passive: true });
+        window.addEventListener('mousemove', (e) => {
+          handleCursorMove(e.clientX, e.clientY);
+        }, { passive: true });
+
+        // Periodic natural eye blink
+        const scheduleBlink = () => {
+          blinkAmount = 0.08;
+          setTimeout(() => { blinkAmount = 1; }, 135);
+          setTimeout(scheduleBlink, 2600 + Math.random() * 2400);
+        };
+        setTimeout(scheduleBlink, 1800);
+
+        const drawMascot = (now) => {
+          const t = (now - startTime) * 0.001;
+          curX += (targetX - curX) * 0.14;
+          curY += (targetY - curY) * 0.14;
+
+          if (mascotStage) {
+            mascotStage.style.setProperty('--head-ry', `${(curX * 12).toFixed(2)}deg`);
+            mascotStage.style.setProperty('--head-rx', `${(-curY * 9).toFixed(2)}deg`);
+            mascotStage.style.setProperty('--aura-scale', auraScale.toFixed(2));
+          }
+
+          const bobY = prefersReducedMotion ? 0 : Math.sin(t * 1.9) * 5;
+          const px = curX * 20;
+          const py = curY * 12 + bobY;
+
+          ctx.clearRect(0, 0, W, H);
+          ctx.save();
+
+          // --- LAYER 1: 3D TEXTURED ROYAL-BLUE CROWN DOME ---
+          ctx.save();
+          const crownX = CX + px * 0.45;
+          const crownY = 235 + py * 0.45;
+          ctx.beginPath();
+          ctx.ellipse(crownX, crownY, 178, 172, 0, Math.PI, 0, false);
+          ctx.lineTo(crownX + 178, crownY + 80);
+          ctx.lineTo(crownX - 178, crownY + 80);
+          ctx.closePath();
+          ctx.clip();
+
+          const crownGrad = ctx.createRadialGradient(
+            crownX - 24 + curX * 16, crownY - 110, 18,
+            crownX, crownY - 20, 210
+          );
+          crownGrad.addColorStop(0, '#5A78FF');
+          crownGrad.addColorStop(0.38, '#2945EE');
+          crownGrad.addColorStop(0.75, '#0F1C7A');
+          crownGrad.addColorStop(1, '#040720');
+          ctx.fillStyle = crownGrad;
+          ctx.fillRect(crownX - 200, crownY - 200, 400, 300);
+
+          // Fine 3D corduroy micro-rib lines curving along the crown dome
+          ctx.lineWidth = 2;
+          for (let i = -165; i <= 165; i += 6) {
+            ctx.beginPath();
+            ctx.moveTo(crownX + i, crownY - 180);
+            ctx.quadraticCurveTo(crownX + i * 1.08, crownY - 90, crownX + i, crownY + 40);
+            ctx.strokeStyle = (Math.abs(i) % 12 === 0)
+              ? 'rgba(255, 255, 255, 0.11)'
+              : 'rgba(2, 4, 18, 0.35)';
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // --- LAYER 2: OPAQUE PITCH-BLACK WRAP-AROUND AR VISOR GOGGLES ---
+          const vx = CX + px * 0.75;
+          const vy = 265 + py * 0.75;
+
+          const traceVisorShape = (pad = 0) => {
+            ctx.beginPath();
+            ctx.moveTo(vx - 232 - pad, vy + 10);
+            ctx.bezierCurveTo(
+              vx - 222 - pad, vy - 135 - pad,
+              vx + 222 + pad, vy - 135 - pad,
+              vx + 232 + pad, vy + 10
+            );
+            ctx.bezierCurveTo(
+              vx + 240 + pad, vy + 88 + pad,
+              vx + 206 + pad, vy + 142 + pad,
+              vx + 165, vy + 146 + pad
+            );
+            ctx.bezierCurveTo(
+              vx + 85, vy + 94,
+              vx - 85, vy + 94,
+              vx - 165, vy + 146 + pad
+            );
+            ctx.bezierCurveTo(
+              vx - 206 - pad, vy + 142 + pad,
+              vx - 240 - pad, vy + 88 + pad,
+              vx - 232 - pad, vy + 10
+            );
+            ctx.closePath();
+          };
+
+          // Outer Metallic Chrome-Titanium Visor Frame
+          traceVisorShape(11);
+          const rimGrad = ctx.createLinearGradient(vx - 245, vy - 130, vx + 245, vy + 40);
+          rimGrad.addColorStop(0, '#0F172A');
+          rimGrad.addColorStop(0.22, '#64748B');
+          rimGrad.addColorStop(0.48, '#F1F5F9');
+          rimGrad.addColorStop(0.75, '#64748B');
+          rimGrad.addColorStop(1, '#0F172A');
+          ctx.fillStyle = rimGrad;
+          ctx.fill();
+
+          // Top Chrome Specular Rim Highlight
+          ctx.beginPath();
+          ctx.moveTo(vx - 195, vy - 38);
+          ctx.bezierCurveTo(vx - 115, vy - 122, vx + 115, vy - 122, vx + 195, vy - 38);
+          ctx.lineWidth = 4.5;
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+          ctx.lineCap = 'round';
+          ctx.stroke();
+
+          // Inner Opaque Glossy Pitch-Black Visor Lens
+          ctx.save();
+          traceVisorShape(0);
+          ctx.clip();
+
+          const glassGrad = ctx.createLinearGradient(vx, vy - 120, vx, vy + 140);
+          glassGrad.addColorStop(0, '#020307');
+          glassGrad.addColorStop(0.6, '#04060E');
+          glassGrad.addColorStop(1, '#080D1F');
+          ctx.fillStyle = glassGrad;
+          ctx.fillRect(vx - 260, vy - 150, 520, 320);
+
+          // Left Lens Subtle Deep Blue Edge Glint
+          const leftGlint = ctx.createRadialGradient(vx - 175, vy + 10, 10, vx - 155, vy + 10, 110);
+          leftGlint.addColorStop(0, 'rgba(29, 78, 216, 0.36)');
+          leftGlint.addColorStop(1, 'rgba(29, 78, 216, 0)');
+          ctx.fillStyle = leftGlint;
+          ctx.fillRect(vx - 250, vy - 130, 220, 280);
+
+          // 2A. Refined Expressive 3D Eyes Behind the Visor Glass (Single Pair of Eyes)
+          const drawVisorEye = (baseX, baseY) => {
+            ctx.save();
+            const eyeMoveX = curX * 22;
+            const eyeMoveY = curY * 13;
+            const ex = baseX + eyeMoveX;
+            const ey = baseY + eyeMoveY;
+
+            // Soft Ambient Glow Behind Eye
+            const glowGrad = ctx.createRadialGradient(ex, ey, 4, ex, ey, 36);
+            glowGrad.addColorStop(0, isExcited ? 'rgba(255, 215, 0, 0.42)' : 'rgba(56, 189, 248, 0.36)');
+            glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = glowGrad;
+            ctx.beginPath();
+            ctx.arc(ex, ey, 36, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Sculpted 3D Sclera / Outer Optical Capsule
+            const rx = isExcited ? 23 : 21;
+            const ry = (isExcited ? 26 : 24) * blinkAmount;
+            ctx.beginPath();
+            ctx.ellipse(ex, ey, rx, ry, 0, 0, Math.PI * 2);
+            const outerEyeGrad = ctx.createRadialGradient(ex - 4, ey - 6, 3, ex, ey, rx);
+            if (isExcited) {
+              outerEyeGrad.addColorStop(0, '#FEF08A');
+              outerEyeGrad.addColorStop(0.55, '#FACC15');
+              outerEyeGrad.addColorStop(1, '#B45309');
+            } else {
+              outerEyeGrad.addColorStop(0, '#BAE6FD');
+              outerEyeGrad.addColorStop(0.52, '#38BDF8');
+              outerEyeGrad.addColorStop(1, '#0369A1');
+            }
+            ctx.fillStyle = outerEyeGrad;
+            ctx.shadowColor = isExcited ? '#FFD700' : '#38BDF8';
+            ctx.shadowBlur = 18;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Deep Velvety Pupil Core (Shifts slightly more toward cursor for 3D depth)
+            const pxCore = ex + curX * 4.5;
+            const pyCore = ey + curY * 3;
+            ctx.beginPath();
+            ctx.ellipse(pxCore, pyCore, 10.5, 11.5 * blinkAmount, 0, 0, Math.PI * 2);
+            ctx.fillStyle = '#020617';
+            ctx.fill();
+
+            // Subtle Inner Iris Ring Highlight
+            ctx.lineWidth = 1.6;
+            ctx.strokeStyle = isExcited ? 'rgba(254, 240, 138, 0.8)' : 'rgba(186, 230, 253, 0.75)';
+            ctx.stroke();
+
+            // Dual Crisp White Specular Catchlights
+            if (blinkAmount > 0.3) {
+              ctx.beginPath();
+              ctx.ellipse(pxCore + 5.5, pyCore - 5.5, 4.4, 3.6, -0.35, 0, Math.PI * 2);
+              ctx.fillStyle = '#FFFFFF';
+              ctx.fill();
+
+              ctx.beginPath();
+              ctx.arc(pxCore - 4.5, pyCore + 4.5, 2, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(255, 255, 255, 0.82)';
+              ctx.fill();
+            }
+            ctx.restore();
+          };
+
+          drawVisorEye(vx - 88, vy - 28);
+          drawVisorEye(vx + 88, vy - 28);
+
+          // 2B. Right Lens Iridescent Holographic Prism Reflection (Overlays Glass Smoothly)
+          ctx.save();
+          const refShiftX = -curX * 26;
+          const refShiftY = -curY * 12;
+          ctx.translate(refShiftX, refShiftY);
+
+          const iriGrad = ctx.createLinearGradient(vx + 15, vy - 85, vx + 235, vy + 95);
+          iriGrad.addColorStop(0, 'rgba(0, 120, 255, 0)');
+          iriGrad.addColorStop(0.18, 'rgba(0, 210, 255, 0.46)');
+          iriGrad.addColorStop(0.40, 'rgba(74, 222, 128, 0.52)');
+          iriGrad.addColorStop(0.62, 'rgba(250, 204, 21, 0.64)');
+          iriGrad.addColorStop(0.82, 'rgba(251, 113, 133, 0.62)');
+          iriGrad.addColorStop(1, 'rgba(139, 92, 246, 0.56)');
+
+          ctx.beginPath();
+          ctx.moveTo(vx + 22, vy - 115);
+          ctx.lineTo(vx + 245, vy - 115);
+          ctx.lineTo(vx + 225, vy + 155);
+          ctx.lineTo(vx + 68, vy + 155);
+          ctx.closePath();
+          ctx.fillStyle = iriGrad;
+          ctx.fill();
+
+          // Soft White Window Specular Glint on the Visor
+          const specGrad = ctx.createLinearGradient(vx + 28, vy - 95, vx + 96, vy + 40);
+          specGrad.addColorStop(0, 'rgba(255, 255, 255, 0.78)');
+          specGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.25)');
+          specGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          ctx.beginPath();
+          ctx.moveTo(vx + 30, vy - 95);
+          ctx.lineTo(vx + 82, vy - 95);
+          ctx.lineTo(vx + 56, vy + 45);
+          ctx.lineTo(vx + 14, vy + 45);
+          ctx.closePath();
+          ctx.fillStyle = specGrad;
+          ctx.fill();
+          ctx.restore();
+          ctx.restore();
+
+          // --- LAYER 3: SEAMLESS PLUMP 3D AQUA-TEAL DUAL-LOBED MUZZLE & NOSE ---
+          const mx = CX + px * 1.05;
+          const my = 292 + py * 1.05;
+
+          // Dark Matte 3D Nose Button nestled at the top bridge of the muzzle
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(mx, my - 38, 44, 24, 0, 0, Math.PI * 2);
+          const noseGrad = ctx.createRadialGradient(mx - 10, my - 48, 4, mx, my - 36, 46);
+          noseGrad.addColorStop(0, '#64748B');
+          noseGrad.addColorStop(0.45, '#1E293B');
+          noseGrad.addColorStop(1, '#020617');
+          ctx.fillStyle = noseGrad;
+          ctx.fill();
+          ctx.restore();
+
+          // Unified Seamless Dual-Lobed 3D Muzzle Cushion (Zero flat ovals or diagonal seams!)
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(mx - 228, H + 20);
+          ctx.bezierCurveTo(
+            mx - 238, my + 20,
+            mx - 155, my - 46,
+            mx, my - 26
+          );
+          ctx.bezierCurveTo(
+            mx + 155, my - 46,
+            mx + 238, my + 20,
+            mx + 228, H + 20
+          );
+          ctx.closePath();
+          ctx.clip();
+
+          // Base 3D Volumetric Teal-Aqua Surface Gradient
+          const muzzleBase = ctx.createRadialGradient(
+            mx - 25 + curX * 18, my + 18, 24,
+            mx, my + 115, 265
+          );
+          muzzleBase.addColorStop(0, '#B2F5EA');
+          muzzleBase.addColorStop(0.28, '#4FD1C5');
+          muzzleBase.addColorStop(0.64, '#0D9488');
+          muzzleBase.addColorStop(0.88, '#0F3F6E');
+          muzzleBase.addColorStop(1, '#07152E');
+          ctx.fillStyle = muzzleBase;
+          ctx.fillRect(0, 0, W, H);
+
+          // Left Lobe Soft 3D Specular Cushion Highlight
+          const leftLobe = ctx.createRadialGradient(mx - 88, my + 22, 8, mx - 82, my + 48, 130);
+          leftLobe.addColorStop(0, 'rgba(204, 251, 241, 0.72)');
+          leftLobe.addColorStop(0.55, 'rgba(94, 234, 212, 0.22)');
+          leftLobe.addColorStop(1, 'rgba(13, 148, 136, 0)');
+          ctx.fillStyle = leftLobe;
+          ctx.fillRect(0, 0, W, H);
+
+          // Right Lobe Soft 3D Specular Cushion Highlight
+          const rightLobe = ctx.createRadialGradient(mx + 82, my + 26, 8, mx + 82, my + 52, 130);
+          rightLobe.addColorStop(0, 'rgba(165, 243, 252, 0.65)');
+          rightLobe.addColorStop(0.55, 'rgba(56, 189, 248, 0.22)');
+          rightLobe.addColorStop(1, 'rgba(14, 116, 144, 0)');
+          ctx.fillStyle = rightLobe;
+          ctx.fillRect(0, 0, W, H);
+
+          // Soft Vertical Center Cleft Indentation Shadow (Smooth 3D Ambient Occlusion)
+          const cleftGrad = ctx.createLinearGradient(mx - 36, my, mx + 36, my);
+          cleftGrad.addColorStop(0, 'rgba(4, 28, 44, 0)');
+          cleftGrad.addColorStop(0.38, 'rgba(4, 34, 52, 0.38)');
+          cleftGrad.addColorStop(0.5, 'rgba(2, 18, 32, 0.68)');
+          cleftGrad.addColorStop(0.62, 'rgba(4, 34, 52, 0.35)');
+          cleftGrad.addColorStop(1, 'rgba(4, 28, 44, 0)');
+          ctx.fillStyle = cleftGrad;
+          ctx.beginPath();
+          ctx.ellipse(mx, my + 135, 36, 145, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Top Rim Specular Edge Highlight on Muzzle
+          ctx.beginPath();
+          ctx.moveTo(mx - 175, my + 24);
+          ctx.bezierCurveTo(mx - 115, my - 38, mx - 25, my - 32, mx, my - 22);
+          ctx.bezierCurveTo(mx + 25, my - 32, mx + 115, my - 38, mx + 175, my + 24);
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = 'rgba(240, 253, 250, 0.55)';
+          ctx.stroke();
+          ctx.restore();
+
+          // --- LAYER 4: 6 SCULPTED 3D CURVED WHISKERS ---
+          const drawWhisker = (side, row) => {
+            const dir = side; // -1 left, +1 right
+            const rootX = mx + dir * (156 + row * 6);
+            const rootY = my + 62 + row * 28;
+            const flex = (isExcited ? -10 : 0) + curY * 6;
+            const ctrlX = rootX + dir * (95 - row * 10);
+            const ctrlY = rootY + 26 + flex;
+            const tipX = rootX + dir * (198 - row * 22);
+            const tipY = rootY + 118 - row * 6 + flex;
+
+            // Follicle socket shadow
+            ctx.beginPath();
+            ctx.arc(rootX, rootY, 7, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(2, 18, 34, 0.72)';
+            ctx.fill();
+
+            // Main 3D Dark Graphite Whisker Body
+            ctx.beginPath();
+            ctx.moveTo(rootX, rootY);
+            ctx.quadraticCurveTo(ctrlX, ctrlY, tipX, tipY);
+            ctx.lineWidth = 10 - row * 1.2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#1E1B2E';
+            ctx.stroke();
+
+            // Top Specular Rim Highlight on Whisker
+            ctx.beginPath();
+            ctx.moveTo(rootX, rootY - 1.5);
+            ctx.quadraticCurveTo(ctrlX, ctrlY - 1.5, tipX, tipY - 1.5);
+            ctx.lineWidth = 2.2;
+            ctx.strokeStyle = isExcited ? 'rgba(255, 215, 0, 0.75)' : 'rgba(203, 213, 225, 0.42)';
+            ctx.stroke();
+          };
+
+          for (let r = 0; r < 3; r++) {
+            drawWhisker(-1, r);
+            drawWhisker(1, r);
+          }
+
+          ctx.restore();
+          requestAnimationFrame(drawMascot);
+        };
+
+        requestAnimationFrame(drawMascot);
+      }
+
+      // Mascot Excitement on Primary CTA Hover / Focus
+      document.querySelectorAll('[data-mascot-trigger="excited"]').forEach((btn) => {
+        const activate = () => {
+          isExcited = true;
+          if (mascotStage) mascotStage.classList.add('is-excited');
+        };
+        const deactivate = () => {
+          isExcited = false;
+          if (mascotStage) mascotStage.classList.remove('is-excited');
+        };
+        btn.addEventListener('pointerenter', activate);
+        btn.addEventListener('pointerleave', deactivate);
+        btn.addEventListener('focus', activate);
+        btn.addEventListener('blur', deactivate);
+      });
+
+      // 3B. Live Hero Email Dashboard Counter & Activity Ticker Animation
+      const kpiSent = document.getElementById('hero-kpi-sent');
+      const kpiDeliv = document.getElementById('hero-kpi-deliv');
+      const dashTicker = document.getElementById('hero-dash-ticker');
+      if (!prefersReducedMotion && kpiSent && kpiDeliv) {
+        let frame = 0;
+        const totalFrames = 42;
+        const countTimer = setInterval(() => {
+          frame++;
+          const progress = frame / totalFrames;
+          const eased = 1 - Math.pow(1 - progress, 3);
+          kpiSent.textContent = `${(0.2 + 2.3 * eased).toFixed(1)}M`;
+          kpiDeliv.textContent = `${(95.0 + 4.9 * eased).toFixed(1)}%`;
+          if (frame >= totalFrames) {
+            kpiSent.textContent = '2.5M';
+            kpiDeliv.textContent = '99.9%';
+            clearInterval(countTimer);
+          }
+        }, 30);
+      }
+      if (dashTicker && !prefersReducedMotion) {
+        const tickerMessages = [
+          '100 GW Inboxes Active • 99.9% Primary Inbox',
+          'Dedicated IP Relay • 0.0% Domain Burn Rate',
+          'Safe Volume Cap: 74/120 emails/day per inbox',
+          'Day 1–30 Free Trial • $0 Upfront • NET 15'
+        ];
+        let tickerIdx = 0;
+        setInterval(() => {
+          tickerIdx = (tickerIdx + 1) % tickerMessages.length;
+          dashTicker.style.opacity = '0.25';
+          setTimeout(() => {
+            dashTicker.textContent = tickerMessages[tickerIdx];
+            dashTicker.style.opacity = '1';
+          }, 180);
+        }, 2800);
+      }
+
+      // 4. Interactive Console Tabs & Horizontal Inbox Pool Calculator
+      const consoleTabs = document.querySelectorAll('.console-tab');
+      const viewTitle = document.getElementById('console-view-title');
+      const viewDesc = document.getElementById('console-view-desc');
+      const viewData = {
+        delivery: {
+          title: 'Real-Time Sending & Reputation Safeguards',
+          desc: 'We enforce safe volume limits (40–120 emails/day per inbox depending on reputation) to protect your domain health and maintain 95%+ to 99.9% inbox placement.'
+        },
+        pool: {
+          title: 'Horizontal Google Workspace Account Pool',
+          desc: 'Scale horizontally across multiple Google Workspace inboxes at $3/account instead of burning domains vertically. Add accounts on-demand with no phone verification required.'
+        },
+        billing: {
+          title: 'Risk-Free 30-Day Trial & NET-15 Invoice Timeline',
+          desc: 'Days 1–30 are $0 for 100 Google Workspace accounts. Your invoice arrives on Day 31 with NET 15 terms (due Day 45). Not satisfied? Walk away free with zero penalties.'
+        }
+      };
+      consoleTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          consoleTabs.forEach((t) => t.classList.remove('active'));
+          tab.classList.add('active');
+          const info = viewData[tab.dataset.view];
+          if (info && viewTitle && viewDesc) {
+            viewTitle.textContent = info.title;
+            viewDesc.textContent = info.desc;
+          }
+        });
+      });
+
+      const inboxSlider = document.getElementById('inbox-slider');
+      const sliderBadge = document.getElementById('slider-inboxes-Badge');
+      const calcDaily = document.getElementById('calc-daily');
+      const calcDay31 = document.getElementById('calc-day31');
+      if (inboxSlider) {
+        inboxSlider.addEventListener('input', () => {
+          const accounts = Number(inboxSlider.value);
+          const dailyEmails = accounts * 70;
+          const monthlyCost = accounts * 3;
+          if (sliderBadge) sliderBadge.textContent = `${accounts} Google Workspace Accounts`;
+          if (calcDaily) calcDaily.textContent = `${dailyEmails.toLocaleString()} / day`;
+          if (calcDay31) calcDay31.textContent = `$${monthlyCost.toLocaleString()}/mo`;
+        });
+      }
+
+      // 4B. Interactive Home Pricing Section Pool Slider
+      const homePricingSlider = document.getElementById('home-pricing-slider');
+      const homePricingInboxes = document.getElementById('home-pricing-inboxes');
+      const homePricingDaily = document.getElementById('home-pricing-daily');
+      const homePricingDay31 = document.getElementById('home-pricing-day31');
+      if (homePricingSlider) {
+        homePricingSlider.addEventListener('input', () => {
+          const n = Number(homePricingSlider.value);
+          if (homePricingInboxes) homePricingInboxes.textContent = `${n} Google Workspace Accounts`;
+          if (homePricingDaily) homePricingDaily.textContent = `${(n * 70).toLocaleString()}/d`;
+          if (homePricingDay31) homePricingDay31.textContent = `$${(n * 3).toLocaleString()}/mo`;
+        });
+      }
+
+      // 5. Testimonials — Stage + Avatar Switcher (no pause control)
+      const proofStories = [
+        {
+          metric: '$15K',
+          metricLabel: 'Cash Flow Preserved',
+          quote: '"Mailinfra saved our startup $15K in upfront email costs. We tested everything for 30 days, saw 99.8% deliverability, and only then committed. This model is a game changer for cash flow management."',
+          name: 'Sarah Mitchell',
+          role: 'Founder & CEO, TechStart Solutions',
+          avatar: 'assets/images/testimonial-sarah.jpg',
+          alt: 'Sarah Mitchell'
+        },
+        {
+          metric: '40%',
+          metricLabel: 'Cost Savings + Better Performance',
+          quote: '"We switched from SendGrid and saved 40% while improving deliverability by 3%. The 30-day trial let us prove ROI to our CFO before any commitment. Our inbox rate jumped from 96% to 99.9%."',
+          name: 'James Rodriguez',
+          role: 'Chief Marketing Officer, GrowthMetrics Inc.',
+          avatar: 'assets/images/testimonial-james.jpg',
+          alt: 'James Rodriguez'
+        },
+        {
+          metric: '3 min',
+          metricLabel: 'Setup to Production',
+          quote: '"As a developer, I needed reliable infrastructure without finance approval delays. Started sending in 3 minutes, scaled to 500K emails/month. The API docs are phenomenal and support is instant."',
+          name: 'Michael Chen',
+          role: 'CTO & Co-Founder, DataFlow Analytics',
+          avatar: 'assets/images/testimonial-michael.jpg',
+          alt: 'Michael Chen'
+        }
+      ];
+
+      const proofChips = Array.from(document.querySelectorAll('.proof-chip'));
+      const proofPanel = document.getElementById('proof-stage-panel');
+      const proofMetric = document.getElementById('proof-metric');
+      const proofMetricLabel = document.getElementById('proof-metric-label');
+      const proofQuote = document.getElementById('proof-quote');
+      const proofName = document.getElementById('proof-name');
+      const proofRole = document.getElementById('proof-role');
+      const proofAvatar = document.getElementById('proof-avatar');
+      let activeProof = 0;
+      let proofBusy = false;
+      let proofTimer = null;
+
+      const renderProof = (idx) => {
+        const story = proofStories[idx];
+        if (!story || !proofPanel) return;
+        proofMetric.textContent = story.metric;
+        proofMetricLabel.textContent = story.metricLabel;
+        proofQuote.textContent = story.quote;
+        proofName.textContent = story.name;
+        proofRole.textContent = story.role;
+        proofAvatar.src = story.avatar;
+        proofAvatar.alt = story.alt;
+        proofPanel.setAttribute('aria-labelledby', `proof-tab-${idx}`);
+        proofChips.forEach((chip, i) => {
+          const on = i === idx;
+          chip.classList.toggle('is-active', on);
+          chip.setAttribute('aria-selected', on ? 'true' : 'false');
+          chip.tabIndex = on ? 0 : -1;
+        });
+      };
+
+      const showProof = (idx, { animate = true } = {}) => {
+        if (!proofStories.length || proofBusy) return;
+        const next = (idx + proofStories.length) % proofStories.length;
+        if (next === activeProof && animate) return;
+
+        const apply = () => {
+          activeProof = next;
+          renderProof(activeProof);
+        };
+
+        if (!animate || prefersReducedMotion || !proofPanel) {
+          apply();
+          return;
+        }
+
+        proofBusy = true;
+        proofPanel.classList.remove('is-entering');
+        proofPanel.classList.add('is-exiting');
+        window.setTimeout(() => {
+          apply();
+          proofPanel.classList.remove('is-exiting');
+          proofPanel.classList.add('is-entering');
+          // force reflow then slide in
+          void proofPanel.offsetWidth;
+          requestAnimationFrame(() => {
+            proofPanel.classList.remove('is-entering');
+            proofBusy = false;
+          });
+        }, 240);
+      };
+
+      const restartProofTimer = () => {
+        if (proofTimer) window.clearInterval(proofTimer);
+        if (prefersReducedMotion || !proofChips.length) return;
+        proofTimer = window.setInterval(() => {
+          showProof(activeProof + 1);
+        }, 5200);
+      };
+
+      proofChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const i = Number(chip.dataset.proofIndex || 0);
+          showProof(i);
+          restartProofTimer();
+        });
+        chip.addEventListener('keydown', (e) => {
+          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft' && e.key !== 'Home' && e.key !== 'End') return;
+          e.preventDefault();
+          let next = activeProof;
+          if (e.key === 'ArrowRight') next = activeProof + 1;
+          if (e.key === 'ArrowLeft') next = activeProof - 1;
+          if (e.key === 'Home') next = 0;
+          if (e.key === 'End') next = proofStories.length - 1;
+          showProof(next);
+          restartProofTimer();
+          const focusChip = proofChips[(next + proofStories.length) % proofStories.length];
+          if (focusChip) focusChip.focus();
+        });
+      });
+
+      if (proofChips.length) {
+        renderProof(0);
+        restartProofTimer();
+      }
+
+      // 6. Interactive FAQ Chat Box with Live Typing Animation
+      const faqData = [
+        {
+          q: "Do you really offer unlimited sending?",
+          a: "No—and that's a good thing. We enforce safe volume limits (40-120 emails/day per inbox depending on reputation) to protect your domain health. \"Unlimited\" sending is how domains get burned. We scale you horizontally across multiple inboxes, not vertically into spam territory."
+        },
+        {
+          q: "What if I need to send more than your limits?",
+          a: "We add more inboxes to your pool at $3/account. If you need 500 emails/day, we'll provision 6-8 inboxes sending 60-80 each. This distributed approach maintains deliverability while hitting your volume goals."
+        },
+        {
+          q: "Do you build prospect lists for us?",
+          a: "No. We provide the infrastructure (domains, inboxes, warm-up, monitoring). You provide the lists. We recommend using verified data from Apollo, ZoomInfo, Clay, or your own enrichment stack."
+        },
+        {
+          q: "Why don't you require a credit card?",
+          a: "We believe in proving value first. If we're as good as we say, you'll want to pay. If not, you walk away free. It's simple trust-based business. We've maintained 95%+ inbox placement for 300+ agencies - we're confident you'll love the service."
+        },
+        {
+          q: "What happens on day 31?",
+          a: "You receive a detailed invoice for your usage at $3/month per Google Workspace account. Payment is due NET 15 (day 45). You'll have access to your complete analytics dashboard showing deliverability rates and performance metrics to confirm value before paying."
+        },
+        {
+          q: "Is there a catch? Any hidden fees?",
+          a: "Zero catches. No setup fees, no hidden costs, no contracts, no cancellation fees. You pay $3/month per inbox after day 30. What you see is what you pay."
+        },
+        {
+          q: "What if I'm not satisfied with the service?",
+          a: "Don't pay. Seriously. If our deliverability, support, or features don't meet your expectations, walk away. No penalties, no questions asked. We only want customers who see real value in our service."
+        },
+        {
+          q: "How fast can I start sending emails?",
+          a: "About 5 minutes total. Sign up (30 seconds), verify your domain via DNS records (2 minutes), configure SMTP or integrate our API (2 minutes), send your first email (30 seconds). We have one-click integrations for popular platforms and clear documentation."
+        },
+        {
+          q: "What's your actual deliverability rate?",
+          a: "95%+ inbox placement through our reputation-first approach. We achieve this through fully warmed Google Workspace accounts, automatic warm-up protocols, real-time reputation monitoring, and safe volume limits per inbox. You can track your exact deliverability on your dashboard in real-time."
+        },
+        {
+          q: "Can I cancel anytime without penalty?",
+          a: "Yes, absolutely. No contracts ever. Cancel before day 30 and pay nothing. Cancel after day 30 and you're only responsible for usage up to the cancellation date. No early termination fees, no questions asked."
+        }
+      ];
+
+      const chatStream = document.getElementById('faq-chat-stream');
+      const promptBtns = Array.from(document.querySelectorAll('.faq-prompt-btn'));
+      const askNextBtn = document.getElementById('faq-ask-all-btn');
+      const instantToggleBtn = document.getElementById('faq-instant-toggle');
+      const resetChatBtn = document.getElementById('faq-chat-reset');
+      const chatForm = document.getElementById('faq-chat-form');
+      const chatInput = document.getElementById('faq-chat-input');
+      let currentFaqIdx = 0;
+      let activeTypingTimer = null;
+
+      const scrollToBottom = () => {
+        if (chatStream) chatStream.scrollTop = chatStream.scrollHeight;
+      };
+
+      const askFaqQuestion = (idx, animate = true) => {
+        if (!chatStream || !faqData[idx]) return;
+        currentFaqIdx = idx;
+        promptBtns.forEach((b, i) => b.classList.toggle('is-active', i === idx));
+
+        if (activeTypingTimer) {
+          clearInterval(activeTypingTimer);
+          activeTypingTimer = null;
+        }
+
+        const item = faqData[idx];
+
+        // 1. Append User Question Bubble
+        const userMsg = document.createElement('div');
+        userMsg.className = 'chat-msg user';
+        userMsg.innerHTML = `<div class="chat-bubble">${item.q}</div>`;
+        chatStream.appendChild(userMsg);
+        scrollToBottom();
+
+        // 2. Append Agent Bubble with 3-Dot Typing Indicator
+        const agentMsg = document.createElement('div');
+        agentMsg.className = 'chat-msg agent';
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble';
+
+        if (!animate || prefersReducedMotion) {
+          bubble.textContent = item.a;
+          agentMsg.appendChild(bubble);
+          chatStream.appendChild(agentMsg);
+          scrollToBottom();
+          return;
+        }
+
+        bubble.innerHTML = `<div class="typing-dots" aria-label="Mailinfra AI is typing"><span></span><span></span><span></span></div>`;
+        agentMsg.appendChild(bubble);
+        chatStream.appendChild(agentMsg);
+        scrollToBottom();
+
+        // 3. Stream Answer with Live Typing Cursor Animation
+        setTimeout(() => {
+          bubble.innerHTML = '';
+          const textNode = document.createElement('span');
+          const cursorNode = document.createElement('span');
+          cursorNode.className = 'typing-cursor';
+          cursorNode.setAttribute('aria-hidden', 'true');
+          bubble.appendChild(textNode);
+          bubble.appendChild(cursorNode);
+
+          let charPos = 0;
+          const fullText = item.a;
+          activeTypingTimer = setInterval(() => {
+            charPos = Math.min(fullText.length, charPos + 3);
+            textNode.textContent = fullText.slice(0, charPos);
+            scrollToBottom();
+            if (charPos >= fullText.length) {
+              clearInterval(activeTypingTimer);
+              activeTypingTimer = null;
+              setTimeout(() => cursorNode.remove(), 650);
+            }
+          }, 18);
+        }, 460);
+      };
+
+      promptBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.faqIdx);
+          askFaqQuestion(idx, true);
+        });
+      });
+
+      if (askNextBtn) {
+        askNextBtn.addEventListener('click', () => {
+          const nextIdx = (currentFaqIdx + 1) % faqData.length;
+          askFaqQuestion(nextIdx, true);
+        });
+      }
+
+      if (instantToggleBtn && chatStream) {
+        instantToggleBtn.addEventListener('click', () => {
+          if (activeTypingTimer) clearInterval(activeTypingTimer);
+          chatStream.innerHTML = '';
+          faqData.forEach((_, idx) => askFaqQuestion(idx, false));
+        });
+      }
+
+      if (resetChatBtn && chatStream) {
+        resetChatBtn.addEventListener('click', () => {
+          if (activeTypingTimer) clearInterval(activeTypingTimer);
+          chatStream.innerHTML = '';
+          askFaqQuestion(0, true);
+        });
+      }
+
+      if (chatForm && chatInput) {
+        chatForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const query = chatInput.value.trim().toLowerCase();
+          if (!query) return;
+          chatInput.value = '';
+          const matchIdx = faqData.findIndex((item) =>
+            item.q.toLowerCase().includes(query) || item.a.toLowerCase().includes(query)
+          );
+          askFaqQuestion(matchIdx >= 0 ? matchIdx : (currentFaqIdx + 1) % faqData.length, true);
+        });
+      }
+
+      // Initial Chat Greeting & Auto-Type First FAQ when FAQ Section Enters View
+      if (chatStream) {
+        askFaqQuestion(0, false);
+        const faqSec = document.getElementById('faq');
+        if (faqSec && 'IntersectionObserver' in window && !prefersReducedMotion) {
+          const faqObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                askFaqQuestion(1, true);
+                faqObserver.unobserve(faqSec);
+              }
+            });
+          }, { threshold: 0.25 });
+          faqObserver.observe(faqSec);
+        }
+      }
+
+      // 7. Scroll-Linked SVG Pipeline Animation for "How It Works" (#how-it-works)
+      const hiwSection = document.getElementById('how-it-works');
+      const hiwScrollPath = document.getElementById('hiw-scroll-path');
+      const hiwShuttle = document.getElementById('hiw-packet-shuttle');
+      const hiwStatus = document.getElementById('hiw-stage-status');
+      const hiwPct = document.getElementById('hiw-progress-pct');
+      const hiwCards = Array.from(document.querySelectorAll('#hiw-steps-grid .step-card'));
+
+      if (hiwSection && hiwScrollPath) {
+        const totalLen = hiwScrollPath.getTotalLength ? hiwScrollPath.getTotalLength() : 980;
+        hiwScrollPath.style.strokeDasharray = `${totalLen}`;
+        hiwScrollPath.style.strokeDashoffset = `${totalLen * 0.75}`;
+
+        const updateHiwScroll = () => {
+          const rect = hiwSection.getBoundingClientRect();
+          const vh = window.innerHeight || 800;
+          // Progress 0 -> 1 as section moves from bottom of viewport to upper-middle
+          const raw = (vh * 0.78 - rect.top) / (rect.height * 0.75);
+          const progress = Math.max(0.08, Math.min(1, raw));
+
+          // 1. Draw main SVG circuit beam
+          hiwScrollPath.style.strokeDashoffset = `${(totalLen * (1 - progress)).toFixed(1)}`;
+
+          // 2. Move SVG email packet shuttle along the exact curve point & tangent angle
+          if (hiwShuttle && hiwScrollPath.getPointAtLength) {
+            const pt = hiwScrollPath.getPointAtLength(progress * totalLen);
+            const nextPt = hiwScrollPath.getPointAtLength(Math.min(totalLen, progress * totalLen + 4));
+            const angle = Math.atan2(nextPt.y - pt.y, nextPt.x - pt.x) * (180 / Math.PI);
+            hiwShuttle.setAttribute('transform', `translate(${pt.x.toFixed(1)}, ${pt.y.toFixed(1)}) rotate(${angle.toFixed(1)})`);
+          }
+
+          // 3. Energize each of the 3 step cards & their internal scroll-linked SVG schematics
+          const stepRanges = [
+            [0.05, 0.38],
+            [0.32, 0.68],
+            [0.62, 0.98]
+          ];
+          hiwCards.forEach((card, i) => {
+            const [start, end] = stepRanges[i];
+            const fill = Math.max(0, Math.min(1, (progress - start) / (end - start)));
+            card.style.setProperty('--step-fill', fill.toFixed(2));
+            card.classList.toggle('is-energized', fill > 0.25);
+          });
+
+          // 4. Update telemetry status bar
+          if (hiwPct) hiwPct.textContent = `${Math.round(progress * 100)}%`;
+          if (hiwStatus) {
+            if (progress < 0.38) {
+              hiwStatus.textContent = 'Step 1 Active • Connecting Verified Prospect Lists (2 Mins)';
+            } else if (progress < 0.72) {
+              hiwStatus.textContent = 'Step 2 Active • Configuring API / SMTP & 100 Free Inboxes (5 Mins)';
+            } else {
+              hiwStatus.textContent = 'Step 3 Active • Day 31 Review — Pay $3/Acct Only If Happy';
+            }
+          }
+        };
+
+        window.addEventListener('scroll', updateHiwScroll, { passive: true });
+        window.addEventListener('resize', updateHiwScroll, { passive: true });
+        updateHiwScroll();
+      }
+
+      // 8. Animated Numerical Counters for Trust & Social Proof Section
+      const trustCounters = document.querySelectorAll('[data-trust-counter]');
+      const runTrustCounters = () => {
+        trustCounters.forEach((el) => {
+          const target = parseFloat(el.dataset.trustCounter);
+          const decimals = parseInt(el.dataset.trustDecimals || '0', 10);
+          const prefix = el.dataset.trustPrefix || '';
+          const suffix = el.dataset.trustSuffix || '';
+          const useComma = el.dataset.trustComma === 'true';
+          let step = 0;
+          const totalSteps = 36;
+          const timer = setInterval(() => {
+            step++;
+            const progress = 1 - Math.pow(1 - step / totalSteps, 3);
+            const val = target * progress;
+            let formatted = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+            if (useComma) formatted = Math.round(val).toLocaleString();
+            el.textContent = `${prefix}${formatted}${suffix}`;
+            if (step >= totalSteps) {
+              const finalStr = useComma ? target.toLocaleString() : (decimals > 0 ? target.toFixed(decimals) : target);
+              el.textContent = `${prefix}${finalStr}${suffix}`;
+              clearInterval(timer);
+            }
+          }, 28);
+        });
+      };
+      const trustSec = document.getElementById('trust-section');
+      if (trustSec && 'IntersectionObserver' in window) {
+        const trustObs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              runTrustCounters();
+              trustObs.unobserve(trustSec);
+            }
+          });
+        }, { threshold: 0.2 });
+        trustObs.observe(trustSec);
+      }
+
+      // 9. Section reveals + SVG draw handled by assets/js/scroll-motion.js
+    })();
+  </script>
+  <script>
+    (() => {
+      const footer = document.getElementById('site-footer');
+      const wordmark = document.getElementById('cf-wordmark');
+      const topBtn = document.getElementById('cf-back-top');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (topBtn) {
+        topBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
+      }
+      if (!footer || !wordmark || reduce) {
+        if (wordmark) wordmark.style.setProperty('--cf-ty', '0px');
+        return;
+      }
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const r = footer.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        const p = Math.max(0, Math.min(1, (vh - r.top) / Math.max(1, r.height)));
+        wordmark.style.setProperty('--cf-ty', ((1 - p) * 70).toFixed(1) + 'px');
+        wordmark.style.setProperty('--cf-op', (0.22 + p * 0.78).toFixed(2));
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="assets/js/scroll-motion.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<svg viewBox="0 0 680 410" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="crownDomeGrad" cx="50%" cy="22%" r="65%">
+      <stop offset="0%" stop-color="#4F6BFF"/>
+      <stop offset="48%" stop-color="#0000FF"/>
+      <stop offset="85%" stop-color="#0B0F3B"/>
+      <stop offset="100%" stop-color="#030516"/>
+    </radialGradient>
+    <LinearGradient id="visorRimGrad" x1="0%" y1="0%" x2="100%" y2="20%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="22%" stop-color="#94A3B8"/>
+      <stop offset="48%" stop-color="#F8FAFC"/>
+      <stop offset="74%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </LinearGradient>
+    <linearGradient id="visorGlassBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020308"/>
+      <stop offset="45%" stop-color="#050816"/>
+      <stop offset="100%" stop-color="#0A1128"/>
+    </linearGradient>
+    <linearGradient id="visorIridescent" x1="0%" y1="15%" x2="100%" y2="85%">
+      <stop offset="0%" stop-color="#0000FF" stop-opacity="0"/>
+      <stop offset="24%" stop-color="#38BDF8" stop-opacity="0.72"/>
+      <stop offset="48%" stop-color="#A3E635" stop-opacity="0.82"/>
+      <stop offset="68%" stop-color="#FFD700" stop-opacity="0.95"/>
+      <stop offset="86%" stop-color="#FB7185" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.75"/>
+    </linearGradient>
+    <radialGradient id="muzzleLeftGrad" cx="56%" cy="26%" r="68%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="32%" stop-color="#38BDF8"/>
+      <stop offset="72%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0A194E"/>
+    </radialGradient>
+    <radialGradient id="muzzleRightGrad" cx="42%" cy="26%" r="68%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="32%" stop-color="#38BDF8"/>
+      <stop offset="72%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0A194E"/>
+    </radialGradient>
+    <radialGradient id="noseGrad" cx="45%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="45%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="340" cy="148" rx="134" ry="118" fill="url(#crownDomeGrad)"/>
+  <ellipse cx="256" cy="76" rx="22" ry="9" transform="rotate(-28 256 76)" fill="#050714" stroke="#334155" stroke-width="2"/>
+  <ellipse cx="424" cy="76" rx="22" ry="9" transform="rotate(28 424 76)" fill="#050714" stroke="#334155" stroke-width="2"/>
+  <path d="M168 182 C176 92, 504 92, 512 182 C518 238, 496 274, 468 278 C406 244, 274 244, 212 278 C184 274, 162 238, 168 182 Z" fill="url(#visorGlassBase)" stroke="#CBD5E1" stroke-width="6"/>
+  <path d="M335 100 L500 130 L475 270 L365 255 Z" fill="url(#visorIridescent)" opacity="0.9"/>
+  <ellipse cx="340" cy="182" rx="34" ry="20" fill="url(#noseGrad)"/>
+  <path d="M158 410 C152 260, 232 184, 340 190 L340 410 Z" fill="url(#muzzleLeftGrad)"/>
+  <path d="M522 410 C528 260, 448 184, 340 190 L340 410 Z" fill="url(#muzzleRightGrad)"/>
+</svg>

@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.tmp
+
+# Dependencies / env
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Duplicate mirror copy (root HTML is the deploy source)
+mailinfra-website/
+
+# Local tooling leftovers
+_*.py
+agent-tools/

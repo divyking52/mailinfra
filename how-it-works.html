@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — Start Sending in 5 Minutes Without Upfront Payment | Mailinfra</title>
+  <meta name="description" content="From zero to sending in 3 simple steps and ~5 minutes total. Connect your lists, configure via API or SMTP, test 100 Google Workspace accounts free for 30 days, and pay only if happy.">
+  <meta name="theme-color" content="#0000FF">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/logo/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'InterLocal';
+      src: url('assets/fonts/inter-var.woff2') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    :root {
+      --brand-primary: #0000FF;
+      --brand-primary-secondary: #4040FF;
+      --brand-primary-deep: #070A29;
+      --brand-accent: #FFD700;
+      --brand-accent-hover: #FFC700;
+      --brand-purple: #7C3AED;
+      --bg-main: #FFFFFF;
+      --bg-secondary: #F5F3FF;
+      --bg-neutral: #F8F9FA;
+      --bg-footer: #0F172A;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-on-dark: #FFFFFF;
+      --border-subtle: #E5E7EB;
+      --status-green: #22C55E;
+      --status-green-dark: #16A34A;
+      --grad-primary: linear-gradient(135deg, #0000FF 0%, #4040FF 100%);
+      --grad-hero-mesh: radial-gradient(circle at 80% 25%, rgba(124, 58, 237, 0.44) 0%, transparent 48%),
+                        linear-gradient(135deg, #0000D6 0%, #0000FF 48%, #4040FF 100%);
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 30px -6px rgba(15, 23, 42, 0.08);
+      --shadow-xl: 0 24px 48px -12px rgba(0, 0, 255, 0.14);
+      --shadow-gold: 0 6px 20px rgba(255, 215, 0, 0.42);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --container-max: 1280px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-main);
+    }
+    body { overflow-x: hidden; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--brand-accent); outline-offset: 3px; }
+    .container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: 24px; }
+
+    .announcement-bar {
+      background: var(--brand-primary-deep);
+      color: #FFF;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    .announcement-pill {
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .site-logo { display: inline-flex; align-items: center; gap: 10px; font-size: 1.45rem; font-weight: 800; }
+    .site-logo svg { color: var(--brand-primary); }
+    .site-menu { list-style: none; display: flex; align-items: center; gap: 6px; }
+    .site-menu a {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      position: relative;
+    }
+    .site-menu a:hover, .site-menu a[aria-current="page"] {
+      color: var(--brand-primary);
+      background: var(--bg-secondary);
+      font-weight: 700;
+    }
+    .site-menu a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 14px;
+      right: 14px;
+      height: 2.5px;
+      background: var(--brand-primary);
+      border-radius: 2px;
+    }
+    .menu-toggle {
+      display: none;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .btn-gold { background: var(--brand-accent); color: var(--text-primary); box-shadow: var(--shadow-gold); }
+    .btn-gold:hover { background: var(--brand-accent-hover); transform: translateY(-2px); }
+
+    /* Hero */
+    .hiw-hero {
+      background: var(--grad-hero-mesh);
+      color: #FFF;
+      padding: 76px 0 88px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 4.4vw, 3.9rem);
+      font-weight: 800;
+      line-height: 1.1;
+      max-width: 880px;
+      margin: 0 auto 18px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+
+    /* 5-Minute Stopwatch Breakdown Bar */
+    .stopwatch-bar {
+      max-width: 960px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stopwatch-step {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      padding: 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+    .stopwatch-time {
+      color: var(--brand-accent);
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: block;
+    }
+    .stopwatch-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 600;
+    }
+
+    .section-pad { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sec-h2 {
+      font-size: clamp(1.8rem, 3.1vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    /* 3D Sticky Scroll-Stack Journey Timeline */
+    .scroll-stack-section {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F4F6FF 50%, #FFFFFF 100%);
+      padding-bottom: 120px;
+    }
+    .journey-timeline {
+      position: relative;
+      max-width: 1020px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      perspective: 1400px;
+    }
+    .journey-node {
+      position: sticky;
+      top: calc(88px + (var(--stack-index, 0) * 28px));
+      z-index: calc(10 + var(--stack-index, 0));
+      transform-origin: center top;
+      transform: translate3d(0, 0, 0) scale(var(--card-scale, 1));
+      filter: brightness(var(--card-bright, 1));
+      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), filter 0.15s linear, box-shadow 0.25s ease;
+      will-change: transform;
+    }
+    .journey-card {
+      background: var(--bg-main);
+      border: 2px solid rgba(0, 0, 255, 0.16);
+      border-radius: 26px;
+      padding: 28px 34px 34px;
+      box-shadow: 0 24px 54px -14px rgba(15, 23, 42, 0.14), 0 -4px 18px rgba(0, 0, 255, 0.05);
+      display: grid;
+      grid-template-columns: 84px 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .journey-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--stack-accent, linear-gradient(90deg, #0000FF, #7C3AED, #FFD700));
+    }
+    .journey-node.is-active-top .journey-card {
+      border-color: var(--brand-primary);
+      box-shadow: 0 32px 68px -14px rgba(0, 0, 255, 0.22);
+    }
+    .journey-marker {
+      width: 78px;
+      height: 78px;
+      border-radius: 22px;
+      background: var(--grad-primary);
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(0, 0, 255, 0.28);
+      flex-shrink: 0;
+    }
+    .journey-marker span {
+      font-size: 0.68rem;
+      color: var(--brand-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .journey-marker strong {
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+    .journey-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-accent);
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 5px 13px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
+    }
+    .journey-visual-box {
+      background: #0A0F24;
+      color: #FFFFFF;
+      border: 1px solid rgba(64, 64, 255, 0.35);
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 0.82rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    /* Payment Timeline Interactive Walkthrough */
+    .payment-journey-band {
+      background: var(--bg-secondary);
+    }
+    .payment-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .payment-stage {
+      background: var(--bg-main);
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 26px 22px;
+      position: relative;
+    }
+    .payment-stage.highlight {
+      border-color: var(--brand-purple);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Accordion */
+    .accordion { max-width: 860px; margin: 32px auto 0; display: grid; gap: 14px; }
+    .accordion details {
+      background: var(--bg-main);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .accordion details[open] { border-color: var(--brand-primary); }
+    .accordion summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+    }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion summary::before {
+      content: "▸";
+      color: var(--brand-primary);
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+    .accordion details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .faq-answer {
+      padding: 0 24px 20px 44px;
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .site-footer {
+      background: var(--bg-footer);
+      color: #FFF;
+      padding: 68px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 800; color: var(--brand-accent); text-transform: uppercase; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: grid; gap: 10px; }
+    .footer-col a { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 0.86rem; color: rgba(255, 255, 255, 0.68); }
+
+    @media (max-width: 1024px) {
+      .stopwatch-bar, .payment-track { grid-template-columns: repeat(2, 1fr); }
+      .journey-card { grid-template-columns: 78px 1fr; }
+      .journey-visual-box { grid-column: 1 / -1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: inline-flex; }
+      .site-menu {
+        position: fixed;
+        top: 108px;
+        left: 16px;
+        right: 16px;
+        background: var(--bg-main);
+        border: 1.5px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        flex-direction: column;
+        display: none;
+      }
+      .site-menu.is-open { display: flex; }
+      .journey-card { grid-template-columns: 1fr; padding: 24px 20px; }
+      .stopwatch-bar, .payment-track, .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ===== CINEMATIC FOOTER (shared across all pages) ===== */
+    /* 13. FOOTER — infrastructure status-bar close */
+    /* 13. FOOTER — infrastructure status-bar close */
+    .cf-footer {
+      position: relative;
+      background: #01020A;
+      color: #FFFFFF;
+      overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid rgba(0, 0, 255, 0.35);
+      font-family: 'Inter', 'InterLocal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .cf-footer *, .cf-footer *::before, .cf-footer *::after { box-sizing: border-box; }
+    .cf-aurora {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(ellipse 48% 42% at 8% 0%, rgba(0, 0, 255, 0.38) 0%, transparent 68%),
+        radial-gradient(ellipse 40% 36% at 92% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 40% at 50% 110%, rgba(0, 0, 255, 0.45) 0%, transparent 72%);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-aurora { animation: cf-aurora-shift 16s ease-in-out infinite alternate; }
+    }
+    @keyframes cf-aurora-shift {
+      from { transform: translate3d(-1%, 0, 0) scale(1); }
+      to { transform: translate3d(1%, -0.8%, 0) scale(1.04); }
+    }
+    .cf-grid-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      opacity: 0.7;
+    }
+    .cf-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent 0%, #0000FF 28%, #38BDF8 50%, #FFD700 72%, transparent 100%);
+      opacity: 0.85;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-beam { background-size: 220% 100%; animation: cf-beam-run 8s linear infinite; }
+    }
+    @keyframes cf-beam-run {
+      from { background-position: 0% 0; }
+      to { background-position: 220% 0; }
+    }
+    .cf-inner {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 28px 20px;
+    }
+
+    /* Flush CTA strip — no glass card */
+    .cf-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) auto;
+      gap: 28px 48px;
+      align-items: end;
+      padding: 0 0 40px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      border-radius: 0;
+    }
+    .cf-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 0;
+      border: none;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 14px;
+    }
+    .cf-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cf-dot { animation: cf-dot-pulse 2.2s ease-out infinite; }
+    }
+    @keyframes cf-dot-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .cf-cta h2 {
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      color: #FFFFFF;
+      text-wrap: balance;
+    }
+    .cf-grad-text {
+      color: #38BDF8;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .cf-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 440px;
+      text-wrap: pretty;
+    }
+    .cf-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .cf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .cf-btn-primary {
+      background: #FFD700;
+      color: #050814;
+      box-shadow: 0 8px 28px rgba(255, 215, 0, 0.32);
+    }
+    .cf-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #FFE34D;
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.45);
+    }
+    .cf-btn-ghost {
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+    }
+    .cf-btn-ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.7);
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    /* Brand + nav — wider, denser */
+    .cf-cols {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(0, 1fr));
+      gap: 40px 56px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      align-items: start;
+    }
+    .cf-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .cf-logo svg {
+      color: #0000FF;
+      filter: drop-shadow(0 0 12px rgba(0, 0, 255, 0.55));
+    }
+    .cf-brand p {
+      margin: 14px 0 22px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 280px;
+    }
+    .cf-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
+    }
+    .cf-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .cf-trust-item img {
+      height: 14px;
+      width: auto;
+      display: block;
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .cf-trust-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .cf-col h4 {
+      margin: 0 0 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.38);
+    }
+    .cf-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 11px;
+    }
+    .cf-col a {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.94rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .cf-col a:hover { color: #38BDF8; }
+
+    .cf-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    .cf-bottom-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+    }
+    .cf-legal {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .cf-legal a {
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .cf-legal a:hover { color: #FFFFFF; }
+    .cf-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+    .cf-top-btn:hover { color: #FFD700; }
+
+    /* Giant scroll-linked wordmark */
+    .cf-wordmark {
+      position: relative;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 16vw, 15rem);
+      line-height: 0.82;
+      letter-spacing: -0.07em;
+      margin-top: 28px;
+      padding-bottom: 0.04em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(0, 0, 255, 0.38) 42%, rgba(1, 2, 10, 0) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+      opacity: var(--cf-op, 0.35);
+      transform: translate3d(0, var(--cf-ty, 40px), 0);
+      will-change: transform, opacity;
+    }
+
+    @media (max-width: 1024px) {
+      .cf-cta {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .cf-cta-actions { justify-content: flex-start; }
+      .cf-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px 28px;
+      }
+      .cf-brand { grid-column: 1 / -1; max-width: 520px; }
+    }
+    @media (max-width: 640px) {
+      .cf-inner { padding: 44px 20px 16px; }
+      .cf-cta { padding-bottom: 28px; margin-bottom: 36px; }
+      .cf-cols { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .cf-brand { max-width: none; }
+      .cf-bottom { flex-direction: column; align-items: flex-start; }
+      .cf-wordmark { margin-top: 20px; }
+    }
+</style>
+  <link rel="stylesheet" href="assets/css/scroll-motion.css">
+</head>
+<body>
+  <div class="announcement-bar">
+    <span class="announcement-pill">5-Minute Setup</span>
+    <span>Start Sending Without Upfront Payment — 100 Google Workspace Accounts Free for 30 Days</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        </svg>
+        <span>Mailinfra</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+        <ul class="site-menu" id="primary-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html" aria-current="page">How It Works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">Company</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" target="_blank" rel="noopener">Start Free Trial →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hiw-hero">
+      <div class="container">
+        <div class="hero-badge">⚡ ZERO UPFRONT PAYMENT • 5 MINUTES TO FIRST SEND</div>
+        <h1 class="hero-title">From Zero to Sending in 3 Simple Steps — Without Spending a Single Dollar Upfront</h1>
+        <p class="hero-sub">
+          Get started in minutes, not days. No credit card, no setup fees, and no phone verification required. Validate 99.9% deliverability across 100 free Google Workspace accounts before you pay.
+        </p>
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="min-height:54px;padding:14px 30px;font-size:1.02rem;" target="_blank" rel="noopener">
+          GET STARTED - NO PAYMENT NEEDED
+        </a>
+
+        <!-- Verified 5-Minute Breakdown from FAQ #8 -->
+        <div class="stopwatch-bar" aria-label="5-Minute Onboarding Breakdown">
+          <div class="stopwatch-step">
+            <span class="stopwatch-time">30 Seconds</span>
+            <span class="stopwatch-label">1. Sign up (No credit card)</span>
+          </div>
+          <div class="stopwatch-step">
+            <span class="stopwatch-time">2 Minutes</span>
+            <span class="stopwatch-label">2. Verify domain via DNS records</span>
+          </div>
+          <div class="stopwatch-step">
+            <span class="stopwatch-time">2 Minutes</span>
+            <span class="stopwatch-label">3. Configure SMTP or integrate API</span>
+          </div>
+          <div class="stopwatch-step">
+            <span class="stopwatch-time">30 Seconds</span>
+            <span class="stopwatch-label">4. Send your first email</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP-BY-STEP PRODUCT JOURNEY WITH 3D STICKY SCROLL-STACK ANIMATION -->
+    <section class="section-pad scroll-stack-section" id="scroll-stack-section">
+      <div class="container">
+        <div style="text-align:center;max-width:760px;margin:0 auto;">
+          <span class="eyebrow">THE MAILINFRA ONBOARDING JOURNEY</span>
+          <h2 class="sec-h2">How You Launch, Validate &amp; Scale With Zero Upfront Risk</h2>
+          <p style="color:var(--text-secondary);font-size:1.06rem;">
+            Every step is designed to preserve your working capital while proving deliverability and ROI first.
+          </p>
+        </div>
+
+        <div class="journey-timeline" id="journey-scroll-stack">
+          <!-- Step 1 -->
+          <div class="journey-node is-active-top" style="--stack-index: 0; --stack-accent: linear-gradient(90deg, #0000FF, #38BDF8);">
+            <div class="journey-card">
+              <div class="journey-marker"><span>STEP</span><strong>01</strong></div>
+              <div>
+                <span class="journey-pill">2 Minutes • Connect Existing Lists &amp; Systems</span>
+                <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Connect Your Lists</h3>
+                <p style="color:var(--text-secondary);margin-bottom:16px;">
+                  Import your verified prospect data or integrate with your CRM. We handle infrastructure (domains, Google Workspace inboxes, warm-up, monitoring)—you bring the targets.
+                </p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:0.82rem;font-weight:700;">
+                  <span style="background:var(--bg-secondary);color:var(--brand-primary);padding:6px 12px;border-radius:8px;">✓ Apollo Verified Data</span>
+                  <span style="background:var(--bg-secondary);color:var(--brand-primary);padding:6px 12px;border-radius:8px;">✓ ZoomInfo Lists</span>
+                  <span style="background:var(--bg-secondary);color:var(--brand-primary);padding:6px 12px;border-radius:8px;">✓ Clay Enrichment Stack</span>
+                  <span style="background:var(--bg-secondary);color:var(--brand-primary);padding:6px 12px;border-radius:8px;">✓ Direct CRM Sync</span>
+                </div>
+              </div>
+              <div class="journey-visual-box" aria-hidden="true">
+                <div style="display:flex;justify-content:space-between;color:#94A3B8;font-size:0.72rem;font-weight:800;margin-bottom:10px;">
+                  <span>STAGE 01 / 04</span>
+                  <span style="color:#4ADE80;">● LIST SYNC READY</span>
+                </div>
+                <div style="display:grid;gap:8px;font-weight:700;font-size:0.78rem;">
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Apollo / ZoomInfo / Clay</span><span style="color:#38BDF8;">Connected ✓</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Upfront Cost</span><span style="color:#FFD700;">$0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="journey-node" style="--stack-index: 1; --stack-accent: linear-gradient(90deg, #7C3AED, #0000FF);">
+            <div class="journey-card">
+              <div class="journey-marker"><span>STEP</span><strong>02</strong></div>
+              <div>
+                <span class="journey-pill">5 Minutes • Configure Sending via API or SMTP</span>
+                <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Configure &amp; Send</h3>
+                <p style="color:var(--text-secondary);margin-bottom:16px;">
+                  Verify your domain via DNS records (2 minutes) and connect via API or SMTP (2 minutes) with one-click integrations for popular platforms and clear documentation. Start campaigns immediately across 100 free Google Workspace accounts with dedicated IPs and safe volume limits (40–120 emails/day per inbox).
+                </p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:0.82rem;font-weight:700;">
+                  <span style="background:var(--bg-neutral);padding:6px 12px;border-radius:8px;">✓ 100 Google Workspace Accounts</span>
+                  <span style="background:var(--bg-neutral);padding:6px 12px;border-radius:8px;">✓ Dedicated IPs Included Free</span>
+                  <span style="background:var(--bg-neutral);padding:6px 12px;border-radius:8px;">✓ No Phone Verification</span>
+                </div>
+              </div>
+              <div class="journey-visual-box" aria-hidden="true">
+                <div style="display:flex;justify-content:space-between;color:#94A3B8;font-size:0.72rem;font-weight:800;margin-bottom:10px;">
+                  <span>STAGE 02 / 04</span>
+                  <span style="color:#FFD700;">● 100 GW INBOXES</span>
+                </div>
+                <div style="display:grid;gap:8px;font-weight:700;font-size:0.78rem;">
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>SPF / DKIM / DMARC</span><span style="color:#4ADE80;">Verified (2m)</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Safe Send Cap</span><span style="color:#38BDF8;">40–120 / day</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Monitor Performance -->
+          <div class="journey-node" style="--stack-index: 2; --stack-accent: linear-gradient(90deg, #16A34A, #4ADE80);">
+            <div class="journey-card">
+              <div class="journey-marker"><span>DAYS</span><strong>1–30</strong></div>
+              <div>
+                <span class="journey-pill">Full 30-Day Trial • Monitor &amp; Review Results</span>
+                <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Monitor Performance &amp; Prove ROI</h3>
+                <p style="color:var(--text-secondary);margin-bottom:16px;">
+                  Test everything for 30 days with full access to deliverability analytics, A/B testing, segmentation, automatic warm-up protocols, and real-time reputation monitoring. Track your exact inbox placement (95%+ to 99.9%) in real time.
+                </p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:0.82rem;font-weight:700;">
+                  <span style="background:#DCFCE7;color:#166534;padding:6px 12px;border-radius:8px;">✓ 99.9% Deliverability SLA</span>
+                  <span style="background:#DCFCE7;color:#166534;padding:6px 12px;border-radius:8px;">✓ Real-Time Analytics Dashboard</span>
+                  <span style="background:#DCFCE7;color:#166534;padding:6px 12px;border-radius:8px;">✓ 24/7 Priority Support</span>
+                </div>
+              </div>
+              <div class="journey-visual-box" aria-hidden="true">
+                <div style="display:flex;justify-content:space-between;color:#94A3B8;font-size:0.72rem;font-weight:800;margin-bottom:10px;">
+                  <span>STAGE 03 / 04</span>
+                  <span style="color:#4ADE80;">● 99.9% INBOX SLA</span>
+                </div>
+                <div style="display:grid;gap:8px;font-weight:700;font-size:0.78rem;">
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Primary Inbox Rate</span><span style="color:#4ADE80;">99.9% Verified</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>30-Day Trial Spend</span><span style="color:#FFD700;">$0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Day 31 Payment Decision -->
+          <div class="journey-node" style="--stack-index: 3; --stack-accent: linear-gradient(90deg, #FFD700, #7C3AED);">
+            <div class="journey-card">
+              <div class="journey-marker"><span>DAY</span><strong>31</strong></div>
+              <div>
+                <span class="journey-pill">Day 31 • Pay Only If Happy</span>
+                <h3 style="font-size:1.45rem;font-weight:800;margin-bottom:10px;">Review Dashboard &amp; Pay Only If Satisfied</h3>
+                <p style="color:var(--text-secondary);">
+                  On Day 31, receive a detailed invoice for your usage at $3/month per Google Workspace account with NET 15 terms (payment due Day 45). If our deliverability, support, or features don't meet your expectations, don't pay—walk away free with no penalties and no questions asked.
+                </p>
+              </div>
+              <div class="journey-visual-box" aria-hidden="true">
+                <div style="display:flex;justify-content:space-between;color:#94A3B8;font-size:0.72rem;font-weight:800;margin-bottom:10px;">
+                  <span>STAGE 04 / 04</span>
+                  <span style="color:#FFD700;">● NET 15 TERMS</span>
+                </div>
+                <div style="display:grid;gap:8px;font-weight:700;font-size:0.78rem;">
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Day 31 Rate</span><span style="color:#FFD700;">$3 / account</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px;display:flex;justify-content:space-between;">
+                    <span>Not Satisfied?</span><span style="color:#4ADE80;">Don't Pay ($0)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNDERSTAND THE PAYMENT PROCESS -->
+    <section class="section-pad payment-journey-band" id="payment-process">
+      <div class="container">
+        <div style="text-align:center;max-width:760px;margin:0 auto;">
+          <span class="eyebrow">DEFERRED PERFORMANCE BILLING</span>
+          <h2 class="sec-h2">Understand How Payment Works</h2>
+          <p style="color:var(--text-secondary);">We earn your payment by proving deliverability during your first 30 days.</p>
+        </div>
+
+        <div class="payment-track">
+          <div class="payment-stage highlight">
+            <strong style="color:var(--brand-primary);font-size:0.85rem;text-transform:uppercase;">Day 1 – 30</strong>
+            <h3 style="font-size:1.35rem;margin:8px 0;">$0 Trial Period</h3>
+            <p style="font-size:0.93rem;color:var(--text-secondary);">100 accounts free — full features, dedicated IPs, and safe volume limits with no credit card required.</p>
+          </div>
+          <div class="payment-stage">
+            <strong style="color:var(--brand-purple);font-size:0.85rem;text-transform:uppercase;">Day 31</strong>
+            <h3 style="font-size:1.35rem;margin:8px 0;">Detailed Invoice</h3>
+            <p style="font-size:0.93rem;color:var(--text-secondary);">Invoice arrives at $3/account/month for continued usage, alongside your complete 30-day performance analytics.</p>
+          </div>
+          <div class="payment-stage">
+            <strong style="color:var(--brand-primary);font-size:0.85rem;text-transform:uppercase;">Day 45</strong>
+            <h3 style="font-size:1.35rem;margin:8px 0;">NET 15 Due Date</h3>
+            <p style="font-size:0.93rem;color:var(--text-secondary);">Payment is due on NET 15 terms (Day 45), preserving 45 days of working capital for your agency or startup.</p>
+          </div>
+          <div class="payment-stage">
+            <strong style="color:var(--status-green-dark);font-size:0.85rem;text-transform:uppercase;">Not Satisfied?</strong>
+            <h3 style="font-size:1.35rem;margin:8px 0;">Don't Pay</h3>
+            <p style="font-size:0.93rem;color:var(--text-secondary);">If you're not satisfied, don't pay. No penalties, no contracts, no cancellation fees, no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONBOARDING FAQ -->
+    <section class="section-pad">
+      <div class="container">
+        <div style="text-align:center;max-width:740px;margin:0 auto;">
+          <span class="eyebrow">ONBOARDING FAQ</span>
+          <h2 class="sec-h2">Common Setup &amp; Trial Questions</h2>
+        </div>
+
+        <div class="accordion">
+          <details open>
+            <summary>How fast can I start sending emails?</summary>
+            <div class="faq-answer">About 5 minutes total. Sign up (30 seconds), verify your domain via DNS records (2 minutes), configure SMTP or integrate our API (2 minutes), send your first email (30 seconds). We have one-click integrations for popular platforms and clear documentation.</div>
+          </details>
+          <details>
+            <summary>Do you build prospect lists for us?</summary>
+            <div class="faq-answer">No. We provide the infrastructure (domains, inboxes, warm-up, monitoring). You provide the lists. We recommend using verified data from Apollo, ZoomInfo, Clay, or your own enrichment stack.</div>
+          </details>
+          <details>
+            <summary>What if I need to send more than your limits?</summary>
+            <div class="faq-answer">We add more inboxes to your pool at $3/account. If you need 500 emails/day, we'll provision 6-8 inboxes sending 60-80 each. This distributed approach maintains deliverability while hitting your volume goals.</div>
+          </details>
+          <details>
+            <summary>What happens on day 31?</summary>
+            <div class="faq-answer">You receive a detailed invoice for your usage at $3/month per Google Workspace account. Payment is due NET 15 (day 45). You'll have access to your complete analytics dashboard showing deliverability rates and performance metrics to confirm value before paying.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="hiw-hero" style="padding:72px 0;">
+      <div class="container" style="max-width:760px;">
+        <h2 class="sec-h2" style="color:#FFF;">Ready to Start Sending in 5 Minutes?</h2>
+        <p class="hero-sub">Claim your 100 free Google Workspace accounts now. Test everything for 30 days with zero upfront risk.</p>
+        <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="btn btn-gold" style="min-height:54px;padding:14px 32px;font-size:1.02rem;" target="_blank" rel="noopener">
+          CLAIM YOUR 100 FREE ACCOUNTS
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. FOOTER -->
+  <!-- 13. FOOTER -->
+  <footer class="cf-footer" id="site-footer">
+    <div class="cf-aurora" aria-hidden="true"></div>
+    <div class="cf-grid-bg" aria-hidden="true"></div>
+    <div class="cf-beam" aria-hidden="true"></div>
+
+    <div class="cf-inner">
+      <div class="cf-cta">
+        <div class="cf-cta-copy">
+          <span class="cf-eyebrow"><span class="cf-dot" aria-hidden="true"></span> Trial live · 100 free accounts · 30 days</span>
+          <h2>Send first. <span class="cf-grad-text">Pay later.</span></h2>
+          <p>Test 100 Google Workspace accounts with dedicated IPs for a full 30 days. No credit card required.</p>
+        </div>
+        <div class="cf-cta-actions">
+          <a href="https://calendly.com/10x-cold-email-infrastructure/15min" class="cf-btn cf-btn-primary" target="_blank" rel="noopener">
+            Claim 100 Free Accounts <span aria-hidden="true">→</span>
+          </a>
+          <a href="contact.html" class="cf-btn cf-btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+
+      <div class="cf-cols">
+        <div class="cf-brand">
+          <a href="index.html" class="cf-logo" aria-label="Mailinfra Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
+            <span>Mailinfra</span>
+          </a>
+          <p>Email infrastructure for agencies that send first and pay after proof.</p>
+          <div class="cf-trust" aria-label="Compliance and partners">
+            <span class="cf-trust-item"><img src="assets/logo/google-workspace.svg" alt=""> Google Workspace</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">SOC 2 Certified</span>
+            <span class="cf-trust-sep" aria-hidden="true"></span>
+            <span class="cf-trust-item">GDPR Compliant</span>
+          </div>
+        </div>
+
+        <nav class="cf-col" aria-label="Product">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="features.html#api-smtp">API &amp; SMTP Relay</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">The Mailinfra Blog</a></li>
+            <li><a href="resources.html#categories">Email Deliverability</a></li>
+            <li><a href="resources.html#categories">Cold Email Guides</a></li>
+            <li><a href="index.html#faq">Trial FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cf-col" aria-label="Company">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://calendly.com/10x-cold-email-infrastructure/15min" target="_blank" rel="noopener">Book a Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cf-bottom">
+        <div class="cf-bottom-meta">
+          <span>© 2026 Mailinfra. All rights reserved.</span>
+          <nav class="cf-legal" aria-label="Legal">
+            <a href="contact.html">Privacy</a>
+            <a href="contact.html">Terms</a>
+          </nav>
+        </div>
+        <button type="button" class="cf-top-btn" id="cf-back-top" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></button>
+      </div>
+    </div>
+
+    <div class="cf-wordmark" id="cf-wordmark" aria-hidden="true">MAILINFRA</div>
+  </footer>
+
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const primaryMenu = document.getElementById('primary-menu');
+      if (menuToggle && primaryMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = primaryMenu.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+
+      // 3D Sticky Scroll-Stack Card Animation
+      const stackNodes = Array.from(document.querySelectorAll('#journey-scroll-stack .journey-node'));
+      if (stackNodes.length) {
+        const updateScrollStack = () => {
+          let activeTopIdx = 0;
+          stackNodes.forEach((node, i) => {
+            const rect = node.getBoundingClientRect();
+            const stickyTop = 88 + i * 28;
+            // Measure how far subsequent cards have scrolled up over this sticky card
+            let overlap = 0;
+            for (let j = i + 1; j < stackNodes.length; j++) {
+              const nextRect = stackNodes[j].getBoundingClientRect();
+              const nextStickyTop = 88 + j * 28;
+              const dist = Math.max(0, Math.min(1, (rect.bottom - nextRect.top) / 260));
+              overlap += dist;
+              if (nextRect.top <= nextStickyTop + 24) {
+                activeTopIdx = j;
+              }
+            }
+            const scale = Math.max(0.88, 1 - overlap * 0.038);
+            const bright = Math.max(0.86, 1 - overlap * 0.045);
+            node.style.setProperty('--card-scale', scale.toFixed(3));
+            node.style.setProperty('--card-bright', bright.toFixed(3));
+          });
+          stackNodes.forEach((node, i) => {
+            node.classList.toggle('is-active-top', i === activeTopIdx);
+          });
+        };
+        window.addEventListener('scroll', updateScrollStack, { passive: true });
+        window.addEventListener('resize', updateScrollStack, { passive: true });
+        updateScrollStack();
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      const footer = document.getElementById('site-footer');
+      const wordmark = document.getElementById('cf-wordmark');
+      const topBtn = document.getElementById('cf-back-top');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (topBtn) {
+        topBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
+      }
+      if (!footer || !wordmark || reduce) {
+        if (wordmark) wordmark.style.setProperty('--cf-ty', '0px');
+        return;
+      }
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const r = footer.getBoundingClientRect();
+        const vh = window.innerHeight || 800;
+        const p = Math.max(0, Math.min(1, (vh - r.top) / Math.max(1, r.height)));
+        wordmark.style.setProperty('--cf-ty', ((1 - p) * 70).toFixed(1) + 'px');
+        wordmark.style.setProperty('--cf-op', (0.22 + p * 0.78).toFixed(2));
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="assets/js/scroll-motion.js" defer></script>
+</body>
+</html>
